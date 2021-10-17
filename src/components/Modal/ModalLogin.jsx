@@ -6,7 +6,7 @@ export default function ModalLogin() {
     <div>
       <button
         type="button"
-        className="btn btn-primary"
+        className="btn btn-outline-primary"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       >
@@ -70,7 +70,7 @@ export default function ModalLogin() {
               >
                 Close
               </button>
-              <button type="button" className="btn btn-primary">
+              <button type="button" className="btn btn-outline-primary">
                 Login
               </button>
             </div>

@@ -8,7 +8,7 @@ export default function ModalRegister() {
         {/* Button trigger modal */}
         <button
           type="button"
-          className="btn btn-primary"
+          className="btn btn-outline-primary"
           data-bs-toggle="modal"
           data-bs-target="#exampleModal2"
         >
@@ -102,7 +102,7 @@ export default function ModalRegister() {
                 >
                   Close
                 </button>
-                <button type="button" className="btn btn-primary">
+                <button type="button" className="btn btn-outline-primary">
                   Register
                 </button>
               </div>
