@@ -1,0 +1,1 @@
+import{R as e}from"./vendor.a7ce470e.js";function t(){return e.createElement("div",{className:"col-sm-6 col-lg-4 mb-4"},e.createElement("div",{className:"card"},e.createElement("img",{className:"card-img",src:"https://provplan.org/wp-content/uploads/2021/07/4d4afbdc56a85edb2855b25122116f74.jpg",alt:""})))}export{t as default};
