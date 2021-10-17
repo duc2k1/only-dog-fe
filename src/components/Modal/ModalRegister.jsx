@@ -142,7 +142,7 @@ export default function ModalRegister() {
                     id="confirmPassword"
                     placeholder="Confirm Password"
                     onChange={({ target }) => setConfirmPassword(target.value)}
-                    value={password}
+                    value={confirmPassword}
                     pattern={password}
                   />
                 </div>
