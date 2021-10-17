@@ -1,11 +1,13 @@
 import React, { useState, lazy, Suspense } from "react";
-import BackToTop from "./components/BackToTop";
+
 import UserContext from "./context/User";
 import useAuthListener from "./hooks/useAuthListener";
 
 const Header = lazy(() => import("./components/Header"));
 const Post = lazy(() => import("./components/Post/Post"));
 const Profile = lazy(() => import("./components/Profile/Profile"));
+const Suggestions = lazy(() => import("./components/Suggestions/Suggestions"));
+const BackToTop = lazy(() => import("./components/BackToTop"));
 
 function App() {
   const [page, setPage] = useState("dashboard");
@@ -25,16 +27,19 @@ function App() {
           {page === "profile" ? (
             <Profile user={user} />
           ) : (
-            <main className="py-5">
-              <div className="row" data-masonry='{"percentPosition": true }'>
-                <Post />
-                <Post />
-                <Post />
-                <Post />
-                <Post />
-                <Post />
-              </div>
-            </main>
+            <>
+              <Suggestions />
+              <main className="py-5">
+                <div className="row" data-masonry='{"percentPosition": true }'>
+                  <Post />
+                  <Post />
+                  <Post />
+                  <Post />
+                  <Post />
+                  <Post />
+                </div>
+              </main>
+            </>
           )}
           <BackToTop />
         </div>
