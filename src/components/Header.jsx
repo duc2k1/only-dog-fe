@@ -1,12 +1,14 @@
 import React from "react";
 import ModalLogin from "./Modal/ModalLogin";
+import ModalRegister from "./Modal/ModalRegister";
+import logo from "../assets/images/logo.svg";
 
 export default function Header({ setPage }) {
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
-          Navbar
+          <img src={logo} alt="Logo OnlyDog" width={100} />
         </a>
         <button
           className="navbar-toggler"
@@ -34,6 +36,9 @@ export default function Header({ setPage }) {
           </ul>
           <div className="nav-item me-2 mt-2">
             <ModalLogin />
+          </div>
+          <div className="nav-item me-2 mt-2">
+            <ModalRegister />
           </div>
           <div
             className="nav-item me-2 mt-2"

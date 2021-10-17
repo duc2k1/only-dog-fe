@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Post() {
   return (
-    <main className="container py-5">
+    <main className="py-5">
       <div className="row" data-masonry='{"percentPosition": true }'>
         <div className="col-sm-6 col-lg-4 mb-4">
           <div className="card">

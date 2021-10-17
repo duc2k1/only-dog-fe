@@ -11,7 +11,7 @@ export default function ModalAddPost() {
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
         >
-          Launch demo modal
+          Add Post
         </button>
         {/* Modal */}
         <div
@@ -25,7 +25,7 @@ export default function ModalAddPost() {
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title" id="exampleModalLabel">
-                  Modal title
+                  Post
                 </h5>
                 <button
                   type="button"
@@ -44,7 +44,7 @@ export default function ModalAddPost() {
                   Close
                 </button>
                 <button type="button" className="btn btn-primary">
-                  Save changes
+                  Add Post
                 </button>
               </div>
             </div>
