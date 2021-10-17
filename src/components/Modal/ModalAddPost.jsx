@@ -1,7 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import Alert from "../Alert";
+import { storage } from "../../lib/firebase";
 
 export default function ModalAddPost() {
+  const [image, setImage] = useState(null);
+  const [url, setUrl] = useState("");
+  const [progress, setProgress] = useState(0);
+
+  const handleChange = (e) => {
+    if (e.target.files[0]) {
+      setImage(e.target.files[0]);
+    }
+  };
+
+  const handleUpload = () => {
+    const uploadTask = storage.ref(`images/${image.name}`).put(image);
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        setProgress(progress);
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        storage
+          .ref("images")
+          .child(image.name)
+          .getDownloadURL()
+          .then((url) => {
+            setUrl(url);
+          });
+      }
+    );
+  };
+  console.log("img", image);
   return (
     <div>
       <div>
@@ -36,28 +72,37 @@ export default function ModalAddPost() {
                 />
               </div>
               <div className="modal-body">
-                <form>
-                  <div className="form-group mb-2">
+                <div className="container-fluid">
+                  <div className="row">
                     <input
+                      className="col-sm-6"
                       type="file"
-                      className="form-control-file"
-                      id="exampleFormControlFile1"
+                      onChange={handleChange}
                     />
+                    <div className="text-center col-sm-6">
+                      <button
+                        type="button"
+                        className="btn btn-primary"
+                        onClick={handleUpload}
+                        style={{ width: 80 }}
+                      >
+                        Upload
+                      </button>
+                    </div>
+                    <img
+                      src={url || "http://via.placeholder.com/100"}
+                      alt="firebase-image"
+                      className="col-sm-6"
+                    />
+                    <progress
+                      style={{ marginTop: 100 }}
+                      value={progress}
+                      max="100"
+                      className="col-sm-6"
+                    />
+                    <p>{url && "Upload success"}</p>
                   </div>
-                </form>
-                <Alert />
-              </div>
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-                <button type="button" className="btn btn-primary">
-                  Add Post
-                </button>
+                </div>
               </div>
             </div>
           </div>
