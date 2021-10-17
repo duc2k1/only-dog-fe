@@ -25,17 +25,15 @@ export default function ModalRegister() {
         await createdUserResult.user.updateProfile({
           displayName: name,
         });
-        await fire
-          .firestore()
-          .collection("users")
-          .add({
-            userId: createdUserResult.user.uid,
-            name: name.toLowerCase(),
-            email: email.toLowerCase(),
-            following: ["2"],
-            followers: [],
-            dateCreated: Date.now(),
-          });
+        await fire.firestore().collection("users").add({
+          userId: createdUserResult.user.uid,
+          name: name.toLowerCase(),
+          email: email.toLowerCase(),
+          following: [],
+          followers: [],
+          dateCreated: Date.now(),
+          posts: [],
+        });
         ref.current.click();
         setLoading(false);
       } catch (error) {
