@@ -1,29 +1,57 @@
-import React from "react";
+import React, { useState, useContext, useRef } from "react";
 import Alert from "../Alert";
+import FirebaseContext from "../../context/firebase";
 
 export default function ModalLogin() {
+  const { fire } = useContext(FirebaseContext);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const ref = useRef(null);
+
+  const handleLoginWithGoogle = () => {
+    console.log("hello");
+  };
+
+  const handleLogin = async (event) => {
+    event.preventDefault();
+    try {
+      setLoading(true);
+      await fire.auth().signInWithEmailAndPassword(email, password);
+      setLoading(false);
+      ref.current.click();
+    } catch (error) {
+      setEmail("");
+      setPassword("");
+      setError(error.message);
+      setLoading(false);
+    }
+  };
+
   return (
     <div>
       <button
         type="button"
-        className="btn btn-outline-primary"
+        className="btn btn-primary"
         data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
+        data-bs-target="#modalLogin"
+        ref={ref}
       >
         Login
       </button>
       {/* Modal */}
       <div
         className="modal fade"
-        id="exampleModal"
+        id="modalLogin"
         tabIndex={-1}
-        aria-labelledby="exampleModalLabel"
+        aria-labelledby="modalLoginLabel"
         aria-hidden="true"
       >
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">
+              <h5 className="modal-title" id="modalLoginLabel">
                 Login
               </h5>
               <button
@@ -34,45 +62,61 @@ export default function ModalLogin() {
               />
             </div>
             <div className="modal-body">
-              <form>
+              <form
+                onSubmit={() => handleLogin()}
+                method="POST"
+                className="py-3"
+              >
                 <div className="mb-3">
-                  <label htmlFor="exampleInputEmail1" className="form-label">
-                    Email address
+                  <label htmlFor="email" className="form-label">
+                    Email
                   </label>
                   <input
                     type="email"
                     className="form-control"
-                    id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
+                    id="email"
+                    placeholder="Email@example.com"
+                    onChange={({ target }) => setEmail(target.value)}
+                    value={email}
+                    required
+                    maxLength="50"
                   />
-                  <div id="emailHelp" className="form-text">
-                    We'll never share your email with anyone else.
-                  </div>
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="exampleInputPassword1" className="form-label">
+                  <label htmlFor="password" className="form-label">
                     Password
                   </label>
                   <input
                     type="password"
                     className="form-control"
-                    id="exampleInputPassword1"
+                    id="password"
+                    placeholder="Password (min leangth = 6)"
+                    onChange={({ target }) => setPassword(target.value)}
+                    value={password}
+                    required
+                    minLength="6"
+                    maxLength="50"
                   />
                 </div>
+                <button type="submit" className={`btn btn-primary me-2`}>
+                  Login
+                </button>
+                <button
+                  className="btn btn-outline-primary"
+                  onClick={() => handleLoginWithGoogle()}
+                >
+                  Login with Google <i className="fab fa-google"></i>
+                </button>
               </form>
-              <Alert />
-            </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" className="btn btn-outline-primary">
-                Login
-              </button>
+              <Alert error={error} />
+              {loading && (
+                <div className="text-center">
+                  <div
+                    className="spinner-border text-dark "
+                    role="status"
+                  ></div>
+                </div>
+              )}
             </div>
           </div>
         </div>

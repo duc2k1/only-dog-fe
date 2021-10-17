@@ -24,6 +24,11 @@ function App() {
           <main className="py-5">
             <div className="row" data-masonry='{"percentPosition": true }'>
               <Post />
+              <Post />
+              <Post />
+              <Post />
+              <Post />
+              <Post />
             </div>
           </main>
         )}

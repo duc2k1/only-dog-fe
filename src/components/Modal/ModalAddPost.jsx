@@ -8,7 +8,7 @@ export default function ModalAddPost() {
         {/* Button trigger modal */}
         <button
           type="button"
-          className="btn btn-outline-primary"
+          className="btn btn-primary"
           data-bs-toggle="modal"
           data-bs-target="#exampleModal3"
         >
@@ -55,7 +55,7 @@ export default function ModalAddPost() {
                 >
                   Close
                 </button>
-                <button type="button" className="btn btn-outline-primary">
+                <button type="button" className="btn btn-primary">
                   Add Post
                 </button>
               </div>

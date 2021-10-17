@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import ModalLogin from "./Modal/ModalLogin";
 import ModalRegister from "./Modal/ModalRegister";
 import logo from "../assets/images/logo.svg";
-import Alert from "./Alert";
 import ModalAddPost from "./Modal/ModalAddPost";
 
 export default function Header({ setPage }) {
@@ -17,7 +16,7 @@ export default function Header({ setPage }) {
       className="navbar navbar-expand-lg navbar-light"
     >
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" href="">
           <img
             src={logo}
             alt="Logo OnlyDog"
@@ -41,9 +40,6 @@ export default function Header({ setPage }) {
           {button === "logout" ? (
             <>
               <div className="nav-item me-2 mt-2">
-                <ModalAddPost />
-              </div>
-              <div className="nav-item me-2 mt-2">
                 <ModalLogin />
               </div>
               <div className="nav-item me-2 mt-2">
@@ -52,6 +48,9 @@ export default function Header({ setPage }) {
             </>
           ) : (
             <>
+              <div className="nav-item me-2 mt-2">
+                <ModalAddPost />
+              </div>
               <div
                 className="nav-item me-2 mt-2"
                 onClick={() => setPage("profile")}

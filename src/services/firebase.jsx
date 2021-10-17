@@ -1,10 +1,10 @@
 import { fire, FieldValue } from "../lib/firebase";
 
-export async function doesUsernameExist(username) {
+export async function doesNameExist(name) {
   const result = await fire
     .firestore()
     .collection("users")
-    .where("username", "==", username.toLowerCase())
+    .where("name", "==", name.toLowerCase())
     .get();
 
   return result.docs.length > 0;
