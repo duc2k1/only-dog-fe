@@ -44,34 +44,32 @@ export default function Header({ setPage, user: loggedInUser }) {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0"></ul>
-            {fire.auth().currentUser ? (
-              <>
-                <div className="nav-item me-2 mt-2">
-                  <ModalAddPost />
-                </div>
-                <div
-                  className="nav-item me-2 mt-2"
-                  onClick={() => setPage("profile")}
-                >
-                  Profile
-                </div>
-                <div
-                  className="nav-item me-2 mt-2"
-                  onClick={() => fire.auth().signOut()}
-                >
-                  Logout
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="nav-item me-2 mt-2">
-                  <ModalLogin />
-                </div>
-                <div className="nav-item me-2 mt-2">
-                  <ModalRegister />
-                </div>
-              </>
-            )}
+
+            <div className={fire.auth().currentUser ? "" : "d-none"}>
+              <div className="nav-item me-2 mt-2">
+                <ModalAddPost />
+              </div>
+              <div
+                className="nav-item me-2 mt-2"
+                onClick={() => setPage("profile")}
+              >
+                Profile
+              </div>
+              <div
+                className="nav-item me-2 mt-2"
+                onClick={() => fire.auth().signOut()}
+              >
+                Logout
+              </div>
+            </div>
+            <div className={fire.auth().currentUser ? "d-none" : ""}>
+              <div className="nav-item me-2 mt-2">
+                <ModalLogin />
+              </div>
+              <div className="nav-item me-2 mt-2">
+                <ModalRegister />
+              </div>
+            </div>
           </div>
         </div>
       </nav>
