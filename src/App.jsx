@@ -1,4 +1,5 @@
 import React from "react";
+import AddPostModal from "./components/Modal";
 import Header from "./components/Header";
 import Post from "./components/Post/Post";
 

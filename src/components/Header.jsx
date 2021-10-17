@@ -1,8 +1,9 @@
 import React from "react";
+import AddPostModal from "./Modal";
 
 export default function Header() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
           Navbar
@@ -31,7 +32,9 @@ export default function Header() {
               </a>
             </li>
           </ul>
-          <div className="nav-item me-2 mt-2">Login</div>
+          <div className="nav-item me-2 mt-2">
+            <AddPostModal />
+          </div>
           <div className="nav-item me-2 mt-2">Logout</div>
         </div>
       </div>
