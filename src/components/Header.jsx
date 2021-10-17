@@ -8,7 +8,12 @@ export default function Header({ setPage }) {
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
-          <img src={logo} alt="Logo OnlyDog" width={100} />
+          <img
+            src={logo}
+            alt="Logo OnlyDog"
+            width={100}
+            onClick={() => setPage("dashboard")}
+          />
         </a>
         <button
           className="navbar-toggler"
