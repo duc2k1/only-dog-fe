@@ -5,7 +5,14 @@ import logo from "../assets/images/logo.svg";
 
 export default function Header({ setPage }) {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light">
+    <nav
+      style={{
+        position: "sticky",
+        top: 0,
+        zIndex: 1051,
+      }}
+      className="navbar navbar-expand-lg navbar-light"
+    >
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
           <img
