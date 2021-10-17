@@ -45,24 +45,30 @@ export default function Header({ setPage, user: loggedInUser }) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0"></ul>
 
-            <div className={fire.auth().currentUser ? "" : "d-none"}>
+            <div
+              className={`${fire.auth().currentUser ? "" : "d-none"} d-flex`}
+            >
               <div className="nav-item me-2 mt-2">
                 <ModalAddPost />
               </div>
               <div
                 className="nav-item me-2 mt-2"
                 onClick={() => setPage("profile")}
+                style={{ lineHeight: 2.5 }}
               >
                 Profile
               </div>
               <div
                 className="nav-item me-2 mt-2"
                 onClick={() => fire.auth().signOut()}
+                style={{ lineHeight: 2.5 }}
               >
                 Logout
               </div>
             </div>
-            <div className={fire.auth().currentUser ? "d-none" : ""}>
+            <div
+              className={`${fire.auth().currentUser ? "d-none" : ""} d-flex`}
+            >
               <div className="nav-item me-2 mt-2">
                 <ModalLogin />
               </div>
