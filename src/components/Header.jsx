@@ -1,5 +1,5 @@
 import React from "react";
-import AddPostModal from "./Modal/ModalLogin";
+import ModalLogin from "./Modal/ModalLogin";
 
 export default function Header({ setPage }) {
   return (
@@ -33,7 +33,7 @@ export default function Header({ setPage }) {
             </li>
           </ul>
           <div className="nav-item me-2 mt-2">
-            <AddPostModal />
+            <ModalLogin />
           </div>
           <div
             className="nav-item me-2 mt-2"

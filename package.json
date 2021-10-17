@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "preinstall": "npx only-allow yarn",
-    "dev": "vite",
+    "start": "vite",
     "deploy": "vite build && sudo cp CNAME ./dist && gh-pages -d dist"
   },
   "dependencies": {
