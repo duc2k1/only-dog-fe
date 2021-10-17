@@ -37,7 +37,6 @@ export default function ModalAddPost() {
       }
     );
   };
-  console.log("img", image);
   return (
     <div>
       <div>

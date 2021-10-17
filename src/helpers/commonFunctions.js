@@ -23,7 +23,6 @@ export const getPrediction = async (
     canvasContext.drawImage(canvasImage, 0, 0, 64, 64);
 
     const prediction = await model.predict(imageCanvas);
-    console.log(prediction);
     responseFunction(prediction);
   };
 

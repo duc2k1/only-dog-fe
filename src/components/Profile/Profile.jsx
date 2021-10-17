@@ -5,7 +5,6 @@ import useUser from "../../hooks/useUser";
 
 export default function Profile({ user: loggedInUser }) {
   const { user } = useUser(loggedInUser?.uid);
-  console.log("🚀 ~ file: Profile.jsx ~ line 6 ~ Profile ~ user", user);
   return (
     <div>
       <Header user={user} />

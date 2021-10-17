@@ -9,7 +9,6 @@ import FirebaseContext from "../context/firebase";
 
 export default function Header({ setPage, user: loggedInUser }) {
   const { user, setActiveUser } = useUser(loggedInUser?.uid);
-  if (user) console.log(user);
   const { fire } = useContext(FirebaseContext);
 
   return (
