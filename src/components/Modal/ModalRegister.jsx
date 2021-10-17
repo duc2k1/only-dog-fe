@@ -1,4 +1,5 @@
 import React from "react";
+import Alert from "../Alert";
 
 export default function ModalRegister() {
   return (
@@ -91,6 +92,7 @@ export default function ModalRegister() {
                     />
                   </div>
                 </form>
+                <Alert />
               </div>
               <div className="modal-footer">
                 <button

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Alert from "./components/Alert";
 import Header from "./components/Header";
 import Post from "./components/Post/Post";
 import Profile from "./components/Profile/Profile";

@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import ModalLogin from "./Modal/ModalLogin";
 import ModalRegister from "./Modal/ModalRegister";
 import logo from "../assets/images/logo.svg";
+import Alert from "./Alert";
+import ModalAddPost from "./Modal/ModalAddPost";
 
 export default function Header({ setPage }) {
+  const [button, setButton] = useState("logout");
   return (
     <nav
       style={{
@@ -34,31 +37,35 @@ export default function Header({ setPage }) {
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
-                Home
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Link
-              </a>
-            </li>
-          </ul>
-          <div className="nav-item me-2 mt-2">
-            <ModalLogin />
-          </div>
-          <div className="nav-item me-2 mt-2">
-            <ModalRegister />
-          </div>
-          <div
-            className="nav-item me-2 mt-2"
-            onClick={() => setPage("profile")}
-          >
-            | Profile
-          </div>
-          <div className="nav-item me-2 mt-2">| Logout</div>
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+          {button === "logout" ? (
+            <>
+              <div className="nav-item me-2 mt-2">
+                <ModalAddPost />
+              </div>
+              <div className="nav-item me-2 mt-2">
+                <ModalLogin />
+              </div>
+              <div className="nav-item me-2 mt-2">
+                <ModalRegister />
+              </div>
+            </>
+          ) : (
+            <>
+              <div
+                className="nav-item me-2 mt-2"
+                onClick={() => setPage("profile")}
+              >
+                Profile
+              </div>
+              <div
+                className="nav-item me-2 mt-2"
+                onClick={() => setButton("logout")}
+              >
+                Logout
+              </div>
+            </>
+          )}
         </div>
       </div>
     </nav>

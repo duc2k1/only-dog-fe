@@ -1,4 +1,5 @@
 import React from "react";
+import Alert from "../Alert";
 
 export default function ModalLogin() {
   return (
@@ -59,6 +60,7 @@ export default function ModalLogin() {
                   />
                 </div>
               </form>
+              <Alert />
             </div>
             <div className="modal-footer">
               <button
