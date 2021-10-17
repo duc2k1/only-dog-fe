@@ -3,7 +3,7 @@ import BackToTop from "./components/BackToTop";
 import useAuthListener from "./hooks/useAuthListener";
 
 const Header = lazy(() => import("./components/Header"));
-const Posts = lazy(() => import("./components/Posts/Posts"));
+const Post = lazy(() => import("./components/Post/Post"));
 const Profile = lazy(() => import("./components/Profile/Profile"));
 
 function App() {
@@ -18,7 +18,15 @@ function App() {
     >
       <div className="container">
         <Header setPage={setPage} />
-        {page === "profile" ? <Profile /> : <Posts />}
+        {page === "profile" ? (
+          <Profile />
+        ) : (
+          <main className="py-5">
+            <div className="row" data-masonry='{"percentPosition": true }'>
+              <Post />
+            </div>
+          </main>
+        )}
         <BackToTop />
       </div>
     </Suspense>
