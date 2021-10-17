@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function index() {
-  return <div></div>;
+export default function Profile() {
+  return <div>Profile</div>;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import AddPostModal from "./Modal/ModalLogin";
 
-export default function Header() {
+export default function Header({ setPage }) {
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container-fluid">
@@ -35,7 +35,12 @@ export default function Header() {
           <div className="nav-item me-2 mt-2">
             <AddPostModal />
           </div>
-          <div className="nav-item me-2 mt-2">| Profile</div>
+          <div
+            className="nav-item me-2 mt-2"
+            onClick={() => setPage("profile")}
+          >
+            | Profile
+          </div>
           <div className="nav-item me-2 mt-2">| Logout</div>
         </div>
       </div>
