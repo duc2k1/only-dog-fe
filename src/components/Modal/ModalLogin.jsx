@@ -70,7 +70,6 @@ export default function ModalLogin() {
                   <input
                     type="email"
                     className="form-control"
-                    id="email"
                     placeholder="Email@example.com"
                     onChange={({ target }) => setEmail(target.value)}
                     value={email}
@@ -85,7 +84,6 @@ export default function ModalLogin() {
                   <input
                     type="password"
                     className="form-control"
-                    id="password"
                     placeholder="Password (min leangth = 6)"
                     onChange={({ target }) => setPassword(target.value)}
                     value={password}

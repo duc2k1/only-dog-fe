@@ -27,7 +27,7 @@ export default function Header({ setPage, user: loggedInUser }) {
             <img
               src={logo}
               alt="Logo OnlyDog"
-              width={100}
+              width={200}
               onClick={() => setPage("dashboard")}
             />
           </a>

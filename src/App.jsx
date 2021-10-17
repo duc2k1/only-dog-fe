@@ -23,7 +23,7 @@ function App() {
         <div className="container">
           <Header setPage={setPage} user={user} />
           {page === "profile" ? (
-            <Profile />
+            <Profile user={user} />
           ) : (
             <main className="py-5">
               <div className="row" data-masonry='{"percentPosition": true }'>

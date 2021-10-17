@@ -56,7 +56,7 @@ export default function ModalRegister() {
     <div>
       <button
         type="button"
-        className="btn btn-primary"
+        className="btn btn-outline-primary"
         data-bs-toggle="modal"
         data-bs-target="#modalRegister"
         ref={ref}
@@ -93,7 +93,6 @@ export default function ModalRegister() {
                   <input
                     type="text"
                     className="form-control"
-                    id="name"
                     placeholder="Anri Okita"
                     onChange={({ target }) => setName(target.value)}
                     value={name}
@@ -108,7 +107,6 @@ export default function ModalRegister() {
                   <input
                     type="email"
                     className="form-control"
-                    id="email"
                     placeholder="Email@example.com"
                     onChange={({ target }) => setEmail(target.value)}
                     value={email}
@@ -123,7 +121,6 @@ export default function ModalRegister() {
                   <input
                     type="password"
                     className="form-control"
-                    id="password"
                     placeholder="Password (min leangth = 6, max length = 50)"
                     onChange={({ target }) => setPassword(target.value)}
                     value={password}
@@ -139,7 +136,6 @@ export default function ModalRegister() {
                   <input
                     type="password"
                     className="form-control"
-                    id="confirmPassword"
                     placeholder="Confirm Password"
                     onChange={({ target }) => setConfirmPassword(target.value)}
                     value={confirmPassword}
