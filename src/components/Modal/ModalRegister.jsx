@@ -8,7 +8,7 @@ export default function ModalRegister() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmpassword, setConfirmPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const ref = useRef(null);
@@ -85,11 +85,7 @@ export default function ModalRegister() {
               />
             </div>
             <div className="modal-body">
-              <form
-                onSubmit={() => handleRegister()}
-                method="POST"
-                className="py-3"
-              >
+              <form onSubmit={handleRegister} method="POST" className="py-3">
                 <div className="mb-3">
                   <label htmlFor="name" className="form-label">
                     Name

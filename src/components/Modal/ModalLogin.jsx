@@ -62,11 +62,7 @@ export default function ModalLogin() {
               />
             </div>
             <div className="modal-body">
-              <form
-                onSubmit={() => handleLogin()}
-                method="POST"
-                className="py-3"
-              >
+              <form onSubmit={handleLogin} method="POST" className="py-3">
                 <div className="mb-3">
                   <label htmlFor="email" className="form-label">
                     Email
