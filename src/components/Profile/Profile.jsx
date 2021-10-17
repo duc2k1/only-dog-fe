@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function Timeline() {
+export default function index() {
   return <div></div>;
 }
