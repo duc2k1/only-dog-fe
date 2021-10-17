@@ -1,5 +1,5 @@
 import React from "react";
-import AddPostModal from "./Modal";
+import AddPostModal from "./Modal/ModalLogin";
 
 export default function Header() {
   return (
@@ -35,7 +35,8 @@ export default function Header() {
           <div className="nav-item me-2 mt-2">
             <AddPostModal />
           </div>
-          <div className="nav-item me-2 mt-2">Logout</div>
+          <div className="nav-item me-2 mt-2">| Profile</div>
+          <div className="nav-item me-2 mt-2">| Logout</div>
         </div>
       </div>
     </nav>

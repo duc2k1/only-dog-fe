@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 
-export default function AddPostModal({ content, color }) {
+export default function ModalAddPost({ content, color }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
