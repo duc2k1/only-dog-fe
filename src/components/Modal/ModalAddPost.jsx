@@ -54,7 +54,7 @@ export default function ModalAddPost() {
         aria-labelledby="modalAddPostLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog">
+        <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="modalAddPostLabel">
@@ -78,7 +78,7 @@ export default function ModalAddPost() {
                   <div className="text-center col-6 col-sm-6 mb-2">
                     <button
                       type="button"
-                      className="btn btn-primary"
+                      className="btn btn-outline-primary"
                       onClick={handleUpload}
                       style={{ width: 80 }}
                     >

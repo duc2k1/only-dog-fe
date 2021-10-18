@@ -67,7 +67,7 @@ export default function ModalRegister() {
         aria-labelledby="modalRegisterLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog">
+        <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="modalRegisterLabel">
@@ -79,15 +79,21 @@ export default function ModalRegister() {
                 data-bs-dismiss="modal"
                 aria-label="Close"
                 ref={ref}
+                onKeyDown={(e) => e.key === "Esc"}
               />
             </div>
             <div className="modal-body">
-              <form onSubmit={handleRegister} className="py-3">
+              <form
+                onSubmit={handleRegister}
+                onKeyDown={(e) => e.key === "Enter" && handleRegister}
+                className="py-3"
+              >
                 <div className="mb-3">
                   <label htmlFor="name" className="form-label">
                     Name
                   </label>
                   <input
+                    required
                     type="text"
                     className="form-control"
                     placeholder="Anri Okita"
@@ -95,6 +101,7 @@ export default function ModalRegister() {
                     value={name}
                     required
                     maxLength="50"
+                    autoComplete="one-time-code"
                   />
                 </div>
                 <div className="mb-3">
@@ -102,6 +109,7 @@ export default function ModalRegister() {
                     Email
                   </label>
                   <input
+                    required
                     type="email"
                     className="form-control"
                     placeholder="Email@example.com"
@@ -109,6 +117,7 @@ export default function ModalRegister() {
                     value={email}
                     required
                     maxLength="50"
+                    autoComplete="one-time-code"
                   />
                 </div>
                 <div className="mb-3">
@@ -116,6 +125,7 @@ export default function ModalRegister() {
                     Password
                   </label>
                   <input
+                    required
                     type="password"
                     className="form-control"
                     placeholder="Password (min leangth = 6, max length = 50)"
@@ -123,6 +133,7 @@ export default function ModalRegister() {
                     value={password}
                     minLength="6"
                     maxLength="50"
+                    autoComplete="one-time-code"
                   />
                 </div>
                 <div className="mb-3">
@@ -130,15 +141,19 @@ export default function ModalRegister() {
                     Confirm Password
                   </label>
                   <input
+                    required
                     type="password"
                     className="form-control"
                     placeholder="Confirm Password"
                     onChange={({ target }) => setConfirmPassword(target.value)}
                     value={confirmPassword}
                     pattern={password}
+                    autoComplete="one-time-code"
                   />
                 </div>
-                <button className={`btn btn-primary me-2`}>Register</button>
+                <button type="submit" className={`btn btn-primary me-2`}>
+                  Register
+                </button>
               </form>
               <Alert error={error} />
               {loading && (

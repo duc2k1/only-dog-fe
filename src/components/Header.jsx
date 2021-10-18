@@ -51,10 +51,11 @@ export default function Header({ setPage, user: loggedInUser }) {
               className={`${fire.auth().currentUser ? "" : "d-none"} d-flex`}
             >
               <ModalAddPost />
-              <CgProfile
+              <img
                 role="button"
-                size="30"
-                className="me-3"
+                width="30"
+                className="me-3 rounded-circle"
+                src="https://i.imgflip.com/4/4t0m5.jpg"
                 onClick={() => {
                   setPage("profile");
                 }}

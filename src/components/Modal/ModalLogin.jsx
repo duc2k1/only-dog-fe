@@ -49,7 +49,7 @@ export default function ModalLogin() {
         aria-labelledby="modalLoginLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog">
+        <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="modalLoginLabel">
@@ -61,10 +61,15 @@ export default function ModalLogin() {
                 data-bs-dismiss="modal"
                 aria-label="Close"
                 ref={ref}
+                onKeyDown={(e) => e.key === "Esc"}
               />
             </div>
             <div className="modal-body">
-              <form onSubmit={handleLogin} className="py-3">
+              <form
+                onSubmit={handleLogin}
+                onKeyDown={(e) => e.key === "Enter" && handleLogin}
+                className="py-3"
+              >
                 <div className="mb-3">
                   <label htmlFor="email" className="form-label">
                     Email
@@ -93,7 +98,9 @@ export default function ModalLogin() {
                     maxLength="50"
                   />
                 </div>
-                <button className={`btn btn-primary me-2`}>Login</button>
+                <button type="submit" className={`btn btn-primary me-2`}>
+                  Login
+                </button>
                 <button
                   className="btn btn-outline-primary"
                   onClick={() => handleLoginWithGoogle()}
