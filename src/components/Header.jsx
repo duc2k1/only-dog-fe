@@ -25,7 +25,7 @@ export default function Header({ setPage, user: loggedInUser }) {
       >
         <div className="container">
           <img
-            style={{ cursor: "pointer" }}
+            role="button"
             src={logo}
             alt="Logo OnlyDog"
             width={200}
@@ -52,7 +52,7 @@ export default function Header({ setPage, user: loggedInUser }) {
             >
               <ModalAddPost />
               <CgProfile
-                style={{ cursor: "pointer" }}
+                role="button"
                 size="30"
                 className="me-3"
                 onClick={() => {
@@ -60,7 +60,7 @@ export default function Header({ setPage, user: loggedInUser }) {
                 }}
               />
               <RiLogoutCircleRLine
-                style={{ cursor: "pointer" }}
+                role="button"
                 size="30"
                 onClick={() => fire.auth().signOut()}
               />

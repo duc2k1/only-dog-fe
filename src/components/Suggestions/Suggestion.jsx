@@ -8,9 +8,10 @@ export default function Suggestion({ name }) {
         src="https://i.imgflip.com/4/4t0m5.jpg"
         alt=""
         width="60"
+        role="button"
       />
-      <div style={{ cursor: "pointer" }}>{name}</div>
-      <div style={{ cursor: "pointer", color: "blue" }}>Follow</div>
+      <div>{name}</div>
+      <button className="btn btn-outline-primary p-1">Follow</button>
     </div>
   );
 }

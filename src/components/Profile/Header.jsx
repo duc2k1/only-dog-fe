@@ -10,7 +10,7 @@ export default function Header({ user }) {
             alt=""
             width="200"
             className="rounded-circle"
-            style={{ cursor: "pointer" }}
+            role="button"
           />
         </div>
         <div className="col-md-8" style={{ marginTop: 65 }}>
@@ -25,6 +25,9 @@ export default function Header({ user }) {
             <p className="me-3">
               <b>{user?.following?.length}</b> following
             </p>
+          </div>
+          <div className="text-center">
+            <button className="btn btn-outline-primary">Follow</button>
           </div>
         </div>
       </div>

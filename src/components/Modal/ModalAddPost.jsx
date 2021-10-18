@@ -40,7 +40,8 @@ export default function ModalAddPost() {
   return (
     <div>
       <GrAddCircle
-        style={{ cursor: "pointer", marginRight: 18 }}
+        style={{ marginRight: 18 }}
+        role="button"
         size="30"
         data-bs-toggle="modal"
         data-bs-target="#modalAddPost"

@@ -14,9 +14,10 @@ export default function Post() {
             alt="Avatar"
             width="40"
             className="rounded-circle m-1"
+            role="button"
           />
           <div>
-            <b>nameeeeee</b>
+            <small>nameeeeee</small>
             <br />
             <small className="text-muted">1/10/2001</small>
           </div>
