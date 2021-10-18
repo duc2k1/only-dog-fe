@@ -9,6 +9,8 @@ const Profile = lazy(() => import("./components/Profile/Profile"));
 const Suggestions = lazy(() => import("./components/Suggestions/Suggestions"));
 const BackToTop = lazy(() => import("./components/BackToTop"));
 
+document.querySelector("#icon").setAttribute("href", icon);
+
 export default function App() {
   const [page, setPage] = useState("dashboard");
   const { user } = useAuthListener();
