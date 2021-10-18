@@ -59,6 +59,7 @@ export default function Header({ setPage, user: loggedInUser }) {
                 onClick={() => {
                   setPage("profile");
                 }}
+                style={{ objectFit: "cover" }}
               />
               <RiLogoutCircleRLine
                 role="button"

@@ -12,6 +12,7 @@ export default function Header({ user }) {
             height="200"
             className="rounded-circle"
             role="button"
+            style={{ objectFit: "cover" }}
           />
         </div>
         <div className="col-md-8" style={{ marginTop: 65 }}>
