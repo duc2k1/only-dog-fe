@@ -17,13 +17,13 @@ export default function Header({ user }) {
           <h3 className="text-center">{user?.name}</h3>
           <div className="d-flex justify-content-around">
             <p className="me-3">
-              <b>{user?.posts.length}</b> posts
+              <b>{user?.posts?.length}</b> posts
             </p>
             <p className="me-3">
-              <b>{user?.followers.length}</b> followers
+              <b>{user?.followers?.length}</b> followers
             </p>
             <p className="me-3">
-              <b>{user?.following.length}</b> following
+              <b>{user?.following?.length}</b> following
             </p>
           </div>
         </div>

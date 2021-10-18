@@ -40,11 +40,10 @@ export default function ModalAddPost() {
   return (
     <div>
       <GrAddCircle
-        style={{ cursor: "pointer" }}
+        style={{ cursor: "pointer", marginRight: 18 }}
         size="30"
         data-bs-toggle="modal"
         data-bs-target="#modalAddPost"
-        className="me-2"
       />
       {/* Modal */}
       <div

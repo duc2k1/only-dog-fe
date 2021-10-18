@@ -36,12 +36,10 @@ export default function ModalRegister() {
           posts: [],
           avatar: "",
         });
-        ref.current.click();
         setLoading(false);
+        ref.current.click();
       } catch (error) {
         setEmail("");
-        setPassword("");
-        setConfirmPassword("");
         setError(error.message);
         setLoading(false);
       }
@@ -58,7 +56,6 @@ export default function ModalRegister() {
         style={{ border: "none", background: "none" }}
         data-bs-toggle="modal"
         data-bs-target="#modalRegister"
-        ref={ref}
       >
         <FiUserPlus size="30" />
       </button>
@@ -81,10 +78,11 @@ export default function ModalRegister() {
                 className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
+                ref={ref}
               />
             </div>
             <div className="modal-body">
-              <div className="py-3">
+              <form onSubmit={handleRegister} className="py-3">
                 <div className="mb-3">
                   <label htmlFor="name" className="form-label">
                     Name
@@ -95,7 +93,7 @@ export default function ModalRegister() {
                     placeholder="Anri Okita"
                     onChange={({ target }) => setName(target.value)}
                     value={name}
-                    minLength="6"
+                    required
                     maxLength="50"
                   />
                 </div>
@@ -109,7 +107,7 @@ export default function ModalRegister() {
                     placeholder="Email@example.com"
                     onChange={({ target }) => setEmail(target.value)}
                     value={email}
-                    minLength="6"
+                    required
                     maxLength="50"
                   />
                 </div>
@@ -140,13 +138,8 @@ export default function ModalRegister() {
                     pattern={password}
                   />
                 </div>
-                <button
-                  onClick={handleRegister}
-                  className={`btn btn-primary me-2`}
-                >
-                  Register
-                </button>
-              </div>
+                <button className={`btn btn-primary me-2`}>Register</button>
+              </form>
               <Alert error={error} />
               {loading && (
                 <div className="text-center">

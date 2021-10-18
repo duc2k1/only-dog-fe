@@ -54,7 +54,7 @@ export default function Header({ setPage, user: loggedInUser }) {
               <CgProfile
                 style={{ cursor: "pointer" }}
                 size="30"
-                className="me-4"
+                className="me-3"
                 onClick={() => {
                   setPage("profile");
                 }}
@@ -62,7 +62,6 @@ export default function Header({ setPage, user: loggedInUser }) {
               <RiLogoutCircleRLine
                 style={{ cursor: "pointer" }}
                 size="30"
-                className="me-2"
                 onClick={() => fire.auth().signOut()}
               />
             </div>

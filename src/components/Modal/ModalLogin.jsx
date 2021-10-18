@@ -37,7 +37,6 @@ export default function ModalLogin() {
         style={{ border: "none", background: "none" }}
         data-bs-toggle="modal"
         data-bs-target="#modalLogin"
-        ref={ref}
       >
         <RiLoginCircleLine size="30" />
       </button>
@@ -61,10 +60,11 @@ export default function ModalLogin() {
                 className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
+                ref={ref}
               />
             </div>
             <div className="modal-body">
-              <div className="py-3">
+              <form onSubmit={handleLogin} className="py-3">
                 <div className="mb-3">
                   <label htmlFor="email" className="form-label">
                     Email
@@ -72,7 +72,7 @@ export default function ModalLogin() {
                   <input
                     type="email"
                     className="form-control"
-                    placeholder="Email@example.com"
+                    placeholder="email@example.com"
                     onChange={({ target }) => setEmail(target.value)}
                     value={email}
                     minLength="6"
@@ -93,19 +93,14 @@ export default function ModalLogin() {
                     maxLength="50"
                   />
                 </div>
-                <button
-                  onClick={handleLogin}
-                  className={`btn btn-primary me-2`}
-                >
-                  Login
-                </button>
+                <button className={`btn btn-primary me-2`}>Login</button>
                 <button
                   className="btn btn-outline-primary"
                   onClick={() => handleLoginWithGoogle()}
                 >
                   Login with Google <BsGoogle className="mb-1" size="19" />
                 </button>
-              </div>
+              </form>
               <Alert error={error} />
               {loading && (
                 <div className="text-center">
