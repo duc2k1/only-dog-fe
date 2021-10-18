@@ -10,6 +10,7 @@ export default function Header({ user }) {
             alt=""
             width="200"
             className="rounded-circle"
+            style={{ cursor: "pointer" }}
           />
         </div>
         <div className="col-md-8" style={{ marginTop: 65 }}>

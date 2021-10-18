@@ -68,7 +68,7 @@ export default function ModalAddPost() {
               />
             </div>
             <div className="modal-body">
-              <div className="container-fluid">
+              <div className="container">
                 <div className="row">
                   <input
                     className="col-6 col-sm-6 mb-2"

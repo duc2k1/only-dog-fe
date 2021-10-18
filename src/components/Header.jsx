@@ -21,19 +21,19 @@ export default function Header({ setPage, user: loggedInUser }) {
           top: 0,
           zIndex: 1051,
         }}
-        className="navbar navbar-expand-lg navbar-light"
+        className="navbar navbar-expand navbar-light"
       >
-        <div className="container-fluid">
-          <a className="navbar-brand" href="">
-            <img
-              src={logo}
-              alt="Logo OnlyDog"
-              width={200}
-              onClick={() => {
-                setPage("dashboard");
-              }}
-            />
-          </a>
+        <div className="container">
+          <img
+            style={{ cursor: "pointer" }}
+            src={logo}
+            alt="Logo OnlyDog"
+            width={200}
+            onClick={() => {
+              setPage("dashboard");
+            }}
+          />
+
           <button
             className="navbar-toggler"
             type="button"

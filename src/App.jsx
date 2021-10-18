@@ -19,31 +19,35 @@ export default function App() {
     <UserContext.Provider value={{ user }}>
       <Suspense
         fallback={
-          <div className="text-center mt-5">
+          <DivSpinner>
             <Spinner src={icon} width="100" alt="" />
-          </div>
+          </DivSpinner>
         }
       >
-        <div className="container">
-          <Header setPage={setPage} user={user} />
-          <div className={page === "dashboard" ? "" : "d-none"}>
-            <Suggestions />
-            <main className="py-5">
-              <div className="row" data-masonry='{"percentPosition": true }'>
-                <Post />
-              </div>
-            </main>
-          </div>
-          <Profile page={page} user={user} />
-          <BackToTop />
+        <Header setPage={setPage} user={user} />
+        <div className={page === "dashboard" ? "" : "d-none"}>
+          <Suggestions />
+          <main className="container py-5">
+            <div className="row" data-masonry='{"percentPosition": true }'>
+              <Post />
+            </div>
+          </main>
         </div>
+        <Profile page={page} user={user} />
+        <BackToTop />
       </Suspense>
     </UserContext.Provider>
   );
 }
 
+const DivSpinner = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
 const Spinner = styled.img`
-  animation: spin 0.1s linear infinite;
+  animation: spin 0.00001s linear infinite;
   @keyframes spin {
     100% {
       transform: rotate(360deg);

@@ -34,6 +34,7 @@ export default function ModalRegister() {
           followers: [],
           dateCreated: Date.now(),
           posts: [],
+          avatar: "",
         });
         ref.current.click();
         setLoading(false);
