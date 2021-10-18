@@ -2,6 +2,7 @@ import React, { useState, useContext, useRef } from "react";
 import Alert from "../Alert";
 import FirebaseContext from "../../context/firebase";
 import { doesNameExist } from "../../services/firebase";
+import { FiUserPlus } from "react-icons/fi";
 
 export default function ModalRegister() {
   const { fire } = useContext(FirebaseContext);
@@ -53,13 +54,12 @@ export default function ModalRegister() {
   return (
     <div>
       <button
-        type="button"
-        className="btn btn-outline-primary"
+        style={{ border: "none", background: "none" }}
         data-bs-toggle="modal"
         data-bs-target="#modalRegister"
         ref={ref}
       >
-        Register
+        <FiUserPlus size="30" />
       </button>
       {/* Modal */}
       <div
@@ -83,7 +83,7 @@ export default function ModalRegister() {
               />
             </div>
             <div className="modal-body">
-              <form onSubmit={handleRegister} method="POST" className="py-3">
+              <div className="py-3">
                 <div className="mb-3">
                   <label htmlFor="name" className="form-label">
                     Name
@@ -94,7 +94,7 @@ export default function ModalRegister() {
                     placeholder="Anri Okita"
                     onChange={({ target }) => setName(target.value)}
                     value={name}
-                    required
+                    minLength="6"
                     maxLength="50"
                   />
                 </div>
@@ -108,7 +108,7 @@ export default function ModalRegister() {
                     placeholder="Email@example.com"
                     onChange={({ target }) => setEmail(target.value)}
                     value={email}
-                    required
+                    minLength="6"
                     maxLength="50"
                   />
                 </div>
@@ -122,7 +122,6 @@ export default function ModalRegister() {
                     placeholder="Password (min leangth = 6, max length = 50)"
                     onChange={({ target }) => setPassword(target.value)}
                     value={password}
-                    required
                     minLength="6"
                     maxLength="50"
                   />
@@ -140,10 +139,13 @@ export default function ModalRegister() {
                     pattern={password}
                   />
                 </div>
-                <button type="submit" className={`btn btn-primary me-2`}>
+                <button
+                  onClick={handleRegister}
+                  className={`btn btn-primary me-2`}
+                >
                   Register
                 </button>
-              </form>
+              </div>
               <Alert error={error} />
               {loading && (
                 <div className="text-center">

@@ -2,14 +2,14 @@ import React from "react";
 
 export default function Suggestion({ name }) {
   return (
-    <div className="col-2 col-sm-2 text-center">
+    <div className="col-4 col-sm-4 text-center mb-3">
       <img
         className="rounded-circle mb-3"
         src="https://i.imgflip.com/4/4t0m5.jpg"
         alt=""
-        width="50"
+        width="30"
       />
-      <div style={{ color: "blue", cursor: "pointer" }}>Follow</div>
+      <div style={{ cursor: "pointer" }}>Follow</div>
     </div>
   );
 }

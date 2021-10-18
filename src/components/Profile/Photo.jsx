@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Post() {
+export default function Photo() {
   return (
     <div className="col-sm-6 col-lg-4 mb-4">
       <div className="card">

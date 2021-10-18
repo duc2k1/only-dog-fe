@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Alert from "../Alert";
+import { GrAddCircle } from "react-icons/gr";
 import { storage } from "../../lib/firebase";
 
 export default function ModalAddPost() {
@@ -39,68 +39,63 @@ export default function ModalAddPost() {
   };
   return (
     <div>
-      <div>
-        {/* Button trigger modal */}
-        <button
-          type="button"
-          className="btn btn-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal3"
-        >
-          Add Post
-        </button>
-        {/* Modal */}
-        <div
-          className="modal fade"
-          id="exampleModal3"
-          tabIndex={-1}
-          aria-labelledby="exampleModal3Label"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title" id="exampleModal3Label">
-                  Post
-                </h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                />
-              </div>
-              <div className="modal-body">
-                <div className="container-fluid">
-                  <div className="row">
-                    <input
-                      className="col-sm-6"
-                      type="file"
-                      onChange={handleChange}
-                    />
-                    <div className="text-center col-sm-6">
-                      <button
-                        type="button"
-                        className="btn btn-primary"
-                        onClick={handleUpload}
-                        style={{ width: 80 }}
-                      >
-                        Upload
-                      </button>
-                    </div>
-                    <img
-                      src={url || "http://via.placeholder.com/100"}
-                      alt="firebase-image"
-                      className="col-sm-6"
-                    />
-                    <progress
-                      style={{ marginTop: 100 }}
-                      value={progress}
-                      max="100"
-                      className="col-sm-6"
-                    />
-                    <p>{url && "Upload success"}</p>
+      <GrAddCircle
+        style={{ cursor: "pointer" }}
+        size="30"
+        data-bs-toggle="modal"
+        data-bs-target="#modalAddPost"
+        className="me-2"
+      />
+      {/* Modal */}
+      <div
+        className="modal fade"
+        id="modalAddPost"
+        tabIndex={-1}
+        aria-labelledby="modalAddPostLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="modalAddPostLabel">
+                Post
+              </h5>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              />
+            </div>
+            <div className="modal-body">
+              <div className="container-fluid">
+                <div className="row">
+                  <input
+                    className="col-6 col-sm-6 mb-2"
+                    type="file"
+                    onChange={handleChange}
+                  />
+                  <div className="text-center col-6 col-sm-6 mb-2">
+                    <button
+                      type="button"
+                      className="btn btn-primary"
+                      onClick={handleUpload}
+                      style={{ width: 80 }}
+                    >
+                      Upload
+                    </button>
                   </div>
+                  <img
+                    src={url || "http://via.placeholder.com/500"}
+                    alt="firebase-image"
+                    className="col-sm-12 img-fluid mb-2"
+                  />
+                  <progress
+                    value={progress}
+                    max="100"
+                    className="col-sm-12 mb-2"
+                  />
+                  <p>{url && "Upload success"}</p>
                 </div>
               </div>
             </div>

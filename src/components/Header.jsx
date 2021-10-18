@@ -6,6 +6,8 @@ import ModalAddPost from "./Modal/ModalAddPost";
 import useUser from "../hooks/useUser";
 import LoggedInUserContext from "../context/LoggedInUser";
 import FirebaseContext from "../context/firebase";
+import { CgProfile } from "react-icons/cg";
+import { RiLogoutCircleRLine } from "react-icons/ri";
 
 export default function Header({ setPage, user: loggedInUser }) {
   const { user, setActiveUser } = useUser(loggedInUser?.uid);
@@ -27,7 +29,9 @@ export default function Header({ setPage, user: loggedInUser }) {
               src={logo}
               alt="Logo OnlyDog"
               width={200}
-              onClick={() => setPage("dashboard")}
+              onClick={() => {
+                setPage("dashboard");
+              }}
             />
           </a>
           <button
@@ -43,27 +47,24 @@ export default function Header({ setPage, user: loggedInUser }) {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0"></ul>
-
             <div
               className={`${fire.auth().currentUser ? "" : "d-none"} d-flex`}
             >
-              <div className="nav-item me-2 mt-2">
-                <ModalAddPost />
-              </div>
-              <div
-                className="nav-item me-2 mt-2"
-                onClick={() => setPage("profile")}
-                style={{ lineHeight: 2.5 }}
-              >
-                Profile
-              </div>
-              <div
-                className="nav-item me-2 mt-2"
+              <ModalAddPost />
+              <CgProfile
+                style={{ cursor: "pointer" }}
+                size="30"
+                className="me-4"
+                onClick={() => {
+                  setPage("profile");
+                }}
+              />
+              <RiLogoutCircleRLine
+                style={{ cursor: "pointer" }}
+                size="30"
+                className="me-2"
                 onClick={() => fire.auth().signOut()}
-                style={{ lineHeight: 2.5 }}
-              >
-                Logout
-              </div>
+              />
             </div>
             <div
               className={`${fire.auth().currentUser ? "d-none" : ""} d-flex`}

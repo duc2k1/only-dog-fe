@@ -1,6 +1,8 @@
 import React, { useState, useContext, useRef, useEffect } from "react";
 import Alert from "../Alert";
 import FirebaseContext from "../../context/firebase";
+import { BsGoogle } from "react-icons/bs";
+import { RiLoginCircleLine } from "react-icons/ri";
 
 export default function ModalLogin() {
   const { fire } = useContext(FirebaseContext);
@@ -32,14 +34,14 @@ export default function ModalLogin() {
   return (
     <div>
       <button
-        type="button"
-        className="btn btn-primary"
+        style={{ border: "none", background: "none" }}
         data-bs-toggle="modal"
         data-bs-target="#modalLogin"
         ref={ref}
       >
-        Login
+        <RiLoginCircleLine size="30" />
       </button>
+
       {/* Modal */}
       <div
         className="modal fade"
@@ -62,7 +64,7 @@ export default function ModalLogin() {
               />
             </div>
             <div className="modal-body">
-              <form onSubmit={handleLogin} method="POST" className="py-3">
+              <div className="py-3">
                 <div className="mb-3">
                   <label htmlFor="email" className="form-label">
                     Email
@@ -73,7 +75,7 @@ export default function ModalLogin() {
                     placeholder="Email@example.com"
                     onChange={({ target }) => setEmail(target.value)}
                     value={email}
-                    required
+                    minLength="6"
                     maxLength="50"
                   />
                 </div>
@@ -87,21 +89,23 @@ export default function ModalLogin() {
                     placeholder="Password (min leangth = 6)"
                     onChange={({ target }) => setPassword(target.value)}
                     value={password}
-                    required
                     minLength="6"
                     maxLength="50"
                   />
                 </div>
-                <button type="submit" className={`btn btn-primary me-2`}>
+                <button
+                  onClick={handleLogin}
+                  className={`btn btn-primary me-2`}
+                >
                   Login
                 </button>
                 <button
                   className="btn btn-outline-primary"
                   onClick={() => handleLoginWithGoogle()}
                 >
-                  Login with Google <i className="fab fa-google"></i>
+                  Login with Google <BsGoogle className="mb-1" size="19" />
                 </button>
-              </form>
+              </div>
               <Alert error={error} />
               {loading && (
                 <div className="text-center">

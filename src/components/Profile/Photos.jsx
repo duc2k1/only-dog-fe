@@ -1,15 +1,15 @@
 import React from "react";
+import Photo from "./Photo";
 
 export default function Photos() {
   return (
-    <div className="col-sm-6 col-lg-4 mb-4">
-      <div className="card">
-        <img
-          className="card-img"
-          src="https://provplan.org/wp-content/uploads/2021/07/4d4afbdc56a85edb2855b25122116f74.jpg"
-          alt=""
-        />
+    <main className="py-5">
+      <div className="row" data-masonry='{"percentPosition": true }'>
+        <Photo key="1" />
+        <Photo key="2" />
+        <Photo key="3" />
+        <Photo key="4" />
       </div>
-    </div>
+    </main>
   );
 }
