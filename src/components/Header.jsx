@@ -55,7 +55,7 @@ export default function Header({ setPage, user: loggedInUser }) {
                 role="button"
                 width="30"
                 className="me-3 rounded-circle"
-                src="https://i.imgflip.com/4/4t0m5.jpg"
+                src="https://placedog.net/500?random"
                 onClick={() => {
                   setPage("profile");
                 }}

@@ -6,9 +6,10 @@ export default function Header({ user }) {
       <div className="row p-5">
         <div className="col-md-4 text-center">
           <img
-            src="https://i.imgflip.com/4/4t0m5.jpg"
+            src="https://placedog.net/500?random"
             alt=""
             width="200"
+            height="200"
             className="rounded-circle"
             role="button"
           />

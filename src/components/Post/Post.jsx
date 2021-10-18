@@ -22,7 +22,7 @@ export default function Post() {
       <div className="card">
         <div className="d-flex">
           <img
-            src="https://provplan.org/wp-content/uploads/2021/07/4d4afbdc56a85edb2855b25122116f74.jpg"
+            src="https://placedog.net/500?random"
             alt="Avatar"
             width="40"
             className="rounded-circle m-1"
@@ -37,7 +37,7 @@ export default function Post() {
 
         <img
           className="card-img img-fluid"
-          src="https://provplan.org/wp-content/uploads/2021/07/4d4afbdc56a85edb2855b25122116f74.jpg"
+          src="https://placedog.net/500?random"
           alt="Image Post"
           style={{ borderRadius: 0 }}
         />

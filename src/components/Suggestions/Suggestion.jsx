@@ -5,9 +5,10 @@ export default function Suggestion({ name }) {
     <div className="col-4 col-sm-2 text-center mb-3">
       <img
         className="rounded-circle mb-2"
-        src="https://i.imgflip.com/4/4t0m5.jpg"
+        src="https://placedog.net/500?random"
         alt=""
         width="60"
+        height="60"
         role="button"
       />
       <div>{name}</div>

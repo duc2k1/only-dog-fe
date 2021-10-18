@@ -6,7 +6,7 @@ export default function Photo() {
       <div className="card">
         <img
           className="card-img img-fluid"
-          src="https://provplan.org/wp-content/uploads/2021/07/4d4afbdc56a85edb2855b25122116f74.jpg"
+          src="https://placedog.net/500?random"
           alt=""
         />
       </div>
