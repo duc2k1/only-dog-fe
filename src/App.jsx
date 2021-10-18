@@ -30,6 +30,10 @@ export default function App() {
           <main className="container py-5">
             <div className="row" data-masonry='{"percentPosition": true }'>
               <Post />
+              <Post />
+              <Post />
+              <Post />
+              <Post />
             </div>
           </main>
         </div>
