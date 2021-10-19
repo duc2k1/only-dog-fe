@@ -10,7 +10,7 @@ export default function Suggestion({ name }) {
         width="60"
         height="60"
         role="button"
-        style={{ objectFit: "cover" }}
+        style={{ objectFit: "cover", userSelect: "none" }}
       />
       <br />
       <small>{name}</small>

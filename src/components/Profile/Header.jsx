@@ -13,7 +13,7 @@ export default function Header({ user }) {
             height="200"
             className="rounded-circle"
             role="button"
-            style={{ objectFit: "cover" }}
+            style={{ objectFit: "cover", userSelect: "none" }}
             data-bs-toggle="modal"
             data-bs-target="#modalAvatar"
           />

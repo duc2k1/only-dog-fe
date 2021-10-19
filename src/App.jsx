@@ -41,6 +41,7 @@ const DivSpinner = styled.div`
   transform: translate(-50%, -50%);
 `;
 const Spinner = styled.img`
+  user-select: none;
   animation: spin 0.00001s linear infinite;
   @keyframes spin {
     100% {

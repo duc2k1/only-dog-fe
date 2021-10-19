@@ -26,7 +26,7 @@ export default function Post() {
           width="40"
           className="rounded-circle m-1"
           role="button"
-          style={{ objectFit: "cover" }}
+          style={{ objectFit: "cover", userSelect: "none" }}
         />
         <div>
           <small>nameeeeee</small>
@@ -38,7 +38,7 @@ export default function Post() {
         className="img-fluid"
         src="https://placedog.net/500?random"
         alt="Image Post"
-        style={{ objectFit: "cover" }}
+        style={{ objectFit: "cover", userSelect: "none" }}
       />
       <div
         className="d-flex justify-content-around m-2"

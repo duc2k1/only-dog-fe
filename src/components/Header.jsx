@@ -38,6 +38,7 @@ export default function Header({ setPage, user: loggedInUser }) {
             onClick={() => {
               setPage("dashboard");
             }}
+            style={{ userSelect: "none" }}
           />
 
           <button
@@ -89,7 +90,7 @@ export default function Header({ setPage, user: loggedInUser }) {
                 onClick={() => {
                   setPage("profile");
                 }}
-                style={{ objectFit: "cover" }}
+                style={{ objectFit: "cover", userSelect: "none" }}
               />
               <RiLogoutBoxRLine
                 role="button"

@@ -7,7 +7,7 @@ export default function Photo() {
         className="img-fluid"
         src="https://placedog.net/500?random"
         alt=""
-        style={{ objectFit: "cover" }}
+        style={{ objectFit: "cover", userSelect: "none" }}
       />
     </div>
   );

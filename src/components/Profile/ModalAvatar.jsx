@@ -81,6 +81,7 @@ export default function ModalAvatar() {
                     src={url || "http://via.placeholder.com/500"}
                     alt="firebase-image"
                     className="col-sm-12 img-fluid mb-2"
+                    style={{ userSelect: "none" }}
                   />
                   <progress
                     value={progress}
