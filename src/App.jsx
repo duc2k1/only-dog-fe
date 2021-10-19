@@ -5,7 +5,7 @@ import icon from "./assets/images/icon.svg";
 import styled from "styled-components";
 import Find from "./components/Find/Find";
 import DashBoard from "./components/Dashboard/DashBoard";
-const Header = lazy(() => import("./components/Header"));
+const Header = lazy(() => import("./components/Header/Header"));
 const Profile = lazy(() => import("./components/Profile/Profile"));
 const BackToTop = lazy(() => import("./components/BackToTop"));
 
