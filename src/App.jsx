@@ -3,10 +3,10 @@ import UserContext from "./context/User";
 import useAuthListener from "./hooks/useAuthListener";
 import icon from "./assets/images/icon.svg";
 import styled from "styled-components";
+import Find from "./components/Find/Find";
+import DashBoard from "./components/Dashboard/DashBoard";
 const Header = lazy(() => import("./components/Header"));
-const Post = lazy(() => import("./components/Post/Post"));
 const Profile = lazy(() => import("./components/Profile/Profile"));
-const Suggestions = lazy(() => import("./components/Suggestions/Suggestions"));
 const BackToTop = lazy(() => import("./components/BackToTop"));
 
 document.querySelector("#icon").setAttribute("href", icon);
@@ -25,47 +25,9 @@ export default function App() {
         }
       >
         <Header setPage={setPage} user={user} />
-        <div className={page === "dashboard" ? "" : "d-none"}>
-          <Suggestions />
-          <main className="container py-5">
-            <div className="row" data-masonry='{"percentPosition": true }'>
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-              <Post />
-            </div>
-          </main>
-        </div>
+        <DashBoard page={page} user={user} />
         <Profile page={page} user={user} />
+        <Find page={page} user={user} />
         <BackToTop />
       </Suspense>
     </UserContext.Provider>

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import ModalLogin from "./Modal/ModalLogin";
 import ModalRegister from "./Modal/ModalRegister";
 import logo from "../assets/images/logo.svg";
@@ -7,10 +7,16 @@ import useUser from "../hooks/useUser";
 import LoggedInUserContext from "../context/LoggedInUser";
 import FirebaseContext from "../context/firebase";
 import { RiLogoutBoxRLine } from "react-icons/ri";
+import { FiSearch } from "react-icons/fi";
 
 export default function Header({ setPage, user: loggedInUser }) {
   const { user, setActiveUser } = useUser(loggedInUser?.uid);
   const { fire } = useContext(FirebaseContext);
+  const [find, setFind] = useState("");
+
+  const handleFind = (val) => {
+    setPage("find");
+  };
 
   return (
     <LoggedInUserContext.Provider value={{ user, setActiveUser }}>
@@ -50,17 +56,23 @@ export default function Header({ setPage, user: loggedInUser }) {
               className="d-flex justify-content-center"
               style={{ width: "100%" }}
             >
-              <form className="form-inline d-flex">
+              <div className="d-flex">
                 <input
-                  className="form-control me-2 px-1"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
+                  className="form-control me-2 p-1"
+                  placeholder="Find user"
+                  onKeyDown={(e) => {
+                    e.key === "Enter" && handleFind(find);
+                  }}
+                  onChange={(e) => setFind(e.target.value)}
+                  value={find}
                 />
-                <button className="btn btn-outline-success px-1" type="submit">
-                  Search
+                <button
+                  onClick={() => handleFind(find)}
+                  className="btn btn-outline-primary pt-1 pb-2 px-3"
+                >
+                  <FiSearch />
                 </button>
-              </form>
+              </div>
             </div>
             <ul className="navbar-nav me-auto mb-2 mb-lg-0"></ul>
             <div

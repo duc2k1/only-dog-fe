@@ -16,6 +16,7 @@ export default function BackToTop() {
       }}
       size="30"
       role="button"
+      className="text-primary"
     />
   );
 }
