@@ -7,7 +7,7 @@ export default function BackToTop() {
   };
   return (
     <BsArrowUpCircle
-      onClick={() => handleToTop()}
+      onClick={handleToTop}
       id="btn-back-to-top"
       style={{
         position: "fixed",
@@ -16,7 +16,7 @@ export default function BackToTop() {
       }}
       size="30"
       role="button"
-      className="text-primary"
+      className="text-dark"
     />
   );
 }

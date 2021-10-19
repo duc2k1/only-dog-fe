@@ -148,7 +148,7 @@ export default function ModalRegister() {
                     autoComplete="one-time-code"
                   />
                 </div>
-                <button type="submit" className={`btn btn-primary me-2`}>
+                <button type="submit" className={`btn btn-dark me-2`}>
                   Register
                 </button>
               </form>

@@ -33,7 +33,7 @@ export default function Header({ user }) {
             </p>
           </div>
           <div className="text-center">
-            <button className="btn btn-outline-primary">Follow</button>
+            <button className="btn btn-outline-dark">Follow</button>
           </div>
         </div>
       </div>

@@ -59,7 +59,7 @@ export default function Header({ setPage, user: loggedInUser }) {
             >
               <div className="d-flex">
                 <input
-                  className="form-control me-2 p-1"
+                  className="form-control me-2 p-1 border-secondary"
                   placeholder="Find user"
                   onKeyDown={(e) => {
                     e.key === "Enter" && handleFind(find);
@@ -69,7 +69,7 @@ export default function Header({ setPage, user: loggedInUser }) {
                 />
                 <button
                   onClick={() => handleFind(find)}
-                  className="btn btn-outline-primary pt-1 pb-2 px-3"
+                  className="btn btn-outline-secondary pt-1 pb-2 px-3 text-dark"
                 >
                   <FiSearch />
                 </button>

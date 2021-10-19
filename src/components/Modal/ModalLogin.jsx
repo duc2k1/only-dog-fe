@@ -98,12 +98,12 @@ export default function ModalLogin() {
                     maxLength="50"
                   />
                 </div>
-                <button type="submit" className={`btn btn-primary me-2`}>
+                <button type="submit" className={`btn btn-dark me-2`}>
                   Login
                 </button>
                 <button
-                  className="btn btn-outline-primary"
-                  onClick={() => handleLoginWithGoogle()}
+                  className="btn btn-outline-dark"
+                  onClick={handleLoginWithGoogle}
                 >
                   Login with Google <BsGoogle className="mb-1" size="19" />
                 </button>

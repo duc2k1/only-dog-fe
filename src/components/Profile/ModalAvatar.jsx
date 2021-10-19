@@ -70,7 +70,7 @@ export default function ModalAvatar() {
                   <div className="text-center col-6 col-sm-6 mb-2">
                     <button
                       type="button"
-                      className="btn btn-outline-primary"
+                      className="btn btn-outline-dark"
                       onClick={handleUpload}
                       style={{ width: 80 }}
                     >

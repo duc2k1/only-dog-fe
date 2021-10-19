@@ -8,34 +8,44 @@ export default function ModalAddPost() {
   const [progress, setProgress] = useState(0);
 
   const handleChange = (e) => {
-    if (e.target.files[0]) {
-      setImage(e.target.files[0]);
+    if (e.target.files[0].size / 1024 / 1024 <= 0.5) {
+      if (e.target.files[0]) {
+        setImage(e.target.files[0]);
+      }
+    } else {
+      alert(
+        "This image too large, change other image: " +
+          Math.round((e.target.files[0].size / 1024 / 1024) * 100) / 100 +
+          "MB"
+      );
     }
   };
 
   const handleUpload = () => {
-    const uploadTask = storage.ref(`images/${image.name}`).put(image);
-    uploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        const progress = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
-        setProgress(progress);
-      },
-      (error) => {
-        console.log(error);
-      },
-      () => {
-        storage
-          .ref("images")
-          .child(image.name)
-          .getDownloadURL()
-          .then((url) => {
-            setUrl(url);
-          });
-      }
-    );
+    if (image) {
+      const uploadTask = storage.ref(`images/${image.name}`).put(image);
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+          setProgress(progress);
+        },
+        (error) => {
+          console.log(error);
+        },
+        () => {
+          storage
+            .ref("images")
+            .child(image.name)
+            .getDownloadURL()
+            .then((url) => {
+              setUrl(url);
+            });
+        }
+      );
+    }
   };
   return (
     <div>
@@ -65,11 +75,13 @@ export default function ModalAddPost() {
                 className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
+                onKeyDown={(e) => e.key === "Enter"}
               />
             </div>
             <div className="modal-body">
               <div className="container">
                 <div className="row">
+                  <small>Max size: 0.5MB</small>
                   <input
                     className="col-6 col-sm-6 mb-2"
                     type="file"
@@ -78,7 +90,7 @@ export default function ModalAddPost() {
                   <div className="text-center col-6 col-sm-6 mb-2">
                     <button
                       type="button"
-                      className="btn btn-outline-primary"
+                      className="btn btn-outline-dark"
                       onClick={handleUpload}
                       style={{ width: 80 }}
                     >

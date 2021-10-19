@@ -15,7 +15,7 @@ export default function Suggestion({ name }) {
       <br />
       <small>{name}</small>
       <br />
-      <button className="btn btn-outline-primary p-1">Follow</button>
+      <button className="btn btn-outline-dark p-1">Follow</button>
     </div>
   );
 }
