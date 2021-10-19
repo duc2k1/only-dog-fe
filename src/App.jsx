@@ -34,6 +34,34 @@ export default function App() {
               <Post />
               <Post />
               <Post />
+              <Post />
+              <Post />
+              <Post />
+              <Post />
+              <Post />
+              <Post />
+              <Post />
+              <Post />
+              <Post />
+              <Post />
+              <Post />
+              <Post />
+              <Post />
+              <Post />
+              <Post />
+              <Post />
+              <Post />
+              <Post />
+              <Post />
+              <Post />
+              <Post />
+              <Post />
+              <Post />
+              <Post />
+              <Post />
+              <Post />
+              <Post />
+              <Post />
             </div>
           </main>
         </div>

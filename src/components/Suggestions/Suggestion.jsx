@@ -12,7 +12,9 @@ export default function Suggestion({ name }) {
         role="button"
         style={{ objectFit: "cover" }}
       />
-      <div>{name}</div>
+      <br />
+      <small>{name}</small>
+      <br />
       <button className="btn btn-outline-primary p-1">Follow</button>
     </div>
   );

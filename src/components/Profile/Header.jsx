@@ -1,4 +1,5 @@
 import React from "react";
+import ModalAvatar from "./ModalAvatar";
 
 export default function Header({ user }) {
   return (
@@ -13,7 +14,10 @@ export default function Header({ user }) {
             className="rounded-circle"
             role="button"
             style={{ objectFit: "cover" }}
+            data-bs-toggle="modal"
+            data-bs-target="#modalAvatar"
           />
+          <ModalAvatar />
         </div>
         <div className="col-md-8" style={{ marginTop: 65 }}>
           <h3 className="text-center">{user?.name}</h3>

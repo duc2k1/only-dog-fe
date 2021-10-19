@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { RiImageAddLine } from "react-icons/ri";
 import { storage } from "../../lib/firebase";
 
-export default function ModalAddPost() {
+export default function ModalAvatar() {
   const [image, setImage] = useState(null);
   const [url, setUrl] = useState("");
   const [progress, setProgress] = useState(0);
@@ -39,26 +38,19 @@ export default function ModalAddPost() {
   };
   return (
     <div>
-      <RiImageAddLine
-        style={{ marginRight: 18 }}
-        role="button"
-        size="30"
-        data-bs-toggle="modal"
-        data-bs-target="#modalAddPost"
-      />
       {/* Modal */}
       <div
         className="modal fade"
-        id="modalAddPost"
+        id="modalAvatar"
         tabIndex={-1}
-        aria-labelledby="modalAddPostLabel"
+        aria-labelledby="modalAvatarLabel"
         aria-hidden="true"
       >
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="modalAddPostLabel">
-                Post
+              <h5 className="modal-title" id="modalAvatarLabel">
+                Update avatar
               </h5>
               <button
                 type="button"

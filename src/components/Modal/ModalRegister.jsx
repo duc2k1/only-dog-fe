@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef } from "react";
+import React, { useState, useContext } from "react";
 import Alert from "../Alert";
 import FirebaseContext from "../../context/firebase";
 import { doesNameExist } from "../../services/firebase";
@@ -12,7 +12,6 @@ export default function ModalRegister() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const ref = useRef(null);
 
   const handleRegister = async (event) => {
     event.preventDefault();
@@ -37,7 +36,7 @@ export default function ModalRegister() {
           avatar: "",
         });
         setLoading(false);
-        ref.current.click();
+        window.location.reload();
       } catch (error) {
         setEmail("");
         setError(error.message);
@@ -78,7 +77,6 @@ export default function ModalRegister() {
                 className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
-                ref={ref}
                 onKeyDown={(e) => e.key === "Esc"}
               />
             </div>
@@ -93,15 +91,15 @@ export default function ModalRegister() {
                     Name
                   </label>
                   <input
-                    required
+                    pattern="^[a-zA-Z0-9]+$"
                     type="text"
                     className="form-control"
                     placeholder="Anri Okita"
                     onChange={({ target }) => setName(target.value)}
                     value={name}
-                    required
                     maxLength="50"
                     autoComplete="one-time-code"
+                    required
                   />
                 </div>
                 <div className="mb-3">
@@ -109,7 +107,6 @@ export default function ModalRegister() {
                     Email
                   </label>
                   <input
-                    required
                     type="email"
                     className="form-control"
                     placeholder="Email@example.com"

@@ -2,7 +2,7 @@ import React, { useState, useContext, useRef, useEffect } from "react";
 import Alert from "../Alert";
 import FirebaseContext from "../../context/firebase";
 import { BsGoogle } from "react-icons/bs";
-import { RiLoginCircleLine } from "react-icons/ri";
+import { RiLoginBoxLine } from "react-icons/ri";
 
 export default function ModalLogin() {
   const { fire } = useContext(FirebaseContext);
@@ -38,7 +38,7 @@ export default function ModalLogin() {
         data-bs-toggle="modal"
         data-bs-target="#modalLogin"
       >
-        <RiLoginCircleLine size="30" />
+        <RiLoginBoxLine size="30" />
       </button>
 
       {/* Modal */}
