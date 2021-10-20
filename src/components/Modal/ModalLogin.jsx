@@ -1,11 +1,9 @@
 import React, { useState, useContext, useRef, useEffect } from "react";
 import Alert from "../Alert";
-import FirebaseContext from "../../context/firebase";
 import { BsGoogle } from "react-icons/bs";
 import { RiLoginBoxLine } from "react-icons/ri";
 
 export default function ModalLogin() {
-  const { fire } = useContext(FirebaseContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -18,17 +16,7 @@ export default function ModalLogin() {
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    try {
-      setLoading(true);
-      await fire.auth().signInWithEmailAndPassword(email, password);
-      setLoading(false);
-      ref.current.click();
-    } catch (error) {
-      setEmail("");
-      setPassword("");
-      setError(error.message);
-      setLoading(false);
-    }
+    console.log("login");
   };
 
   return (

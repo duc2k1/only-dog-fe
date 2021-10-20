@@ -1,11 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import Alert from "../Alert";
-import FirebaseContext from "../../context/firebase";
-import { doesNameExist } from "../../services/firebase";
 import { FiUserPlus } from "react-icons/fi";
 
 export default function ModalRegister() {
-  const { fire } = useContext(FirebaseContext);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,38 +12,7 @@ export default function ModalRegister() {
 
   const handleRegister = async (event) => {
     event.preventDefault();
-    setLoading(true);
-    const nameExists = await doesNameExist(name);
-    if (!nameExists) {
-      try {
-        const createdUserResult = await fire
-          .auth()
-          .createUserWithEmailAndPassword(email, password);
-        await createdUserResult.user.updateProfile({
-          displayName: name,
-        });
-        await fire.firestore().collection("users").add({
-          userId: createdUserResult.user.uid,
-          name: name.toLowerCase(),
-          email: email.toLowerCase(),
-          following: [],
-          followers: [],
-          dateCreated: Date.now(),
-          posts: [],
-          avatar: "",
-        });
-        setLoading(false);
-        window.location.reload();
-      } catch (error) {
-        setEmail("");
-        setError(error.message);
-        setLoading(false);
-      }
-    } else {
-      setName("");
-      setError("That name is already taken, please try another.");
-      setLoading(false);
-    }
+    console.log("register");
   };
 
   return (

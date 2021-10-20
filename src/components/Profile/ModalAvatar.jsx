@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { storage } from "../../lib/firebase";
 
 export default function ModalAvatar() {
   const [image, setImage] = useState(null);
@@ -13,28 +12,7 @@ export default function ModalAvatar() {
   };
 
   const handleUpload = () => {
-    const uploadTask = storage.ref(`images/${image.name}`).put(image);
-    uploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        const progress = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
-        setProgress(progress);
-      },
-      (error) => {
-        console.log(error);
-      },
-      () => {
-        storage
-          .ref("images")
-          .child(image.name)
-          .getDownloadURL()
-          .then((url) => {
-            setUrl(url);
-          });
-      }
-    );
+    console.log("upload");
   };
   return (
     <div>

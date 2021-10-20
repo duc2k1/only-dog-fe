@@ -1,22 +1,16 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import ModalLogin from "../Modal/ModalLogin";
 import ModalRegister from "../Modal/ModalRegister";
 import ModalAddPost from "../Modal/ModalAddPost";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 import Skeleton from "react-loading-skeleton";
-import FirebaseContext from "../../context/firebase";
 
 export default function Actions({ setPage }) {
-  const { fire } = useContext(FirebaseContext);
   const [loaded, setLoaded] = useState(false);
 
   return (
     <div>
-      <div
-        className={`${
-          fire.auth().currentUser ? "" : "d-none"
-        } d-flex justify-content-around`}
-      >
+      <div className={`d-flex justify-content-around`}>
         <ModalAddPost />
         <img
           role="button"
@@ -40,14 +34,10 @@ export default function Actions({ setPage }) {
         <RiLogoutBoxRLine
           role="button"
           size="30"
-          onClick={() => fire.auth().signOut()}
+          onClick={() => console.log("logout")}
         />
       </div>
-      <div
-        className={`${
-          fire.auth().currentUser ? "d-none" : ""
-        } d-flex justify-content-around`}
-      >
+      <div className={`d-flex justify-content-around`}>
         <div className="nav-item me-2 mt-2">
           <ModalRegister />
         </div>

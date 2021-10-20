@@ -1,7 +1,7 @@
 import React from "react";
 import ModalAvatar from "./ModalAvatar";
 
-export default function Header({ user }) {
+export default function Header() {
   return (
     <div>
       <div className="row p-5">
@@ -20,16 +20,16 @@ export default function Header({ user }) {
           <ModalAvatar />
         </div>
         <div className="col-md-8" style={{ marginTop: 65 }}>
-          <h3 className="text-center">{user?.name}</h3>
+          <h3 className="text-center">aaaaaaaaaa</h3>
           <div className="d-flex justify-content-around">
             <p className="me-3">
-              <b>{user?.posts?.length}</b> posts
+              <b>111</b> posts
             </p>
             <p className="me-3">
-              <b>{user?.followers?.length}</b> followers
+              <b>11</b> followers
             </p>
             <p className="me-3">
-              <b>{user?.following?.length}</b> following
+              <b>1</b> following
             </p>
           </div>
           <div className="text-center">

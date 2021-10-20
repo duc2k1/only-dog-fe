@@ -1,5 +1,4 @@
 import React, { useState, lazy, Suspense } from "react";
-import UserContext from "./context/User";
 import useAuthListener from "./hooks/useAuthListener";
 import icon from "./assets/images/icon.svg";
 import styled from "styled-components";
@@ -13,24 +12,21 @@ document.querySelector("#icon").setAttribute("href", icon);
 
 export default function App() {
   const [page, setPage] = useState("dashboard");
-  const { user } = useAuthListener();
 
   return (
-    <UserContext.Provider value={{ user }}>
-      <Suspense
-        fallback={
-          <DivSpinner>
-            <Spinner src={icon} width="100" alt="" />
-          </DivSpinner>
-        }
-      >
-        <Header setPage={setPage} user={user} />
-        <DashBoard page={page} user={user} />
-        <Profile page={page} user={user} />
-        <Find page={page} user={user} />
-        <BackToTop />
-      </Suspense>
-    </UserContext.Provider>
+    <Suspense
+      fallback={
+        <DivSpinner>
+          <Spinner src={icon} width="100" alt="" />
+        </DivSpinner>
+      }
+    >
+      <Header setPage={setPage} />
+      <DashBoard page={page} />
+      <Profile page={page} />
+      <Find page={page} />
+      <BackToTop />
+    </Suspense>
   );
 }
 
