@@ -1,10 +1,10 @@
 import React, { useState, lazy, Suspense } from "react";
-import icon from "./assets/images/icon.svg";
-import loading from "./assets/images/pixel-dog.gif";
 import styled from "styled-components";
-import Find from "./components/Find/Find";
-import DashBoard from "./components/Dashboard/DashBoard";
+import loading from "./assets/images/pixel-dog.gif";
+const icon = lazy(() => import("./assets/images/icon.svg"));
 const Header = lazy(() => import("./components/Header/Header"));
+const Find = lazy(() => import("./components/Find/Find"));
+const DashBoard = lazy(() => import("./components/Dashboard/DashBoard"));
 const Profile = lazy(() => import("./components/Profile/Profile"));
 const BackToTop = lazy(() => import("./components/BackToTop"));
 
