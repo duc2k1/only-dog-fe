@@ -1,1 +1,0 @@
-import{R as t}from"./vendor.07446040.js";import{a as e}from"./index.esm.c9816298.js";function s(){const o=()=>{document.documentElement.scrollTop=0};return t.createElement(e,{onClick:o,id:"btn-back-to-top",style:{position:"fixed",bottom:20,right:20},size:"30",role:"button",className:"text-dark"})}export{s as default};
