@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import useUser from "../../hooks/useUser";
-import LoggedInUserContext from "../../context/LoggedInUser";
 import Logo from "./Logo";
 import ButtonToggle from "./ButtonToggle";
 import Find from "./Find";

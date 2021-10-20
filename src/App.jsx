@@ -1,5 +1,4 @@
 import React, { useState, lazy, Suspense } from "react";
-import useAuthListener from "./hooks/useAuthListener";
 import icon from "./assets/images/icon.svg";
 import styled from "styled-components";
 import Find from "./components/Find/Find";
