@@ -8,7 +8,7 @@ export default function Find({ find, setFind, setPage }) {
 
   return (
     <div
-      className="d-flex justify-content-center my-2"
+      className="d-flex justify-content-center my-3"
       style={{ width: "100%" }}
     >
       <div className="d-flex">

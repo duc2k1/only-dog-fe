@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import ButtonFollow from "../ButtonFollow";
+import pixelDog from "../../assets/images/pug.jpg";
 
 export default function User() {
   const [loaded, setLoaded] = useState(false);
@@ -9,7 +10,7 @@ export default function User() {
     <div className="col-4 col-md-2 text-center mb-3">
       <img
         className="rounded-circle mb-2"
-        src="https://placedog.net/5000?random"
+        src={pixelDog}
         alt=""
         width="80"
         height="80"

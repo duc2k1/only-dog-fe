@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ButtonFollow from "../ButtonFollow";
 import ModalAvatar from "./ModalAvatar";
 import Skeleton from "react-loading-skeleton";
+import pixelDog from "../../assets/images/pug.jpg";
 
 export default function Header() {
   const [loaded, setLoaded] = useState(false);
@@ -11,7 +12,7 @@ export default function Header() {
       <div className="row p-5">
         <div className="col-md-4 text-center">
           <img
-            src="https://placedog.net/5000?random"
+            src={pixelDog}
             alt=""
             width="200"
             height="200"

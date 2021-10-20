@@ -1,22 +1,50 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { RiImageAddLine } from "react-icons/ri";
+import * as tmImage from "@teachablemachine/image";
+import placehoderImg from "../../assets/images/500.png";
+
+const URL = "https://teachablemachine.withgoogle.com/models/wNpy2osdc/";
+const modelURL = URL + "model.json";
+const metadataURL = URL + "metadata.json";
 
 export default function ModalAddPost() {
   const [image, setImage] = useState(null);
   const [url, setUrl] = useState("");
-  const [progress, setProgress] = useState(0);
+  const [isDog, setIsDog] = useState(null);
+
+  useEffect(() => {
+    isDog !== null ? (isDog ? alert("Dogggggg") : alert("Not dogggggg")) : null;
+  }, [isDog]);
 
   const handleChange = (e) => {
-    if (e.target.files[0].size / 1024 / 1024 <= 0.5) {
-      if (e.target.files[0]) {
-        setImage(e.target.files[0]);
+    const imageFile = e.target.files[0];
+    if (imageFile) {
+      if (imageFile.size / 1024 / 1024 <= 0.5) {
+        setImage(imageFile);
+        const reader = new FileReader();
+        let prediction = null;
+        reader.onloadend = function () {
+          const img = new Image();
+          img.onload = async function () {
+            const model = await tmImage.load(modelURL, metadataURL);
+            prediction = await model.predict(img);
+            if (prediction[0].probability > prediction[1].probability) {
+              setIsDog(true);
+              //uploaddddddddddddddddddddddddddddddd to server
+            } else {
+              setIsDog(false);
+            }
+          };
+          img.src = reader.result;
+        };
+        reader.readAsDataURL(imageFile);
+      } else {
+        alert(
+          "This image too large, change other image: " +
+            Math.round((e.target.files[0].size / 1024 / 1024) * 100) / 100 +
+            "MB"
+        );
       }
-    } else {
-      alert(
-        "This image too large, change other image: " +
-          Math.round((e.target.files[0].size / 1024 / 1024) * 100) / 100 +
-          "MB"
-      );
     }
   };
 
@@ -62,6 +90,7 @@ export default function ModalAddPost() {
                     className="col-6 col-sm-6 mb-2"
                     type="file"
                     onChange={handleChange}
+                    accept="image/png, image/jpg, image/jpeg, image/bmp"
                   />
                   <div className="text-center col-6 col-sm-6 mb-2">
                     <button
@@ -74,15 +103,10 @@ export default function ModalAddPost() {
                     </button>
                   </div>
                   <img
-                    src={url || "http://via.placeholder.com/500"}
+                    src={url || placehoderImg}
                     alt="firebase-image"
                     className="col-sm-12 img-fluid mb-2"
                     style={{ userSelect: "none" }}
-                  />
-                  <progress
-                    value={progress}
-                    max="100"
-                    className="col-sm-12 mb-2"
                   />
                   <p>{url && "Upload success"}</p>
                 </div>

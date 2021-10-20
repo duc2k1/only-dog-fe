@@ -1,7 +1,7 @@
 import React, { useState, lazy, Suspense } from "react";
 import styled from "styled-components";
 import loading from "./assets/images/pixel-dog.gif";
-const icon = lazy(() => import("./assets/images/icon.svg"));
+import icon from "./assets/images/icon.svg";
 const Header = lazy(() => import("./components/Header/Header"));
 const Find = lazy(() => import("./components/Find/Find"));
 const DashBoard = lazy(() => import("./components/Dashboard/DashBoard"));
@@ -38,10 +38,4 @@ const DivSpinner = styled.div`
 `;
 const Spinner = styled.img`
   user-select: none;
-  animation: spin 0.5s linear infinite;
-  @keyframes spin {
-    100% {
-      transform: rotate(360deg);
-    }
-  }
 `;

@@ -4,19 +4,20 @@ import ModalRegister from "../Modal/ModalRegister";
 import ModalAddPost from "../Modal/ModalAddPost";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 import Skeleton from "react-loading-skeleton";
+import pixelDog from "../../assets/images/pug.jpg";
 
 export default function Actions({ setPage }) {
   const [loaded, setLoaded] = useState(false);
 
   return (
     <div>
-      <div className={`d-flex justify-content-around`}>
+      <div className={`d-flex justify-content-around mb-3`}>
         <ModalAddPost />
         <img
           role="button"
           width="30"
           height="30"
-          src="https://placedog.net/5000?random"
+          src={pixelDog}
           onClick={() => {
             setPage("profile");
           }}
@@ -24,12 +25,10 @@ export default function Actions({ setPage }) {
           onLoad={() => setLoaded(true)}
           className={loaded ? "rounded-circle me-3" : "d-none"}
         />
-        <Skeleton
-          circle={true}
-          width={30}
-          height={30}
-          className={loaded ? "d-none" : "me-3 pt-2"}
-        />
+        <div className={loaded ? "d-none" : "me-3"} style={{ marginTop: -5 }}>
+          <Skeleton circle={true} width={30} height={30} />
+        </div>
+
         <RiLogoutBoxRLine
           role="button"
           size="30"
@@ -37,12 +36,8 @@ export default function Actions({ setPage }) {
         />
       </div>
       <div className={`d-flex justify-content-around`}>
-        <div className="nav-item me-2 mt-2">
-          <ModalRegister />
-        </div>
-        <div className="nav-item me-2 mt-2">
-          <ModalLogin />
-        </div>
+        <ModalRegister />
+        <ModalLogin />
       </div>
     </div>
   );

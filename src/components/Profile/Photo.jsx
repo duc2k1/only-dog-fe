@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Skeleton from "react-loading-skeleton";
+import pixelDog from "../../assets/images/pug.jpg";
 
 export default function Photo() {
   const [loaded, setLoaded] = useState(false);
@@ -7,7 +8,7 @@ export default function Photo() {
   return (
     <div className="col-sm-6 col-lg-4 mb-4">
       <img
-        src="https://placedog.net/5000?random"
+        src={pixelDog}
         alt="Image of user"
         style={{ objectFit: "cover", userSelect: "none" }}
         onLoad={() => setLoaded(true)}

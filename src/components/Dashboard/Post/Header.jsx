@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Skeleton from "react-loading-skeleton";
+import pixelDog from "../../../assets/images/pug.jpg";
 
 export default function Header() {
   const [loaded, setLoaded] = useState(false);
@@ -7,7 +8,7 @@ export default function Header() {
   return (
     <div className="d-flex">
       <img
-        src="https://placedog.net/5000?random"
+        src={pixelDog}
         alt="Avatar"
         width="40"
         height="40"
