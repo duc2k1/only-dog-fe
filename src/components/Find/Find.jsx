@@ -1,5 +1,4 @@
 import React from "react";
-import BackToTop from "../BackToTop";
 
 export default function Find({ page }) {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import Suggestion from "./Suggestion";
-import seed from "../../seed";
+import seed from "../../../seed";
 
 export default function Suggestions({ setPage }) {
   return (

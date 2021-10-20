@@ -12,6 +12,7 @@ export default function Logo({ setPage }) {
         setPage("dashboard");
       }}
       style={{ userSelect: "none" }}
+      className="my-2"
     />
   );
 }

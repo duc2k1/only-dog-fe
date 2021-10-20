@@ -1,5 +1,6 @@
 import React, { useState, lazy, Suspense } from "react";
 import icon from "./assets/images/icon.svg";
+import loading from "./assets/images/pixel-dog.gif";
 import styled from "styled-components";
 import Find from "./components/Find/Find";
 import DashBoard from "./components/Dashboard/DashBoard";
@@ -16,7 +17,7 @@ export default function App() {
     <Suspense
       fallback={
         <DivSpinner>
-          <Spinner src={icon} width="100" alt="" />
+          <Spinner src={loading} width="100" />
         </DivSpinner>
       }
     >
@@ -37,7 +38,7 @@ const DivSpinner = styled.div`
 `;
 const Spinner = styled.img`
   user-select: none;
-  animation: spin 0.00001s linear infinite;
+  animation: spin 0.5s linear infinite;
   @keyframes spin {
     100% {
       transform: rotate(360deg);

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Skeleton from "react-loading-skeleton";
-import ButtonFollow from "../ButtonFollow";
+import ButtonFollow from "../../ButtonFollow";
 
 export default function Suggestion({ setPage, name }) {
   const [loaded, setLoaded] = useState(false);

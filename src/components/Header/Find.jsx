@@ -7,7 +7,10 @@ export default function Find({ find, setFind, setPage }) {
   };
 
   return (
-    <div className="d-flex justify-content-center" style={{ width: "100%" }}>
+    <div
+      className="d-flex justify-content-center my-2"
+      style={{ width: "100%" }}
+    >
       <div className="d-flex">
         <input
           className="form-control me-2 p-1 border-secondary"
@@ -22,7 +25,7 @@ export default function Find({ find, setFind, setPage }) {
           onClick={() => handleFind(find)}
           className="btn btn-outline-secondary pt-1 pb-2 px-3 text-dark"
         >
-          <FiSearch />
+          <FiSearch size={20} />
         </button>
       </div>
     </div>
