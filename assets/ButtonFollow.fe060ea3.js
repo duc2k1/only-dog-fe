@@ -1,1 +1,0 @@
-import{r as l,R as e}from"./vendor.e0683fdb.js";function s(){const[o,t]=l.exports.useState("Follow");return e.createElement("button",{className:"btn btn-outline-dark p-1",onClick:()=>{t(o==="Following"?"Follow":"Following")}},o)}export{s as B};
