@@ -11,8 +11,8 @@ export default function User() {
         className="rounded-circle mb-2"
         src="https://placedog.net/5000?random"
         alt=""
-        width="60"
-        height="60"
+        width="80"
+        height="80"
         role="button"
         style={{ objectFit: "cover", userSelect: "none" }}
         onLoad={() => setLoaded(true)}
@@ -21,8 +21,8 @@ export default function User() {
       />
       <Skeleton
         circle={true}
-        width={60}
-        height={60}
+        width={80}
+        height={80}
         className={loaded ? "d-none" : "pt-2"}
       />
       <br />
