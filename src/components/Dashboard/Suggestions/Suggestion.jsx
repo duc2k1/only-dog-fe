@@ -9,7 +9,7 @@ export default function Suggestion({ setPage, name }) {
     <div className="col-4 col-md-2 text-center mb-3">
       <img
         className="rounded-circle mb-2"
-        src="https://placedog.net/500?random"
+        src="https://placedog.net/5000?random"
         alt=""
         width="60"
         height="60"
@@ -23,7 +23,7 @@ export default function Suggestion({ setPage, name }) {
         circle={true}
         width={60}
         height={60}
-        className={loaded ? "d-none" : ""}
+        className={loaded ? "d-none" : "pt-2"}
       />
       <br />
       <small>{name}</small>

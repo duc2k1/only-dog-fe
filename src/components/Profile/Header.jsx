@@ -1,22 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import ButtonFollow from "../ButtonFollow";
 import ModalAvatar from "./ModalAvatar";
+import Skeleton from "react-loading-skeleton";
 
 export default function Header() {
+  const [loaded, setLoaded] = useState(false);
+
   return (
     <div>
       <div className="row p-5">
         <div className="col-md-4 text-center">
           <img
-            src="https://placedog.net/500?random"
+            src="https://placedog.net/5000?random"
             alt=""
             width="200"
             height="200"
-            className="rounded-circle"
             role="button"
             style={{ objectFit: "cover", userSelect: "none" }}
             data-bs-toggle="modal"
             data-bs-target="#modalAvatar"
+            onLoad={() => setLoaded(true)}
+            className={loaded ? "rounded-circle" : "d-none"}
+          />
+          <Skeleton
+            circle={true}
+            width={200}
+            height={200}
+            className={loaded ? "d-none" : "pt-2"}
           />
           <ModalAvatar />
         </div>

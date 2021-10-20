@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <div className="d-flex">
       <img
-        src="https://placedog.net/500?random"
+        src="https://placedog.net/5000?random"
         alt="Avatar"
         width="40"
         height="40"
@@ -20,7 +20,7 @@ export default function Header() {
         circle={true}
         width={40}
         height={40}
-        className={loaded ? "d-none" : "m-1"}
+        className={loaded ? "d-none" : "m-1 pt-2"}
       />
       <div>
         <small>nameeeeee</small>

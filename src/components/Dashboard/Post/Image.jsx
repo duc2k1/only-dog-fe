@@ -9,13 +9,13 @@ export default function Image() {
       <img
         width="100%"
         height="300"
-        src="https://placedog.net/500?random"
+        src="https://placedog.net/5000?random"
         alt="Image Post"
         style={{ objectFit: "cover", userSelect: "none" }}
         onLoad={() => setLoaded(true)}
         className={loaded ? "" : "d-none"}
       />
-      <Skeleton height={300} className={loaded ? "d-none" : ""} />
+      <Skeleton height={300} className={loaded ? "d-none" : "pt-2"} />
     </>
   );
 }

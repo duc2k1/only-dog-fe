@@ -16,8 +16,7 @@ export default function Actions({ setPage }) {
           role="button"
           width="30"
           height="30"
-          className="me-3 rounded-circle"
-          src="https://placedog.net/500?random"
+          src="https://placedog.net/5000?random"
           onClick={() => {
             setPage("profile");
           }}
@@ -29,7 +28,7 @@ export default function Actions({ setPage }) {
           circle={true}
           width={30}
           height={30}
-          className={loaded ? "d-none" : "me-3"}
+          className={loaded ? "d-none" : "me-3 pt-2"}
         />
         <RiLogoutBoxRLine
           role="button"
