@@ -1,0 +1,1 @@
+import{R as t,e}from"./vendor.64284116.js";function r(){const o=()=>{document.documentElement.scrollTop=0};return t.createElement(e,{onClick:o,id:"btn-back-to-top",style:{position:"fixed",bottom:20,right:20},size:"30",role:"button",className:"text-dark"})}export{r as default};
