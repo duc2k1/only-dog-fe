@@ -26,7 +26,6 @@ export default function Suggestion({ setPage, name }) {
         height={60}
         className={loaded ? "d-none" : "pt-2"}
       />
-      <br />
       <small>{name}</small>
       <br />
       <ButtonFollow />

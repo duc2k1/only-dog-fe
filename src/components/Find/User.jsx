@@ -9,7 +9,7 @@ export default function User() {
   return (
     <div className="col-4 col-md-2 text-center mb-3">
       <img
-        className="rounded-circle mb-2"
+        className="rounded-circle"
         src={pixelDog}
         alt=""
         width="80"
@@ -26,7 +26,6 @@ export default function User() {
         height={80}
         className={loaded ? "d-none" : "pt-2"}
       />
-      <br />
       <small>dfgdfg</small>
       <br />
       <ButtonFollow />
