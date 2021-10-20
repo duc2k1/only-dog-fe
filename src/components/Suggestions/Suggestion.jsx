@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import Skeleton from "react-loading-skeleton";
+import ButtonFollow from "../ButtonFollow";
 
-export default function Suggestion({ name }) {
+export default function Suggestion({ setPage, name }) {
   const [loaded, setLoaded] = useState(false);
 
   return (
-    <div className="col-4 col-sm-2 text-center mb-3">
+    <div className="col-4 col-md-2 text-center mb-3">
       <img
         className="rounded-circle mb-2"
         src="https://placedog.net/500?random"
@@ -16,6 +17,7 @@ export default function Suggestion({ name }) {
         style={{ objectFit: "cover", userSelect: "none" }}
         onLoad={() => setLoaded(true)}
         className={loaded ? "rounded-circle" : "d-none"}
+        onClick={() => setPage("profile")}
       />
       <Skeleton
         circle={true}
@@ -26,7 +28,7 @@ export default function Suggestion({ name }) {
       <br />
       <small>{name}</small>
       <br />
-      <button className="btn btn-outline-dark p-1">Follow</button>
+      <ButtonFollow />
     </div>
   );
 }

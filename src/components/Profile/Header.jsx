@@ -1,4 +1,5 @@
 import React from "react";
+import ButtonFollow from "../ButtonFollow";
 import ModalAvatar from "./ModalAvatar";
 
 export default function Header() {
@@ -26,14 +27,14 @@ export default function Header() {
               <b>111</b> posts
             </p>
             <p className="me-3">
-              <b>11</b> followers
+              <b>11</b> Followers
             </p>
             <p className="me-3">
-              <b>1</b> following
+              <b>1</b> Following
             </p>
           </div>
           <div className="text-center">
-            <button className="btn btn-outline-dark">Follow</button>
+            <ButtonFollow />
           </div>
         </div>
       </div>

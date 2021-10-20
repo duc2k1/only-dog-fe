@@ -21,7 +21,7 @@ export default function App() {
       }
     >
       <Header setPage={setPage} />
-      <DashBoard page={page} />
+      <DashBoard setPage={setPage} page={page} />
       <Profile page={page} />
       <Find page={page} />
       <BackToTop />
