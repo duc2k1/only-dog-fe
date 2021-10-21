@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { RiImageAddLine } from "react-icons/ri";
 import * as tmImage from "@teachablemachine/image";
-import placehoderImg from "../../assets/images/500.png";
+import placehoderImg from "../../assets/images/grey.jpg";
 
 const URL = "https://teachablemachine.withgoogle.com/models/wNpy2osdc/";
 const modelURL = URL + "model.json";

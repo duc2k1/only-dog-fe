@@ -22,9 +22,13 @@ export default function App() {
       }
     >
       <Header setPage={setPage} />
-      <DashBoard setPage={setPage} page={page} />
-      <Profile page={page} />
-      <Find page={page} />
+      {page === "dashboard" ? (
+        <DashBoard setPage={setPage} />
+      ) : page === "profile" ? (
+        <Profile />
+      ) : (
+        <Find />
+      )}
       <BackToTop />
     </Suspense>
   );

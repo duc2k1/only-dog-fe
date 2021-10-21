@@ -10,18 +10,14 @@
   "dependencies": {
     "@teachablemachine/image": "^0.8.5",
     "@tensorflow/tfjs": "^3.9.0",
-    "canvas": "^2.8.0",
-    "firebase": "^9.1.3",
-    "json-loader": "^0.5.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
     "react-infinite-scroll-component": "^6.1.0",
-    "react-loading-skeleton": "^3.0.0",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
-    "@types/react": "^17.0.30",
+    "@types/react": "^17.0.31",
     "@types/react-dom": "^17.0.10",
     "@vitejs/plugin-react": "^1.0.5",
     "gh-pages": "^3.2.3",

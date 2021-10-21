@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import ButtonFollow from "../ButtonFollow";
 import ModalAvatar from "./ModalAvatar";
-import Skeleton from "react-loading-skeleton";
-import pixelDog from "../../assets/images/pug.jpg";
+import Placeholder from "../Placeholder";
 
 export default function Header() {
   const [loaded, setLoaded] = useState(false);
@@ -12,7 +11,7 @@ export default function Header() {
       <div className="row p-5">
         <div className="col-md-4 text-center">
           <img
-            src={pixelDog}
+            src="https://picsum.photos/3000"
             alt=""
             width="200"
             height="200"
@@ -23,12 +22,8 @@ export default function Header() {
             onLoad={() => setLoaded(true)}
             className={loaded ? "rounded-circle" : "d-none"}
           />
-          <Skeleton
-            circle={true}
-            width={200}
-            height={200}
-            className={loaded ? "d-none" : "pt-2"}
-          />
+          {!loaded && <Placeholder rounded={true} width={200} height={200} />}
+
           <ModalAvatar />
         </div>
         <div className="col-md-8" style={{ marginTop: 65 }}>

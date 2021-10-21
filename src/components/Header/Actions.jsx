@@ -3,8 +3,7 @@ import ModalLogin from "../Modal/ModalLogin";
 import ModalRegister from "../Modal/ModalRegister";
 import ModalAddPost from "../Modal/ModalAddPost";
 import { RiLogoutBoxRLine } from "react-icons/ri";
-import Skeleton from "react-loading-skeleton";
-import pixelDog from "../../assets/images/pug.jpg";
+import greyImg from "../../assets/images/grey.jpg";
 
 export default function Actions({ setPage }) {
   const [loaded, setLoaded] = useState(false);
@@ -17,7 +16,7 @@ export default function Actions({ setPage }) {
           role="button"
           width="30"
           height="30"
-          src={pixelDog}
+          src="https://picsum.photos/3000"
           onClick={() => {
             setPage("profile");
           }}
@@ -25,9 +24,15 @@ export default function Actions({ setPage }) {
           onLoad={() => setLoaded(true)}
           className={loaded ? "rounded-circle me-3" : "d-none"}
         />
-        <div className={loaded ? "d-none" : "me-3"} style={{ marginTop: -5 }}>
-          <Skeleton circle={true} width={30} height={30} />
-        </div>
+
+        {!loaded && (
+          <img
+            className="rounded-circle me-3"
+            src={greyImg}
+            height={30}
+            width={30}
+          />
+        )}
 
         <RiLogoutBoxRLine
           role="button"

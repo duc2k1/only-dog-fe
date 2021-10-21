@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import Skeleton from "react-loading-skeleton";
-import pixelDog from "../../../assets/images/pug.jpg";
+import Placeholder from "../../Placeholder";
 
 export default function Header() {
   const [loaded, setLoaded] = useState(false);
@@ -8,21 +7,21 @@ export default function Header() {
   return (
     <div className="d-flex">
       <img
-        src={pixelDog}
+        src="https://picsum.photos/3000"
         alt="Avatar"
         width="40"
         height="40"
         role="button"
         style={{ objectFit: "cover", userSelect: "none" }}
         onLoad={() => setLoaded(true)}
-        className={loaded ? "rounded-circle m-1" : "d-none"}
+        className={loaded ? "rounded-circle me-1 my-1" : "d-none"}
       />
-      <Skeleton
-        circle={true}
-        width={40}
-        height={40}
-        className={loaded ? "d-none" : "m-1 pt-2"}
-      />
+      {!loaded && (
+        <div className="me-1 my-1">
+          <Placeholder rounded={true} width={40} height={40} />
+        </div>
+      )}
+
       <div>
         <small>nameeeeee</small>
         <br />

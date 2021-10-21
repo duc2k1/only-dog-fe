@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import Skeleton from "react-loading-skeleton";
+import Placeholder from "../Placeholder";
 import ButtonFollow from "../ButtonFollow";
-import pixelDog from "../../assets/images/pug.jpg";
 
 export default function User() {
   const [loaded, setLoaded] = useState(false);
@@ -10,7 +9,7 @@ export default function User() {
     <div className="col-4 col-md-2 text-center mb-3">
       <img
         className="rounded-circle"
-        src={pixelDog}
+        src="https://picsum.photos/3000"
         alt=""
         width="80"
         height="80"
@@ -20,12 +19,8 @@ export default function User() {
         className={loaded ? "rounded-circle" : "d-none"}
         onClick={() => setPage("profile")}
       />
-      <Skeleton
-        circle={true}
-        width={80}
-        height={80}
-        className={loaded ? "d-none" : "pt-2"}
-      />
+      {!loaded && <Placeholder rounded={true} width={80} height={80} />}
+      <br />
       <small>dfgdfg</small>
       <br />
       <ButtonFollow />
