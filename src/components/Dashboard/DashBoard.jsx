@@ -1,46 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import Suggestions from "./Suggestions/Suggestions";
 import Post from "./Post/Post";
 
-export default function DashBoard({ setPage }) {
+export default function DashBoard() {
   return (
     <div>
-      <Suggestions setPage={setPage} />
+      <Suggestions />
       <main className="container py-5">
         <div className="row" data-masonry='{"percentPosition": true }'>
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
-          <Post setPage={setPage} />
+          <Post />
+          <Post />
+          <Post />
         </div>
       </main>
     </div>

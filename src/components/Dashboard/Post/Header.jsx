@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { AppContext } from "../../../contexts/AppProvider";
 import Placeholder from "../../Placeholder";
 
-export default function Header({ setPage }) {
+export default function Header() {
   const [loaded, setLoaded] = useState(false);
+  const { setPage } = useContext(AppContext);
 
   return (
     <div className="d-flex">

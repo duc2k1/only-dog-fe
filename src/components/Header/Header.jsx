@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Logo from "./Logo";
 import ButtonToggle from "./ButtonToggle";
 import Find from "./Find";
-import Actions from "./Actions";
+import Actions from "./Actions/Actions";
+import { AppContext } from "../../contexts/AppProvider";
 
-export default function Header({ setPage, user: loggedInUser }) {
+export default function Header() {
   const [find, setFind] = useState("");
 
   return (
@@ -12,17 +13,16 @@ export default function Header({ setPage, user: loggedInUser }) {
       style={{
         position: "sticky",
         top: 0,
-        zIndex: 1051,
         background: "white",
       }}
       className="navbar navbar-expand-md navbar-light"
     >
       <div className="container">
-        <Logo setPage={setPage} />
+        <Logo />
         <ButtonToggle />
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <Find find={find} setFind={setFind} setPage={setPage} />
-          <Actions setPage={setPage} />
+          <Find find={find} setFind={setFind} />
+          <Actions />
         </div>
       </div>
     </nav>

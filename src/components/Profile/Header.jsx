@@ -23,7 +23,6 @@ export default function Header() {
             className={loaded ? "rounded-circle" : "d-none"}
           />
           {!loaded && <Placeholder rounded={true} width={200} height={200} />}
-
           <ModalAvatar />
         </div>
         <div className="col-md-8" style={{ marginTop: 65 }}>

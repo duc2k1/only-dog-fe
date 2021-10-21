@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { AppContext } from "../../../contexts/AppProvider";
 import ButtonFollow from "../../ButtonFollow";
 import Placeholder from "../../Placeholder";
 
-export default function Suggestion({ setPage, name }) {
+export default function Suggestion({ name, openModal, setOpenModal }) {
   const [loaded, setLoaded] = useState(false);
+  const { setPage } = useContext(AppContext);
 
   return (
     <div className="col-4 col-md-2 text-center mb-3">

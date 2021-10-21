@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FiSearch } from "react-icons/fi";
+import { AppContext } from "../../contexts/AppProvider";
 
-export default function Find({ find, setFind, setPage }) {
+export default function Find({ find, setFind }) {
+  const { setPage } = useContext(AppContext);
+
   const handleFind = (val) => {
     setPage("find");
   };

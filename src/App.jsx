@@ -1,7 +1,9 @@
-import React, { useState, lazy, Suspense } from "react";
+import React, { useContext, lazy, Suspense } from "react";
 import styled from "styled-components";
 import loading from "./assets/images/pixel-dog.gif";
 import icon from "./assets/images/icon.svg";
+import { AppContext } from "./contexts/AppProvider";
+import { Alert } from "react-bootstrap";
 const Header = lazy(() => import("./components/Header/Header"));
 const Find = lazy(() => import("./components/Find/Find"));
 const DashBoard = lazy(() => import("./components/Dashboard/DashBoard"));
@@ -11,7 +13,7 @@ const BackToTop = lazy(() => import("./components/BackToTop"));
 document.querySelector("#icon").setAttribute("href", icon);
 
 export default function App() {
-  const [page, setPage] = useState("dashboard");
+  const { page } = useContext(AppContext);
 
   return (
     <Suspense
@@ -21,9 +23,9 @@ export default function App() {
         </DivSpinner>
       }
     >
-      <Header setPage={setPage} />
+      <Header />
       {page === "dashboard" ? (
-        <DashBoard setPage={setPage} />
+        <DashBoard />
       ) : page === "profile" ? (
         <Profile />
       ) : (
