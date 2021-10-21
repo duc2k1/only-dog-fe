@@ -43,6 +43,7 @@ export default function ModalRegister() {
                 placeholder="Anri Okita"
                 onChange={({ target }) => setName(target.value)}
                 value={name}
+                minLength="6"
                 maxLength="50"
                 autoComplete="one-time-code"
                 required
@@ -58,12 +59,12 @@ export default function ModalRegister() {
                 placeholder="Email@example.com"
                 onChange={({ target }) => setEmail(target.value)}
                 value={email}
-                required
+                minLength="6"
                 maxLength="50"
                 autoComplete="one-time-code"
               />
             </div>
-            <div className="mb-3">
+            <form method="POST" className="mb-3">
               <label htmlFor="password" className="form-label">
                 Password
               </label>
@@ -78,7 +79,7 @@ export default function ModalRegister() {
                 maxLength="50"
                 autoComplete="one-time-code"
               />
-            </div>
+            </form>
             <div className="mb-3">
               <label htmlFor="confirmPassword" className="form-label">
                 Confirm Password
@@ -94,8 +95,11 @@ export default function ModalRegister() {
                 autoComplete="one-time-code"
               />
             </div>
-            <button type="submit" className={`btn btn-dark me-2`}>
+            <button type="submit" className="btn btn-dark me-2">
               Register
+            </button>
+            <button type="button" className="btn btn-dark float-end">
+              Login
             </button>
           </form>
         </Modal.Body>

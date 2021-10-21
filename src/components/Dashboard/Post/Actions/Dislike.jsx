@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { AiOutlineDislike } from "react-icons/ai";
 import { AiFillDislike } from "react-icons/ai";
+import { AppContext } from "../../../../contexts/AppProvider";
 //--------------------------------------------------
 export default function Dislike({ like, setLike, dislike, setDislike }) {
+  const { setShowModalLogin } = useContext(AppContext);
+  //--------------------------------------------------
   const handleSetDislike = () => {
-    dislike ? setDislike(!dislike) : setDislike(true);
-    like && setLike(!like);
+    setShowModalLogin(true);
+    console.log("dislike");
   };
   //--------------------------------------------------
   return (

@@ -62,7 +62,7 @@ export default function ModalLogin() {
                 maxLength="50"
               />
             </div>
-            <button type="submit" className={`btn btn-dark me-2`}>
+            <button type="submit" className="btn btn-dark me-2">
               Login
             </button>
             <button
@@ -71,6 +71,7 @@ export default function ModalLogin() {
             >
               Login with Google <BsGoogle className="mb-1" size="19" />
             </button>
+            <button className="btn btn-dark float-end">Register</button>
           </form>
         </Modal.Body>
       </Modal>

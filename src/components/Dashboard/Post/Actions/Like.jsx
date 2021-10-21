@@ -4,12 +4,11 @@ import { AiOutlineLike } from "react-icons/ai";
 import { AppContext } from "../../../../contexts/AppProvider";
 //--------------------------------------------------
 export default function Like({ like, setLike, dislike, setDislike }) {
-  const handleSetLike = () => {
-    like ? setLike(!like) : setLike(true);
-    dislike && setDislike(!dislike);
-  };
-  const { setOpenModal } = useContext(AppContext);
+  const { setShowModalLogin } = useContext(AppContext);
   //--------------------------------------------------
+  const handleSetLike = () => {
+    setShowModalLogin(true);
+  };
   return (
     <div onClick={handleSetLike}>
       <small>25</small>
@@ -17,14 +16,12 @@ export default function Like({ like, setLike, dislike, setDislike }) {
         size="25"
         role="button"
         className={like ? "d-none" : ""}
-        onClick={() => setOpenModal("login")}
         style={{ marginBottom: 10 }}
       />
       <AiFillLike
         size="25"
         role="button"
         className={like ? "" : "d-none"}
-        onClick={() => setOpenModal("login")}
         style={{ marginBottom: 10 }}
       />
     </div>
