@@ -9,7 +9,7 @@ export default function Suggestion({ setPage, name }) {
     <div className="col-4 col-md-2 text-center mb-3">
       <img
         className="rounded-circle mb-2"
-        src="https://picsum.photos/3000"
+        src="https://picsum.photos/1000"
         alt=""
         width="60"
         height="60"

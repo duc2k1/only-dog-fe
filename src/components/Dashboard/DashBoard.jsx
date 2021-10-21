@@ -8,39 +8,39 @@ export default function DashBoard({ setPage }) {
       <Suggestions setPage={setPage} />
       <main className="container py-5">
         <div className="row" data-masonry='{"percentPosition": true }'>
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
+          <Post setPage={setPage} />
         </div>
       </main>
     </div>

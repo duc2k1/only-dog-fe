@@ -7,7 +7,7 @@ export default function Photo() {
   return (
     <div className="col-sm-6 col-lg-4 mb-4">
       <img
-        src="https://picsum.photos/3000"
+        src="https://picsum.photos/1000"
         alt="Image of user"
         style={{ objectFit: "cover", userSelect: "none" }}
         onLoad={() => setLoaded(true)}

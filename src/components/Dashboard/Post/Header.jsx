@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import Placeholder from "../../Placeholder";
 
-export default function Header() {
+export default function Header({ setPage }) {
   const [loaded, setLoaded] = useState(false);
 
   return (
     <div className="d-flex">
       <img
-        src="https://picsum.photos/3000"
+        src="https://picsum.photos/1000"
         alt="Avatar"
         width="40"
         height="40"
@@ -15,6 +15,7 @@ export default function Header() {
         style={{ objectFit: "cover", userSelect: "none" }}
         onLoad={() => setLoaded(true)}
         className={loaded ? "rounded-circle me-1 my-1" : "d-none"}
+        onClick={() => setPage("profile")}
       />
       {!loaded && (
         <div className="me-1 my-1">

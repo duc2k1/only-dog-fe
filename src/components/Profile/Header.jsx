@@ -11,7 +11,7 @@ export default function Header() {
       <div className="row p-5">
         <div className="col-md-4 text-center">
           <img
-            src="https://picsum.photos/3000"
+            src="https://picsum.photos/1000"
             alt=""
             width="200"
             height="200"

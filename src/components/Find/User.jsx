@@ -9,7 +9,7 @@ export default function User() {
     <div className="col-4 col-md-2 text-center mb-3">
       <img
         className="rounded-circle"
-        src="https://picsum.photos/3000"
+        src="https://picsum.photos/1000"
         alt=""
         width="80"
         height="80"

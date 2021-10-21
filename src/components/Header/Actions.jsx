@@ -16,7 +16,7 @@ export default function Actions({ setPage }) {
           role="button"
           width="30"
           height="30"
-          src="https://picsum.photos/3000"
+          src="https://picsum.photos/1000"
           onClick={() => {
             setPage("profile");
           }}
