@@ -1,15 +1,16 @@
-import React, { useState } from "react";
-import ModalLogin from "../../Modal/ModalLogin";
-import ModalRegister from "../../Modal/ModalRegister";
-import ModalAddPost from "../../Modal/ModalAddPost";
+import React, { useState, lazy, Suspense } from "react";
 import { RiLogoutBoxRLine } from "react-icons/ri";
-import AvatarUser from "./AvatarUser";
+//--------------------------------------------------
+const ModalLogin = lazy(() => import("../../Modal/ModalLogin"));
+const ModalRegister = lazy(() => import("../../Modal/ModalRegister"));
+const ModalAddPost = lazy(() => import("../../Modal/ModalAddPost"));
+const AvatarUser = lazy(() => import("./AvatarUser"));
 //--------------------------------------------------
 export default function Actions() {
   const [isLogin, setIsLogin] = useState(false);
   //--------------------------------------------------
   return (
-    <>
+    <Suspense fallback={<></>}>
       <div className={!isLogin ? "d-none" : "d-flex justify-content-around"}>
         <ModalLogin />
         <ModalRegister />
@@ -23,6 +24,6 @@ export default function Actions() {
           onClick={() => setIsLogin(true)}
         />
       </div>
-    </>
+    </Suspense>
   );
 }
