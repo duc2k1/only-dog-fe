@@ -4,10 +4,10 @@ import ModalRegister from "../../Modal/ModalRegister";
 import ModalAddPost from "../../Modal/ModalAddPost";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 import AvatarUser from "./AvatarUser";
-
+//--------------------------------------------------
 export default function Actions() {
   const [isLogin, setIsLogin] = useState(false);
-
+  //--------------------------------------------------
   return (
     <>
       <div className={!isLogin ? "d-none" : "d-flex justify-content-around"}>

@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import greyImg from "../../../assets/images/grey.jpg";
 import { AppContext } from "../../../contexts/AppProvider";
-
+//--------------------------------------------------
 export default function AvatarUser() {
   const [loaded, setLoaded] = useState(false);
   const { setPage } = useContext(AppContext);
-
+  //--------------------------------------------------
   return (
     <div>
       <img

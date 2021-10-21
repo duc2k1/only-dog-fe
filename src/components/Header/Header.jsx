@@ -1,30 +1,29 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import Logo from "./Logo";
-import ButtonToggle from "./ButtonToggle";
 import Find from "./Find";
 import Actions from "./Actions/Actions";
-import { AppContext } from "../../contexts/AppProvider";
-
+import { Navbar, Container } from "react-bootstrap";
+//--------------------------------------------------
 export default function Header() {
   const [find, setFind] = useState("");
-
+  //--------------------------------------------------
   return (
-    <nav
+    <Navbar
+      expand="md"
       style={{
         position: "sticky",
         top: 0,
         background: "white",
       }}
-      className="navbar navbar-expand-md navbar-light"
     >
-      <div className="container">
+      <Container>
         <Logo />
-        <ButtonToggle />
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
           <Find find={find} setFind={setFind} />
           <Actions />
-        </div>
-      </div>
-    </nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }

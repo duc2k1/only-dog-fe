@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import { FiUserPlus } from "react-icons/fi";
 import { AppContext } from "../../contexts/AppProvider";
-import { Modal, Button } from "react-bootstrap";
-
+import { Modal } from "react-bootstrap";
+//------------------------------------------------------------------------------
 export default function ModalRegister() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -10,16 +10,15 @@ export default function ModalRegister() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const { openModal, setOpenModal } = useContext(AppContext);
-  const [showModalRegister, setShowModalRegister] = useState(false);
+  const { showModalRegister, setShowModalRegister } = useContext(AppContext);
+  //-----------------------------------------------------------------------------
   const handleClose = () => setShowModalRegister(false);
   const handleShow = () => setShowModalRegister(true);
-
   const handleRegister = async (event) => {
     event.preventDefault();
     console.log("register");
   };
-
+  //--------------------------------------------------
   return (
     <div>
       <FiUserPlus role="button" size="30" onClick={handleShow} />

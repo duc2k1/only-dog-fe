@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import { AppContext } from "../../../contexts/AppProvider";
 import Placeholder from "../../Placeholder";
-
+//-----------------------------------------------------------
 export default function Header() {
   const [loaded, setLoaded] = useState(false);
   const { setPage } = useContext(AppContext);
-
+  //-----------------------------------------------------------
   return (
     <div className="d-flex">
       <img
@@ -24,9 +24,10 @@ export default function Header() {
           <Placeholder rounded={true} width={40} height={40} />
         </div>
       )}
-
       <div>
-        <small>nameeeeee</small>
+        <small>
+          <b>nameeeeee</b>
+        </small>
         <br />
         <small className="text-muted">1/10/2001</small>
       </div>

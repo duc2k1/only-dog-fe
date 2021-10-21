@@ -1,10 +1,11 @@
 import React from "react";
 import { BsArrowUpCircle } from "react-icons/bs";
-
+//--------------------------------------------------
 export default function BackToTop() {
   const handleToTop = () => {
     document.documentElement.scrollTop = 0;
   };
+  //--------------------------------------------------
   return (
     <BsArrowUpCircle
       onClick={handleToTop}

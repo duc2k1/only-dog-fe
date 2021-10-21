@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import logo from "../../assets/images/logo.svg";
 import { AppContext } from "../../contexts/AppProvider";
-
+//--------------------------------------------------
 export default function Logo() {
   const { setPage } = useContext(AppContext);
-
+  //--------------------------------------------------
   return (
     <img
       role="button"

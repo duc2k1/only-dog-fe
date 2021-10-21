@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Placeholder from "../Placeholder";
-
+//--------------------------------------------------
 export default function Photo() {
   const [loaded, setLoaded] = useState(false);
-
+  //--------------------------------------------------
   return (
     <div className="col-sm-6 col-lg-4 mb-4">
       <img

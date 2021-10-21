@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Placeholder from "../Placeholder";
 import ButtonFollow from "../ButtonFollow";
-
+import { AppContext } from "../../contexts/AppProvider";
+//--------------------------------------------------
 export default function User() {
   const [loaded, setLoaded] = useState(false);
-
+  const { setPage } = useContext(AppContext);
+  //--------------------------------------------------
   return (
     <div className="col-4 col-md-2 text-center mb-3">
       <img

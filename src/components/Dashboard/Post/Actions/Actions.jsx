@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import Dislike from "./Dislike";
 import Like from "./Like";
+//--------------------------------------------------
 
 export default function Actions() {
   const [like, setLike] = useState(null);
   const [dislike, setDislike] = useState(null);
+  //--------------------------------------------------
 
   return (
     <div

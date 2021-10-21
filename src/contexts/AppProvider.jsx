@@ -1,17 +1,24 @@
 import React, { memo, useState, createContext } from "react";
-
+//--------------------------------------------------------------
 export const AppContext = createContext();
+//-----------------------------------------------------------
 export default memo(function AppProvider({ children }) {
-  const [openModal, setOpenModal] = useState(null);
   const [page, setPage] = useState("dashboard");
-
+  const [showModalRegister, setShowModalRegister] = useState(false);
+  const [showModalLogin, setShowModalLogin] = useState(false);
+  const [showAddPost, setShowAddPost] = useState(false);
+  //-----------------------------------------------------------
   return (
     <AppContext.Provider
       value={{
-        openModal,
-        setOpenModal,
         page,
         setPage,
+        showModalRegister,
+        setShowModalRegister,
+        showModalLogin,
+        setShowModalLogin,
+        showAddPost,
+        setShowAddPost,
       }}
     >
       {children}

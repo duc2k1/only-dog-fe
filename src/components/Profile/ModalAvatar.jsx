@@ -1,78 +1,75 @@
 import React, { useState } from "react";
-
+import { Modal } from "react-bootstrap";
+import Placeholder from "../Placeholder";
+import placehoderImg from "../../assets/images/grey.jpg";
+//--------------------------------------------------
 export default function ModalAvatar() {
   const [image, setImage] = useState(null);
   const [url, setUrl] = useState("");
   const [progress, setProgress] = useState(0);
-
+  const [show, setShow] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+  //--------------------------------------------------
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const handleChange = (e) => {
     if (e.target.files[0]) {
       setImage(e.target.files[0]);
     }
   };
-
   const handleUpload = () => {
     console.log("upload");
   };
+  //--------------------------------------------------
   return (
-    <div>
-      {/* Modal */}
-      <div
-        className="modal fade"
-        id="modalAvatar"
-        tabIndex={-1}
-        aria-labelledby="modalAvatarLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog modal-dialog-centered">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="modalAvatarLabel">
-                Change avatar
-              </h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
+    <>
+      <img
+        src="https://picsum.photos/1000"
+        alt=""
+        width="200"
+        height="200"
+        role="button"
+        style={{ objectFit: "cover", userSelect: "none" }}
+        onClick={() => handleShow()}
+        onLoad={() => setLoaded(true)}
+        className={loaded ? "rounded-circle" : "d-none"}
+      />
+      {!loaded && <Placeholder rounded={true} width={200} height={200} />}
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Change avatar</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div className="container">
+            <div className="row">
+              <small>Max size: 0.5MB</small>
+              <input
+                className="col-6 col-sm-6 mb-2"
+                type="file"
+                onChange={handleChange}
+                accept="image/png, image/jpg, image/jpeg, image/bmp"
               />
-            </div>
-            <div className="modal-body">
-              <div className="container">
-                <div className="row">
-                  <input
-                    className="col-6 col-sm-6 mb-2"
-                    type="file"
-                    onChange={handleChange}
-                  />
-                  <div className="text-center col-6 col-sm-6 mb-2">
-                    <button
-                      type="button"
-                      className="btn btn-outline-dark"
-                      onClick={handleUpload}
-                      style={{ width: 80 }}
-                    >
-                      Upload
-                    </button>
-                  </div>
-                  <img
-                    src={url || "http://via.placeholder.com/500"}
-                    alt="firebase-image"
-                    className="col-sm-12 img-fluid mb-2"
-                    style={{ userSelect: "none" }}
-                  />
-                  <progress
-                    value={progress}
-                    max="100"
-                    className="col-sm-12 mb-2"
-                  />
-                  <p>{url && "Upload success"}</p>
-                </div>
+              <div className="text-center col-6 col-sm-6 mb-2">
+                <button
+                  type="button"
+                  className="btn btn-outline-dark"
+                  onClick={handleUpload}
+                  style={{ width: 80 }}
+                >
+                  Upload
+                </button>
               </div>
+              <img
+                src={url || placehoderImg}
+                alt="firebase-image"
+                className="col-sm-12 img-fluid mb-2"
+                style={{ userSelect: "none" }}
+              />
+              <p>{url && "Upload success"}</p>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+        </Modal.Body>
+      </Modal>
+    </>
   );
 }

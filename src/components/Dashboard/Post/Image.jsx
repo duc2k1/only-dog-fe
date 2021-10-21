@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import greyImg from "../../../assets/images/grey.jpg";
-
+//--------------------------------------------------
 export default function Image() {
   const [loaded, setLoaded] = useState(false);
-
+  //--------------------------------------------------
   return (
     <>
       <img

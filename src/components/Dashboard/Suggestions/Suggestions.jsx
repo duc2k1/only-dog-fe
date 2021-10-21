@@ -1,8 +1,9 @@
 import React from "react";
 import Suggestion from "./Suggestion";
 import seed from "../../../seed";
-
+//--------------------------------------------------
 export default function Suggestions({ openModal, setOpenModal }) {
+  //--------------------------------------------------
   return (
     <div className="container mt-4">
       <div className="row">
