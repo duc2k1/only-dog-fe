@@ -14,23 +14,33 @@ export default function Actions() {
     setStateAccessToken(accessToken);
   }, [accessToken, setStateAccessToken]);
   //--------------------------------------------------
-  return stateAccessToken ? (
-    <div className="d-flex justify-content-around">
-      <ModalAddPost />
-      <AvatarUser />
-      <RiLogoutBoxRLine
-        role="button"
-        size="30"
-        onClick={() => {
-          setStateAccessToken(null);
-          localStorage.removeItem("accessToken");
-        }}
-      />
-    </div>
-  ) : (
-    <div className="d-flex justify-content-around">
-      <ModalLogin />
-      <ModalRegister />
+  return (
+    <div>
+      <div
+        className={
+          stateAccessToken ? "d-flex justify-content-around" : "d-none"
+        }
+      >
+        <ModalAddPost />
+        <AvatarUser />
+        <RiLogoutBoxRLine
+          role="button"
+          size="30"
+          onClick={() => {
+            setStateAccessToken(null);
+            localStorage.removeItem("accessToken");
+          }}
+        />
+      </div>
+
+      <div
+        className={
+          stateAccessToken ? "d-none" : "d-flex justify-content-around"
+        }
+      >
+        <ModalLogin />
+        <ModalRegister />
+      </div>
     </div>
   );
 }

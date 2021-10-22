@@ -1,17 +1,24 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AiFillLike } from "react-icons/ai";
 import { AiOutlineLike } from "react-icons/ai";
 import { AppContext } from "../../../../contexts/AppProvider";
 //--------------------------------------------------
 export default function Like({ like, setLike, dislike, setDislike }) {
-  const { setShowModalLogin } = useContext(AppContext);
+  const { setShowModalLogin, stateAccessToken } = useContext(AppContext);
+  const [numberOfLike, setNumberOfLike] = useState(0);
   //--------------------------------------------------
   const handleSetLike = () => {
-    setShowModalLogin(true);
+    !stateAccessToken && setShowModalLogin(true);
+    numberOfLike === 0
+      ? setNumberOfLike(numberOfLike + 1)
+      : setNumberOfLike(numberOfLike - 1);
+    setLike(!like);
+    dislike && setDislike(!dislike);
+    console.log("set like");
   };
   return (
-    <div onClick={handleSetLike}>
-      <small>25</small>
+    <div onClick={() => handleSetLike()}>
+      <small>{numberOfLike}</small>
       <AiOutlineLike
         size="25"
         role="button"
