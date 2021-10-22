@@ -63,7 +63,12 @@ export default function ModalAddPost() {
         size="30"
         onClick={handleShow}
       />
-      <Modal show={showAddPost} onHide={handleClose}>
+      <Modal
+        show={showAddPost}
+        onHide={handleClose}
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
         <Modal.Header closeButton>
           <Modal.Title>Add Post</Modal.Title>
         </Modal.Header>

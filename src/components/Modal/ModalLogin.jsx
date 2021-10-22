@@ -9,7 +9,8 @@ export default function ModalLogin() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const { showModalLogin, setShowModalLogin } = useContext(AppContext);
+  const { showModalLogin, setShowModalLogin, setShowModalRegister } =
+    useContext(AppContext);
   //----------------------------------------------------------------
   const handleClose = () => setShowModalLogin(false);
   const handleShow = () => setShowModalLogin(true);
@@ -20,17 +21,25 @@ export default function ModalLogin() {
     event.preventDefault();
     console.log("login");
   };
+  const handleOpenRegister = () => {
+    setShowModalLogin(false);
+    setShowModalRegister(true);
+  };
   //----------------------------------------------------------------
   return (
     <div className="me-3">
       <RiLoginBoxLine role="button" size="30" onClick={handleShow} />
-      <Modal show={showModalLogin} onHide={handleClose}>
+      <Modal
+        show={showModalLogin}
+        onHide={handleClose}
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
         <Modal.Header closeButton>
           <Modal.Title>Login</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form
-            onSubmit={handleLogin}
+          <div
             onKeyDown={(e) => e.key === "Enter" && handleLogin}
             className="py-3"
           >
@@ -62,7 +71,11 @@ export default function ModalLogin() {
                 maxLength="50"
               />
             </div>
-            <button type="submit" className="btn btn-dark me-2">
+            <button
+              type="submit"
+              className="btn btn-dark me-2"
+              onSubmit={handleLogin}
+            >
               Login
             </button>
             <button
@@ -71,8 +84,13 @@ export default function ModalLogin() {
             >
               Login with Google <BsGoogle className="mb-1" size="19" />
             </button>
-            <button className="btn btn-dark float-end">Register</button>
-          </form>
+            <button
+              className="btn btn-dark float-end"
+              onClick={handleOpenRegister}
+            >
+              Register
+            </button>
+          </div>
         </Modal.Body>
       </Modal>
     </div>

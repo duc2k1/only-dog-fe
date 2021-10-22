@@ -10,7 +10,8 @@ export default function ModalRegister() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const { showModalRegister, setShowModalRegister } = useContext(AppContext);
+  const { showModalRegister, setShowModalRegister, setShowModalLogin } =
+    useContext(AppContext);
   //-----------------------------------------------------------------------------
   const handleClose = () => setShowModalRegister(false);
   const handleShow = () => setShowModalRegister(true);
@@ -18,17 +19,25 @@ export default function ModalRegister() {
     event.preventDefault();
     console.log("register");
   };
+  const handleOpenLogin = () => {
+    setShowModalRegister(false);
+    setShowModalLogin(true);
+  };
   //--------------------------------------------------
   return (
     <div>
       <FiUserPlus role="button" size="30" onClick={handleShow} />
-      <Modal show={showModalRegister} onHide={handleClose}>
+      <Modal
+        show={showModalRegister}
+        onHide={handleClose}
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
         <Modal.Header closeButton>
           <Modal.Title>Register</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form
-            onSubmit={handleRegister}
+          <div
             onKeyDown={(e) => e.key === "Enter" && handleRegister}
             className="py-3"
           >
@@ -95,13 +104,21 @@ export default function ModalRegister() {
                 autoComplete="one-time-code"
               />
             </div>
-            <button type="submit" className="btn btn-dark me-2">
+            <button
+              type="submit"
+              className="btn btn-dark me-2"
+              onSubmit={handleRegister}
+            >
               Register
             </button>
-            <button type="button" className="btn btn-dark float-end">
+            <button
+              type="button"
+              className="btn btn-dark float-end"
+              onClick={handleOpenLogin}
+            >
               Login
             </button>
-          </form>
+          </div>
         </Modal.Body>
       </Modal>
     </div>

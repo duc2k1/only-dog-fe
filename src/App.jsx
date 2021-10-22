@@ -16,13 +16,7 @@ export default function App() {
   const { page } = useContext(AppContext);
   //--------------------------------------------------
   return (
-    <Suspense
-      fallback={
-        <Loading>
-          <Spinner src={loading} width="100" />
-        </Loading>
-      }
-    >
+    <Suspense fallback={<Loading src={loading} width="100" />}>
       <Header />
       {page === "dashboard" ? (
         <DashBoard />
@@ -36,12 +30,10 @@ export default function App() {
   );
 }
 //--------------------------------------------------
-const Loading = styled.div`
+const Loading = styled.img`
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-`;
-const Spinner = styled.img`
   user-select: none;
 `;
