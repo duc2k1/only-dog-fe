@@ -7,6 +7,7 @@ export default memo(function AppProvider({ children }) {
   const [showModalRegister, setShowModalRegister] = useState(false);
   const [showModalLogin, setShowModalLogin] = useState(false);
   const [showAddPost, setShowAddPost] = useState(false);
+  const [stateAccessToken, setStateAccessToken] = useState(true);
   //-----------------------------------------------------------
   return (
     <AppContext.Provider
@@ -19,6 +20,8 @@ export default memo(function AppProvider({ children }) {
         setShowModalLogin,
         showAddPost,
         setShowAddPost,
+        stateAccessToken,
+        setStateAccessToken,
       }}
     >
       {children}

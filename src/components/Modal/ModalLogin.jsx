@@ -8,8 +8,12 @@ export default function ModalLogin() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const { showModalLogin, setShowModalLogin, setShowModalRegister } =
-    useContext(AppContext);
+  const {
+    showModalLogin,
+    setShowModalLogin,
+    setShowModalRegister,
+    setStateAccessToken,
+  } = useContext(AppContext);
   //----------------------------------------------------------------
   const handleClose = () => setShowModalLogin(false);
   const handleShow = () => setShowModalLogin(true);
@@ -33,6 +37,7 @@ export default function ModalLogin() {
         localStorage.setItem("accessToken", JSON.stringify(data.accessToken));
         setLoading(false);
         setShowModalLogin(false);
+        setStateAccessToken(data.accessToken);
       })
       .catch((error) => {
         setError(error.toString());

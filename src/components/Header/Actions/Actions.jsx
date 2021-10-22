@@ -1,29 +1,33 @@
-import React, { useState, lazy, Suspense } from "react";
+import React, { useContext } from "react";
 import { RiLogoutBoxRLine } from "react-icons/ri";
-//--------------------------------------------------
 import ModalLogin from "../../Modal/ModalLogin";
 import ModalRegister from "../../Modal/ModalRegister";
 import ModalAddPost from "../../Modal/ModalAddPost";
 import AvatarUser from "./AvatarUser";
+import { AppContext } from "../../../contexts/AppProvider";
+//--------------------------------------------------
+const accessToken = JSON.parse(localStorage.getItem("accessToken"));
 //--------------------------------------------------
 export default function Actions() {
-  const [isLogin, setIsLogin] = useState(false);
+  const { stateAccessToken, setStateAccessToken } = useContext(AppContext);
   //--------------------------------------------------
-  return (
-    <>
-      <div className={!isLogin ? "d-none" : "d-flex justify-content-around"}>
-        <ModalLogin />
-        <ModalRegister />
-      </div>
-      <div className={!isLogin ? "d-flex justify-content-around" : "d-none"}>
-        <ModalAddPost />
-        <AvatarUser />
-        <RiLogoutBoxRLine
-          role="button"
-          size="30"
-          onClick={() => setIsLogin(true)}
-        />
-      </div>
-    </>
+  return stateAccessToken ? (
+    <div className="d-flex justify-content-around">
+      <ModalAddPost />
+      <AvatarUser />
+      <RiLogoutBoxRLine
+        role="button"
+        size="30"
+        onClick={() => {
+          setStateAccessToken(accessToken);
+          localStorage.removeItem("accessToken");
+        }}
+      />
+    </div>
+  ) : (
+    <div className="d-flex justify-content-around">
+      <ModalLogin />
+      <ModalRegister />
+    </div>
   );
 }
