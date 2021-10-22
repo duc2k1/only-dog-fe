@@ -23,14 +23,11 @@ export default function ModalAddPost() {
   }, [isDog]);
   //------------------------------------------------------------
   const handleChange = (event) => {
-    console.log("change img");
     setFile(event.target.files[0]);
   };
-  const handleUpload = (event) => {
-    console.log("upload");
+  const handleUpload = () => {
     setLoading(true);
-    const imageFile = file;
-    if (imageFile) {
+    if (file) {
       if (imageFile.size / 1024 / 1024 <= 0.5) {
         setImage(imageFile);
         const reader = new FileReader();
@@ -59,6 +56,8 @@ export default function ModalAddPost() {
             "MB"
         );
       }
+    } else {
+      setLoading(false);
     }
   };
   const handleClose = () => setShowAddPost(false);
@@ -87,7 +86,7 @@ export default function ModalAddPost() {
               />
             </Form.Group>
             {loading ? (
-              <Button variant="primary" disabled>
+              <Button disabled>
                 <Spinner
                   as="span"
                   animation="grow"
@@ -98,13 +97,7 @@ export default function ModalAddPost() {
                 Loading...
               </Button>
             ) : (
-              <button
-                type="button"
-                className="btn btn-primary"
-                onClick={handleUpload}
-              >
-                Upload
-              </button>
+              <Button onClick={handleUpload}>Upload</Button>
             )}
           </div>
           <img
