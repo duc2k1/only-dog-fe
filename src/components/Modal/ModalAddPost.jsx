@@ -13,7 +13,7 @@ export default function ModalAddPost() {
   const [image, setImage] = useState(null);
   const [url, setUrl] = useState("");
   const [isDog, setIsDog] = useState(null);
-  const [showAddPost, setShowAddPost] = useState();
+  const [showModalAddPost, setShowModalAddPost] = useState();
   const [error, setError] = useState();
   const [file, setFile] = useState();
   const [loading, setLoading] = useState(false);
@@ -60,8 +60,8 @@ export default function ModalAddPost() {
       setLoading(false);
     }
   };
-  const handleClose = () => setShowAddPost(false);
-  const handleShow = () => setShowAddPost(true);
+  const handleClose = () => setShowModalAddPost(false);
+  const handleShow = () => setShowModalAddPost(true);
   //-------------------------------------------------------------
   return (
     <>
@@ -71,7 +71,7 @@ export default function ModalAddPost() {
         size="30"
         onClick={handleShow}
       />
-      <Modal show={showAddPost} onHide={handleClose}>
+      <Modal show={showModalAddPost} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Add Post</Modal.Title>
         </Modal.Header>

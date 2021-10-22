@@ -38,7 +38,7 @@ export default function ModalRegister() {
         data.success ? setError(null) : setError(data.message);
         localStorage.setItem("accessToken", JSON.stringify(data.accessToken));
         setLoading(false);
-        setShowModalLogin(false);
+        setShowModalRegister(false);
         setStateAccessToken(data.accessToken);
       })
       .catch((error) => {
