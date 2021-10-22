@@ -1,14 +1,35 @@
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import ButtonFollow from "../ButtonFollow";
-import ModalAvatar from "./ModalAvatar";
+import ModalImage from "../ModalImage";
+import Placeholder from "../Placeholder";
+import avatar from "../../assets/images/avatarDefault.png";
 //--------------------------------------------------
 export default memo(function Header() {
+  const [loaded, setLoaded] = useState(false);
   //--------------------------------------------------
   return (
     <div>
       <div className="row p-5">
         <div className="col-md-4 text-center">
-          <ModalAvatar />
+          <ModalImage
+            component={
+              <>
+                <img
+                  src={avatar}
+                  alt=""
+                  width="200"
+                  height="200"
+                  role="button"
+                  style={{ objectFit: "cover", userSelect: "none" }}
+                  onLoad={() => setLoaded(true)}
+                  className={loaded ? "rounded-circle" : "d-none"}
+                />
+                {!loaded && (
+                  <Placeholder rounded={true} width={200} height={200} />
+                )}
+              </>
+            }
+          />
         </div>
         <div className="col-md-8" style={{ marginTop: 65 }}>
           <h3 className="text-center">aaaaaaaaaa</h3>

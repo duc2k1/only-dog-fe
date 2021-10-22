@@ -1,7 +1,7 @@
 import React, { useState, useEffect, memo } from "react";
 import { RiImageAddLine } from "react-icons/ri";
 import * as tmImage from "@teachablemachine/image";
-import placehoderImg from "../../assets/images/grey.jpg";
+import placehoderImg from "../assets/images/grey.jpg";
 import { Modal } from "react-bootstrap";
 import { Alert, Form, Button, Spinner } from "react-bootstrap";
 //----------------------------------------------------------
@@ -9,9 +9,8 @@ const URL = "https://teachablemachine.withgoogle.com/models/wNpy2osdc/";
 const modelURL = URL + "model.json";
 const metadataURL = URL + "metadata.json";
 //----------------------------------------------------------
-export default memo(function ModalAddPost() {
+export default memo(function ModalImage({ component }) {
   const [image, setImage] = useState(null);
-  const [url, setUrl] = useState("");
   const [isDog, setIsDog] = useState(null);
   const [showModalAddPost, setShowModalAddPost] = useState();
   const [error, setError] = useState();
@@ -65,15 +64,10 @@ export default memo(function ModalAddPost() {
   //-------------------------------------------------------------
   return (
     <>
-      <RiImageAddLine
-        style={{ marginRight: 18 }}
-        role="button"
-        size="30"
-        onClick={handleShow}
-      />
+      <div onClick={handleShow}>{component}</div>
       <Modal show={showModalAddPost} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Add Post</Modal.Title>
+          <Modal.Title>Image</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <small>Max size: 0.5MB</small>

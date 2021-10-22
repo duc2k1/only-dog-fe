@@ -7,6 +7,8 @@ export default memo(function AppProvider({ children }) {
   const [showModalRegister, setShowModalRegister] = useState(false);
   const [showModalLogin, setShowModalLogin] = useState(false);
   const [showModalAddPost, setShowModalAddPost] = useState(false);
+  const [showModalUpdateAvatar, setShowModalUpdateAvatar] = useState(false);
+  const [showModalImage, setShowModalImage] = useState(false);
   const [stateAccessToken, setStateAccessToken] = useState(true);
   //-----------------------------------------------------------
   return (
@@ -22,6 +24,10 @@ export default memo(function AppProvider({ children }) {
         setShowModalAddPost,
         stateAccessToken,
         setStateAccessToken,
+        showModalUpdateAvatar,
+        setShowModalUpdateAvatar,
+        showModalImage,
+        setShowModalImage,
       }}
     >
       {children}
