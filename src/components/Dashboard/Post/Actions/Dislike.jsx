@@ -8,13 +8,14 @@ export default function Dislike({ like, setLike, dislike, setDislike }) {
   const [numberOfDislike, setNumberOfDislike] = useState(0);
   //--------------------------------------------------
   const handleSetDislike = () => {
-    !stateAccessToken && setShowModalLogin(true);
-    numberOfDislike === 0
-      ? setNumberOfDislike(numberOfDislike + 1)
-      : setNumberOfDislike(numberOfDislike - 1);
-    setDislike(!dislike);
-    like && setLike(!like);
-    console.log("set dislike");
+    if (stateAccessToken) {
+      numberOfDislike === 0
+        ? setNumberOfDislike(numberOfDislike + 1)
+        : setNumberOfDislike(numberOfDislike - 1);
+      setDislike(!dislike);
+      like && setLike(!like);
+      console.log("set dislike");
+    } else setShowModalLogin(true);
   };
   //--------------------------------------------------
   return (

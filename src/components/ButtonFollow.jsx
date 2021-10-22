@@ -8,7 +8,7 @@ export default function ButtonFollow() {
   return (
     <div
       role="button"
-      className={statusFollow === "Follow" ? "p-1" : "p-1 text-primary"}
+      className={statusFollow === "Follow" ? "p-1 text-primary" : "p-1 "}
       onClick={() => {
         statusFollow === "Following"
           ? setStatusFollow("Follow")
