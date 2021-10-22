@@ -17,9 +17,8 @@ export default function ModalLogin() {
   //----------------------------------------------------------------
   const handleClose = () => setShowModalLogin(false);
   const handleShow = () => setShowModalLogin(true);
-  const handleLogin = (e) => {
-    e.preventDefault();
-    console.log(email, password);
+  const handleLogin = (event) => {
+    event.preventDefault();
     setLoading(true);
     fetch("http://localhost:5500/api/auth/login", {
       method: "POST",
@@ -50,8 +49,13 @@ export default function ModalLogin() {
   };
   //----------------------------------------------------------------
   return (
-    <div className="me-3">
-      <RiLoginBoxLine role="button" size="30" onClick={handleShow} />
+    <>
+      <RiLoginBoxLine
+        role="button"
+        size="30"
+        onClick={handleShow}
+        className="me-3"
+      />
       <Modal
         show={showModalLogin}
         onHide={handleClose}
@@ -121,6 +125,6 @@ export default function ModalLogin() {
           </Form>
         </Modal.Body>
       </Modal>
-    </div>
+    </>
   );
 }

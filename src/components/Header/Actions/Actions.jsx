@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 import ModalLogin from "../../Modal/ModalLogin";
 import ModalRegister from "../../Modal/ModalRegister";
@@ -10,6 +10,9 @@ const accessToken = JSON.parse(localStorage.getItem("accessToken"));
 //--------------------------------------------------
 export default function Actions() {
   const { stateAccessToken, setStateAccessToken } = useContext(AppContext);
+  useEffect(() => {
+    setStateAccessToken(accessToken);
+  }, [accessToken, setStateAccessToken]);
   //--------------------------------------------------
   return stateAccessToken ? (
     <div className="d-flex justify-content-around">
@@ -19,7 +22,7 @@ export default function Actions() {
         role="button"
         size="30"
         onClick={() => {
-          setStateAccessToken(accessToken);
+          setStateAccessToken(null);
           localStorage.removeItem("accessToken");
         }}
       />
