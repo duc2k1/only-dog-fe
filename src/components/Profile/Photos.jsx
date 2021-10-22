@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import Photo from "./Photo";
 //--------------------------------------------------
-export default function Photos() {
+export default memo(function Photos() {
   //--------------------------------------------------
   return (
     <main className="py-5">
@@ -13,4 +13,4 @@ export default function Photos() {
       </div>
     </main>
   );
-}
+});

@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, memo } from "react";
 import Placeholder from "../Placeholder";
 import ButtonFollow from "../ButtonFollow";
 import { AppContext } from "../../contexts/AppProvider";
 //--------------------------------------------------
-export default function User() {
+export default memo(function User() {
   const [loaded, setLoaded] = useState(false);
   const { setPage } = useContext(AppContext);
   //--------------------------------------------------
@@ -28,4 +28,4 @@ export default function User() {
       <ButtonFollow />
     </div>
   );
-}
+});

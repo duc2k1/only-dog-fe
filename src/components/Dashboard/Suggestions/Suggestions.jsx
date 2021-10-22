@@ -1,8 +1,8 @@
-import React from "react";
+import React, { memo } from "react";
 import Suggestion from "./Suggestion";
 import seed from "../../../seed";
 //--------------------------------------------------
-export default function Suggestions({ openModal, setOpenModal }) {
+export default memo(function Suggestions({ openModal, setOpenModal }) {
   //--------------------------------------------------
   return (
     <div className="container mt-4">
@@ -18,4 +18,4 @@ export default function Suggestions({ openModal, setOpenModal }) {
       </div>
     </div>
   );
-}
+});

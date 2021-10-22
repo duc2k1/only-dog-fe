@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, memo } from "react";
 import logo from "../../assets/images/logo.svg";
 import { AppContext } from "../../contexts/AppProvider";
 //--------------------------------------------------
-export default function Logo() {
+export default memo(function Logo() {
   const { setPage } = useContext(AppContext);
   //--------------------------------------------------
   return (
@@ -18,4 +18,4 @@ export default function Logo() {
       className="my-2"
     />
   );
-}
+});

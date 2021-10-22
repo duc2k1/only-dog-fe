@@ -1,7 +1,7 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, memo } from "react";
 import { AppContext } from "../contexts/AppProvider";
 //--------------------------------------------------
-export default function ButtonFollow() {
+export default memo(function ButtonFollow() {
   const [statusFollow, setStatusFollow] = useState("Follow");
   const { setShowModalLogin, stateAccessToken } = useContext(AppContext);
   //--------------------------------------------------
@@ -25,4 +25,4 @@ export default function ButtonFollow() {
       {statusFollow}
     </div>
   );
-}
+});

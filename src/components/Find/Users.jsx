@@ -1,8 +1,8 @@
-import React from "react";
+import React, { memo } from "react";
 import User from "./User";
 import seed from "../../seed";
 //--------------------------------------------------
-export default function Users() {
+export default memo(function Users() {
   //--------------------------------------------------
   return (
     <div className="container mt-4">
@@ -13,4 +13,4 @@ export default function Users() {
       </div>
     </div>
   );
-}
+});

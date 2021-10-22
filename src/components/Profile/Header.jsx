@@ -1,8 +1,8 @@
-import React from "react";
+import React, { memo } from "react";
 import ButtonFollow from "../ButtonFollow";
 import ModalAvatar from "./ModalAvatar";
 //--------------------------------------------------
-export default function Header() {
+export default memo(function Header() {
   //--------------------------------------------------
   return (
     <div>
@@ -30,4 +30,4 @@ export default function Header() {
       </div>
     </div>
   );
-}
+});

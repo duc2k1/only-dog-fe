@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import { Modal } from "react-bootstrap";
 import Placeholder from "../Placeholder";
 import placehoderImg from "../../assets/images/grey.jpg";
 //--------------------------------------------------
-export default function ModalAvatar() {
+export default memo(function ModalAvatar() {
   const [image, setImage] = useState(null);
   const [url, setUrl] = useState("");
   const [progress, setProgress] = useState(0);
@@ -72,4 +72,4 @@ export default function ModalAvatar() {
       </Modal>
     </>
   );
-}
+});

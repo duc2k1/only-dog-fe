@@ -1,9 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, memo } from "react";
 import { AiFillLike } from "react-icons/ai";
 import { AiOutlineLike } from "react-icons/ai";
 import { AppContext } from "../../../../contexts/AppProvider";
 //--------------------------------------------------
-export default function Like({ like, setLike, dislike, setDislike }) {
+export default memo(function Like({ like, setLike, dislike, setDislike }) {
   const { setShowModalLogin, stateAccessToken } = useContext(AppContext);
   const [numberOfLike, setNumberOfLike] = useState(0);
   //--------------------------------------------------
@@ -34,4 +34,4 @@ export default function Like({ like, setLike, dislike, setDislike }) {
       />
     </div>
   );
-}
+});

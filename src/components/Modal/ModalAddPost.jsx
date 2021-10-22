@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, memo } from "react";
 import { RiImageAddLine } from "react-icons/ri";
 import * as tmImage from "@teachablemachine/image";
 import placehoderImg from "../../assets/images/grey.jpg";
@@ -9,7 +9,7 @@ const URL = "https://teachablemachine.withgoogle.com/models/wNpy2osdc/";
 const modelURL = URL + "model.json";
 const metadataURL = URL + "metadata.json";
 //----------------------------------------------------------
-export default function ModalAddPost() {
+export default memo(function ModalAddPost() {
   const [image, setImage] = useState(null);
   const [url, setUrl] = useState("");
   const [isDog, setIsDog] = useState(null);
@@ -111,4 +111,4 @@ export default function ModalAddPost() {
       </Modal>
     </>
   );
-}
+});

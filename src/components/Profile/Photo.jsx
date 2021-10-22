@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import Placeholder from "../Placeholder";
 //--------------------------------------------------
-export default function Photo() {
+export default memo(function Photo() {
   const [loaded, setLoaded] = useState(false);
   //--------------------------------------------------
   return (
@@ -18,4 +18,4 @@ export default function Photo() {
       {!loaded && <Placeholder height={300} />}
     </div>
   );
-}
+});

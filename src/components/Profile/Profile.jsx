@@ -1,8 +1,8 @@
-import React from "react";
+import React, { memo } from "react";
 import Header from "./Header";
 import Photos from "./Photos";
 //--------------------------------------------------
-export default function Profile() {
+export default memo(function Profile() {
   //--------------------------------------------------
   return (
     <div className="container">
@@ -10,4 +10,4 @@ export default function Profile() {
       <Photos />
     </div>
   );
-}
+});

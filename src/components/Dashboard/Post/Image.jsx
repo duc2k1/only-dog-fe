@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import greyImg from "../../../assets/images/grey.jpg";
 //--------------------------------------------------
-export default function Image() {
+export default memo(function Image() {
   const [loaded, setLoaded] = useState(false);
   //--------------------------------------------------
   return (
@@ -18,4 +18,4 @@ export default function Image() {
       {!loaded && <img src={greyImg} height={300} width="100%" />}
     </>
   );
-}
+});

@@ -1,11 +1,11 @@
-import React, { useState, lazy, Suspense } from "react";
+import React, { useState, memo } from "react";
 import Logo from "./Logo";
 import { Navbar, Container } from "react-bootstrap";
 //--------------------------------------------------
 import Find from "./Find";
 import Actions from "./Actions/Actions";
 //--------------------------------------------------
-export default function Header() {
+export default memo(function Header() {
   const [find, setFind] = useState("");
   //--------------------------------------------------
   return (
@@ -27,4 +27,4 @@ export default function Header() {
       </Container>
     </Navbar>
   );
-}
+});

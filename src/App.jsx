@@ -1,4 +1,4 @@
-import React, { useContext, lazy, Suspense } from "react";
+import React, { useContext, lazy, Suspense, memo } from "react";
 import styled from "styled-components";
 import loading from "./assets/images/pixel-dog.gif";
 import icon from "./assets/images/icon.svg";
@@ -12,7 +12,7 @@ const BackToTop = lazy(() => import("./components/BackToTop"));
 //--------------------------------------------------
 document.querySelector("#icon").setAttribute("href", icon);
 //--------------------------------------------------
-export default function App() {
+export default memo(function App() {
   const { page } = useContext(AppContext);
   //--------------------------------------------------
   return (
@@ -28,7 +28,7 @@ export default function App() {
       <BackToTop />
     </Suspense>
   );
-}
+});
 //--------------------------------------------------
 const Loading = styled.img`
   position: absolute;

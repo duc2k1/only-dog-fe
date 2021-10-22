@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, memo } from "react";
 import { AppContext } from "../../../contexts/AppProvider";
 import Placeholder from "../../Placeholder";
 //-----------------------------------------------------------
-export default function Header() {
+export default memo(function Header() {
   const [loaded, setLoaded] = useState(false);
   const { setPage } = useContext(AppContext);
   //-----------------------------------------------------------
@@ -33,4 +33,4 @@ export default function Header() {
       </div>
     </div>
   );
-}
+});

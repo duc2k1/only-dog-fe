@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, memo } from "react";
 import { RiLoginBoxLine } from "react-icons/ri";
 import { AppContext } from "../../contexts/AppProvider";
 import { Modal, Form, Button, Alert, Spinner } from "react-bootstrap";
 //----------------------------------------------------------------
-export default function ModalLogin() {
+export default memo(function ModalLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -127,4 +127,4 @@ export default function ModalLogin() {
       </Modal>
     </>
   );
-}
+});
