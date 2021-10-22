@@ -28,8 +28,8 @@ export default function ModalAddPost() {
   const handleUpload = () => {
     setLoading(true);
     if (file) {
-      if (imageFile.size / 1024 / 1024 <= 0.5) {
-        setImage(imageFile);
+      if (file.size / 1024 / 1024 <= 0.5) {
+        setImage(file);
         const reader = new FileReader();
         let prediction = null;
         reader.onloadend = function () {
@@ -47,7 +47,7 @@ export default function ModalAddPost() {
           };
           img.src = reader.result;
         };
-        reader.readAsDataURL(imageFile);
+        reader.readAsDataURL(file);
       } else {
         setLoading(false);
         alert(
