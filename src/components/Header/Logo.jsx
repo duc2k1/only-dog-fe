@@ -16,6 +16,7 @@ export default memo(function Logo() {
       }}
       style={{ userSelect: "none" }}
       className="my-2"
+      title="Tất nhiên là trừ thằng admin ra, ahihi :33"
     />
   );
 });

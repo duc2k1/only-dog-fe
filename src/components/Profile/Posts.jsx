@@ -1,15 +1,15 @@
 import React, { memo } from "react";
-import Photo from "./Photo";
+import Post from "./Post";
+import postsOfUser from "../../seeds/postsOfUser.json";
 //--------------------------------------------------
-export default memo(function Photos() {
+export default memo(function Posts() {
   //--------------------------------------------------
   return (
     <main className="py-5">
       <div className="row" data-masonry='{"percentPosition": true }'>
-        <Photo key="1" />
-        <Photo key="2" />
-        <Photo key="3" />
-        <Photo key="4" />
+        {postsOfUser.posts.map((val) => (
+          <Post key={val._id} dataPost={val} />
+        ))}
       </div>
     </main>
   );
