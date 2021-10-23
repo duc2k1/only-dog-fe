@@ -1,15 +1,18 @@
 import React, { memo } from "react";
 import Suggestion from "./Suggestion";
-import seed from "../../../seed";
+import suggestionUsers from "../../../seeds/suggestionUsers.json";
+import { sortDescendingBasedOnFollowers } from "../../../helpers/commonFunctions";
+//--------------------------------------------------
+const dataSugUser = sortDescendingBasedOnFollowers(suggestionUsers.users);
 //--------------------------------------------------
 export default memo(function Suggestions({ openModal, setOpenModal }) {
   //--------------------------------------------------
   return (
     <div className="container mt-4">
       <div className="row">
-        {seed.slice(0, 6).map((val) => (
+        {dataSugUser.map((val) => (
           <Suggestion
-            key={val.uid}
+            key={val._id}
             name={val.name}
             openModal={openModal}
             setOpenModal={setOpenModal}
