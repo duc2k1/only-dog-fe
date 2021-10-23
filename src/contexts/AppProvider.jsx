@@ -1,8 +1,5 @@
 import React, { memo, useState, createContext } from "react";
-import postsOfUser from "../seeds/postsOfUser.json";
 import dataUser from "../seeds/dataUser.json";
-import usersFind from "../seeds/usersFind.json";
-import usersSuggestion from "../seeds/usersSuggestion.json";
 //-----------------------------------------------------------
 export default memo(function AppProvider({ children }) {
   const [page, setPage] = useState("dashboard");

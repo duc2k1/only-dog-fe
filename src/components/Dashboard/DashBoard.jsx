@@ -21,7 +21,7 @@ export default memo(function DashBoard() {
     }
     setTimeout(() => {
       setStatePostsUserFollow(
-        postsUserFollow.posts.slice(0, posts.length + PER_PAGE)
+        postsUserFollow.posts.slice(0, statePostsUserFollow.length + PER_PAGE)
       );
     }, 700);
     console.log(PER_PAGE);
