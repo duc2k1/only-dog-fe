@@ -3,6 +3,7 @@ import { FiUserPlus } from "react-icons/fi";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { AppContext } from "../../contexts/AppProvider";
 import { Modal, Form, Button, Alert, Spinner } from "react-bootstrap";
+import SpinnerBootstrap from "../SpinnerBootstrap";
 //------------------------------------------------------------------------------
 export default memo(function ModalRegister() {
   const [name, setName] = useState("");
@@ -125,13 +126,7 @@ export default memo(function ModalRegister() {
             <div className="d-flex justify-content-between">
               {loading ? (
                 <Button variant="primary" disabled>
-                  <Spinner
-                    as="span"
-                    animation="grow"
-                    size="sm"
-                    role="status"
-                    aria-hidden="true"
-                  />
+                  <SpinnerBootstrap />
                   Loading...
                 </Button>
               ) : (

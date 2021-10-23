@@ -3,6 +3,7 @@ import { RiLoginBoxLine } from "react-icons/ri";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { AppContext } from "../../contexts/AppProvider";
 import { Modal, Form, Button, Alert, Spinner } from "react-bootstrap";
+import SpinnerBootstrap from "../SpinnerBootstrap";
 //----------------------------------------------------------------
 export default memo(function ModalLogin() {
   const [email, setEmail] = useState("");
@@ -99,13 +100,7 @@ export default memo(function ModalLogin() {
             <div className="d-flex justify-content-between">
               {loading ? (
                 <Button variant="primary" disabled>
-                  <Spinner
-                    as="span"
-                    animation="grow"
-                    size="sm"
-                    role="status"
-                    aria-hidden="true"
-                  />
+                  <SpinnerBootstrap />
                   Loading...
                 </Button>
               ) : (

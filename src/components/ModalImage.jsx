@@ -5,6 +5,7 @@ import { Modal } from "react-bootstrap";
 import { Alert, Form, Button, Spinner } from "react-bootstrap";
 import { AuthContext } from "../contexts/AuthProvider";
 import { AppContext } from "../contexts/AppProvider";
+import SpinnerBootstrap from "./SpinnerBootstrap";
 //----------------------------------------------------------
 const URL = "https://teachablemachine.withgoogle.com/models/wNpy2osdc/";
 const modelURL = URL + "model.json";
@@ -86,13 +87,7 @@ export default memo(function ModalImage({ component }) {
             </Form.Group>
             {loading ? (
               <Button disabled>
-                <Spinner
-                  as="span"
-                  animation="grow"
-                  size="sm"
-                  role="status"
-                  aria-hidden="true"
-                />
+                <SpinnerBootstrap />
                 Loading...
               </Button>
             ) : (
