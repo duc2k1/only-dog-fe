@@ -1,13 +1,13 @@
-import React from "react";
+import React, { memo } from "react";
 import Header from "./Header";
-import Photos from "./Photos";
+import Posts from "./Posts";
 //--------------------------------------------------
-export default function Profile() {
+export default memo(function Profile() {
   //--------------------------------------------------
   return (
     <div className="container">
       <Header />
-      <Photos />
+      <Posts />
     </div>
   );
-}
+});

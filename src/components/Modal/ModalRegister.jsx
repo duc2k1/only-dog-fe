@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, memo } from "react";
 import { FiUserPlus } from "react-icons/fi";
 import { AppContext } from "../../contexts/AppProvider";
 import { Modal, Form, Button, Alert, Spinner } from "react-bootstrap";
 //------------------------------------------------------------------------------
-export default function ModalRegister() {
+export default memo(function ModalRegister() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -38,7 +38,7 @@ export default function ModalRegister() {
         data.success ? setError(null) : setError(data.message);
         localStorage.setItem("accessToken", JSON.stringify(data.accessToken));
         setLoading(false);
-        setShowModalLogin(false);
+        setShowModalRegister(false);
         setStateAccessToken(data.accessToken);
       })
       .catch((error) => {
@@ -154,4 +154,4 @@ export default function ModalRegister() {
       </Modal>
     </div>
   );
-}
+});

@@ -1,20 +1,21 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, memo } from "react";
 import { AiFillLike } from "react-icons/ai";
 import { AiOutlineLike } from "react-icons/ai";
 import { AppContext } from "../../../../contexts/AppProvider";
 //--------------------------------------------------
-export default function Like({ like, setLike, dislike, setDislike }) {
+export default memo(function Like({ like, setLike, dislike, setDislike }) {
   const { setShowModalLogin, stateAccessToken } = useContext(AppContext);
   const [numberOfLike, setNumberOfLike] = useState(0);
   //--------------------------------------------------
   const handleSetLike = () => {
-    !stateAccessToken && setShowModalLogin(true);
-    numberOfLike === 0
-      ? setNumberOfLike(numberOfLike + 1)
-      : setNumberOfLike(numberOfLike - 1);
-    setLike(!like);
-    dislike && setDislike(!dislike);
-    console.log("set like");
+    if (stateAccessToken) {
+      numberOfLike === 0
+        ? setNumberOfLike(numberOfLike + 1)
+        : setNumberOfLike(numberOfLike - 1);
+      setLike(!like);
+      dislike && setDislike(!dislike);
+      console.log("set like");
+    } else setShowModalLogin(true);
   };
   return (
     <div onClick={() => handleSetLike()}>
@@ -33,4 +34,4 @@ export default function Like({ like, setLike, dislike, setDislike }) {
       />
     </div>
   );
-}
+});

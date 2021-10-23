@@ -1,20 +1,21 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, memo } from "react";
 import { AiOutlineDislike } from "react-icons/ai";
 import { AiFillDislike } from "react-icons/ai";
 import { AppContext } from "../../../../contexts/AppProvider";
 //--------------------------------------------------
-export default function Dislike({ like, setLike, dislike, setDislike }) {
+export default memo(function Dislike({ like, setLike, dislike, setDislike }) {
   const { setShowModalLogin, stateAccessToken } = useContext(AppContext);
   const [numberOfDislike, setNumberOfDislike] = useState(0);
   //--------------------------------------------------
   const handleSetDislike = () => {
-    !stateAccessToken && setShowModalLogin(true);
-    numberOfDislike === 0
-      ? setNumberOfDislike(numberOfDislike + 1)
-      : setNumberOfDislike(numberOfDislike - 1);
-    setDislike(!dislike);
-    like && setLike(!like);
-    console.log("set dislike");
+    if (stateAccessToken) {
+      numberOfDislike === 0
+        ? setNumberOfDislike(numberOfDislike + 1)
+        : setNumberOfDislike(numberOfDislike - 1);
+      setDislike(!dislike);
+      like && setLike(!like);
+      console.log("set dislike");
+    } else setShowModalLogin(true);
   };
   //--------------------------------------------------
   return (
@@ -32,4 +33,4 @@ export default function Dislike({ like, setLike, dislike, setDislike }) {
       />
     </div>
   );
-}
+});

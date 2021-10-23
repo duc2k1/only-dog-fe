@@ -1,9 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, memo } from "react";
 import { AppContext } from "../../../contexts/AppProvider";
 import ButtonFollow from "../../ButtonFollow";
 import Placeholder from "../../Placeholder";
 //--------------------------------------------------
-export default function Suggestion({ name, openModal, setOpenModal }) {
+export default memo(function Suggestion({ name }) {
   const [loaded, setLoaded] = useState(false);
   const { setPage } = useContext(AppContext);
   //--------------------------------------------------
@@ -28,4 +28,4 @@ export default function Suggestion({ name, openModal, setOpenModal }) {
       <ButtonFollow />
     </div>
   );
-}
+});

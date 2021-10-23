@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import { BsArrowUpCircle } from "react-icons/bs";
 //--------------------------------------------------
-export default function BackToTop() {
+export default memo(function BackToTop() {
   const handleToTop = () => {
     document.documentElement.scrollTop = 0;
   };
@@ -20,4 +20,4 @@ export default function BackToTop() {
       className="text-dark"
     />
   );
-}
+});

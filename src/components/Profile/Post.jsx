@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import Placeholder from "../Placeholder";
 //--------------------------------------------------
-export default function Photo() {
+export default memo(function Post({ dataPost }) {
   const [loaded, setLoaded] = useState(false);
   //--------------------------------------------------
   return (
     <div className="col-sm-6 col-lg-4 mb-4">
       <img
-        src="https://picsum.photos/1000"
+        src={dataPost.pathImage}
         alt="Image of user"
         style={{ objectFit: "cover", userSelect: "none" }}
         onLoad={() => setLoaded(true)}
@@ -18,4 +18,4 @@ export default function Photo() {
       {!loaded && <Placeholder height={300} />}
     </div>
   );
-}
+});

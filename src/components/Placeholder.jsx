@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import greyImg from "../assets/images/grey.jpg";
 //--------------------------------------------------
-export default function Placeholder({ rounded, width = "100%", height }) {
+export default memo(function Placeholder({ rounded, width = "100%", height }) {
   //--------------------------------------------------
   return (
     <img
@@ -11,4 +11,4 @@ export default function Placeholder({ rounded, width = "100%", height }) {
       className={rounded ? "rounded-circle" : ""}
     />
   );
-}
+});

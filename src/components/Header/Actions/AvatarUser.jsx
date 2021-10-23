@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, memo } from "react";
 import greyImg from "../../../assets/images/grey.jpg";
 import { AppContext } from "../../../contexts/AppProvider";
 //--------------------------------------------------
-export default function AvatarUser() {
+export default memo(function AvatarUser() {
   const [loaded, setLoaded] = useState(false);
   const { setPage } = useContext(AppContext);
   //--------------------------------------------------
@@ -30,4 +30,4 @@ export default function AvatarUser() {
       )}
     </div>
   );
-}
+});

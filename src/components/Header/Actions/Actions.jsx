@@ -1,14 +1,14 @@
-import React, { useContext, useEffect } from "react";
-import { RiLogoutBoxRLine } from "react-icons/ri";
+import React, { useContext, memo, useEffect } from "react";
+import { RiLogoutBoxRLine, RiImageAddLine } from "react-icons/ri";
 import ModalLogin from "../../Modal/ModalLogin";
 import ModalRegister from "../../Modal/ModalRegister";
-import ModalAddPost from "../../Modal/ModalAddPost";
 import AvatarUser from "./AvatarUser";
 import { AppContext } from "../../../contexts/AppProvider";
+import ModalImage from "../../ModalImage";
 //--------------------------------------------------
 const accessToken = JSON.parse(localStorage.getItem("accessToken"));
 //--------------------------------------------------
-export default function Actions() {
+export default memo(function Actions() {
   const { stateAccessToken, setStateAccessToken } = useContext(AppContext);
   useEffect(() => {
     setStateAccessToken(accessToken);
@@ -21,7 +21,15 @@ export default function Actions() {
           stateAccessToken ? "d-flex justify-content-around" : "d-none"
         }
       >
-        <ModalAddPost />
+        <ModalImage
+          component={
+            <RiImageAddLine
+              style={{ marginRight: 18 }}
+              role="button"
+              size="30"
+            />
+          }
+        />
         <AvatarUser />
         <RiLogoutBoxRLine
           role="button"
@@ -43,4 +51,4 @@ export default function Actions() {
       </div>
     </div>
   );
-}
+});

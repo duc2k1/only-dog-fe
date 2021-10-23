@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import Dislike from "./Dislike";
 import Like from "./Like";
 //--------------------------------------------------
-export default function Actions() {
+export default memo(function Actions() {
   const [like, setLike] = useState();
   const [dislike, setDislike] = useState();
   //--------------------------------------------------
@@ -25,4 +25,4 @@ export default function Actions() {
       />
     </div>
   );
-}
+});

@@ -1,0 +1,29 @@
+{
+  "success": true,
+  "posts": [
+    {
+      "_id": "sdfxcvfgtg45345345345345",
+      "userId": "dsfsdvxvxcvfdgf234234234",
+      "pathImage": "",
+      "likes": [],
+      "dislikes": [],
+      "createdAt": "2021-10-22T12:34:16.940Z"
+    },
+    {
+      "_id": "6169afc8e1783cccf7e5a2sd",
+      "userId": "6172afc8e1783daaf7e5a3a8",
+      "pathImage": "",
+      "likes": [],
+      "dislikes": [],
+      "createdAt": "2021-10-22T12:34:16.940Z"
+    },
+    {
+      "_id": "sdfsdsdf45345dfssdfcxvrwer",
+      "userId": "6172afc8e1783daaf7e5a3a8",
+      "pathImage": "",
+      "likes": [],
+      "dislikes": [],
+      "createdAt": "2021-10-22T12:34:16.940Z"
+    }
+  ]
+}

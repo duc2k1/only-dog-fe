@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, memo } from "react";
 import { FiSearch } from "react-icons/fi";
 import { AppContext } from "../../contexts/AppProvider";
 //--------------------------------------------------
-export default function Find({ find, setFind }) {
+export default memo(function Find({ find, setFind }) {
   const { setPage } = useContext(AppContext);
   //--------------------------------------------------
   const handleFind = (val) => {
@@ -34,4 +34,4 @@ export default function Find({ find, setFind }) {
       </div>
     </div>
   );
-}
+});

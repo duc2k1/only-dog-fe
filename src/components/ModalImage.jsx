@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, memo } from "react";
 import { RiImageAddLine } from "react-icons/ri";
 import * as tmImage from "@teachablemachine/image";
-import placehoderImg from "../../assets/images/grey.jpg";
+import placehoderImg from "../assets/images/grey.jpg";
 import { Modal } from "react-bootstrap";
 import { Alert, Form, Button, Spinner } from "react-bootstrap";
 //----------------------------------------------------------
@@ -9,11 +9,10 @@ const URL = "https://teachablemachine.withgoogle.com/models/wNpy2osdc/";
 const modelURL = URL + "model.json";
 const metadataURL = URL + "metadata.json";
 //----------------------------------------------------------
-export default function ModalAddPost() {
+export default memo(function ModalImage({ component }) {
   const [image, setImage] = useState(null);
-  const [url, setUrl] = useState("");
   const [isDog, setIsDog] = useState(null);
-  const [showAddPost, setShowAddPost] = useState();
+  const [showModalAddPost, setShowModalAddPost] = useState();
   const [error, setError] = useState();
   const [file, setFile] = useState();
   const [loading, setLoading] = useState(false);
@@ -28,8 +27,8 @@ export default function ModalAddPost() {
   const handleUpload = () => {
     setLoading(true);
     if (file) {
-      if (imageFile.size / 1024 / 1024 <= 0.5) {
-        setImage(imageFile);
+      if (file.size / 1024 / 1024 <= 0.5) {
+        setImage(file);
         const reader = new FileReader();
         let prediction = null;
         reader.onloadend = function () {
@@ -47,7 +46,7 @@ export default function ModalAddPost() {
           };
           img.src = reader.result;
         };
-        reader.readAsDataURL(imageFile);
+        reader.readAsDataURL(file);
       } else {
         setLoading(false);
         alert(
@@ -60,20 +59,15 @@ export default function ModalAddPost() {
       setLoading(false);
     }
   };
-  const handleClose = () => setShowAddPost(false);
-  const handleShow = () => setShowAddPost(true);
+  const handleClose = () => setShowModalAddPost(false);
+  const handleShow = () => setShowModalAddPost(true);
   //-------------------------------------------------------------
   return (
     <>
-      <RiImageAddLine
-        style={{ marginRight: 18 }}
-        role="button"
-        size="30"
-        onClick={handleShow}
-      />
-      <Modal show={showAddPost} onHide={handleClose}>
+      <div onClick={handleShow}>{component}</div>
+      <Modal show={showModalAddPost} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Add Post</Modal.Title>
+          <Modal.Title>Image</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <small>Max size: 0.5MB</small>
@@ -111,4 +105,4 @@ export default function ModalAddPost() {
       </Modal>
     </>
   );
-}
+});
