@@ -1,24 +1,24 @@
-import React, { memo, useState } from "react";
+import React, { memo, useState, useContext } from "react";
 import ButtonFollow from "../ButtonFollow";
 import ModalImage from "../ModalImage";
 import Placeholder from "../Placeholder";
 import avatar from "../../assets/images/avatarDefault.png";
-import fakeDataUser from "../../seeds/user.json";
-//--------------------------------------------------
-
+import { formatDate } from "../../helpers/commonFunctions";
+import { AppContext } from "../../contexts/AppProvider";
 //--------------------------------------------------
 export default memo(function Header() {
   const [loaded, setLoaded] = useState(false);
   const [avatarUser, setAvatarUser] = useState(avatar);
-  const [postsOfUser, setPostsOfUser] = useState(fakeDataUser.user.posts);
+  const { stateDataUser } = useContext(AppContext);
+  const [postsOfUser, setPostsOfUser] = useState(stateDataUser.user.posts);
   const [followersOfUser, setFollowersOfUser] = useState(
-    fakeDataUser.user.followers
+    stateDataUser.user.followers
   );
   const [followingOfUser, setFollowingOfUser] = useState(
-    fakeDataUser.user.following
+    stateDataUser.user.following
   );
   const [createdAtOfUser, setCreatedAtOfUser] = useState(
-    fakeDataUser.user.createdAt.split("T")[0]
+    formatDate(stateDataUser.user.createdAt)
   );
   //--------------------------------------------------
   return (
@@ -46,16 +46,16 @@ export default memo(function Header() {
           />
         </div>
         <div className="col-md-8" style={{ marginTop: 30 }}>
-          <h3 className="text-center mb-2">{fakeDataUser.user.name}</h3>
+          <h3 className="text-center mb-2">{stateDataUser.user.name}</h3>
           <div className="d-flex justify-content-around mb-2">
             <p className="me-3">
-              <b>{postsOfUser}</b> posts
+              <b>{postsOfUser.length}</b> posts
             </p>
             <p className="me-3">
-              <b>{followersOfUser}</b> followers
+              <b>{followersOfUser.length}</b> followers
             </p>
             <p className="me-3">
-              <b>{followingOfUser}</b> following
+              <b>{followingOfUser.length}</b> following
             </p>
           </div>
           <div className="text-center mb-2">Join date: {createdAtOfUser}</div>

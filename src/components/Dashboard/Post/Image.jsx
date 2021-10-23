@@ -1,7 +1,7 @@
 import React, { useState, memo } from "react";
 import greyImg from "../../../assets/images/grey.jpg";
 //--------------------------------------------------
-export default memo(function Image() {
+export default memo(function Image({ dataPost }) {
   const [loaded, setLoaded] = useState(false);
   //--------------------------------------------------
   return (
@@ -9,7 +9,7 @@ export default memo(function Image() {
       <img
         width="100%"
         height="300"
-        src="https://picsum.photos/1000"
+        src={dataPost.pathImage}
         alt="Image Post"
         style={{ objectFit: "cover", userSelect: "none" }}
         onLoad={() => setLoaded(true)}

@@ -1,35 +1,40 @@
-import React, { useContext, useState, memo } from "react";
-import { AiFillLike } from "react-icons/ai";
+import React, { useContext, useState, memo, useEffect } from "react";
 import { AiOutlineLike } from "react-icons/ai";
 import { AppContext } from "../../../../contexts/AppProvider";
+import { AuthContext } from "../../../../contexts/AuthProvider";
 //--------------------------------------------------
-export default memo(function Like({ like, setLike, dislike, setDislike }) {
-  const { setShowModalLogin, stateAccessToken } = useContext(AppContext);
-  const [numberOfLike, setNumberOfLike] = useState(0);
+export default memo(function Like({
+  like,
+  setLike,
+  dislike,
+  setDislike,
+  numberOfLike,
+}) {
+  const { setShowModalLogin } = useContext(AppContext);
+  const { stateAccessToken } = useContext(AuthContext);
   //--------------------------------------------------
   const handleSetLike = () => {
     if (stateAccessToken) {
-      numberOfLike === 0
-        ? setNumberOfLike(numberOfLike + 1)
-        : setNumberOfLike(numberOfLike - 1);
       setLike(!like);
-      dislike && setDislike(!dislike);
+      if (dislike) {
+        setDislike(!dislike);
+      }
       console.log("set like");
     } else setShowModalLogin(true);
   };
   return (
     <div onClick={() => handleSetLike()}>
-      <small>{numberOfLike}</small>
+      <small>{numberOfLike + like}</small>
       <AiOutlineLike
         size="25"
         role="button"
         className={like ? "d-none" : ""}
         style={{ marginBottom: 10 }}
       />
-      <AiFillLike
+      <AiOutlineLike
         size="25"
         role="button"
-        className={like ? "" : "d-none"}
+        className={like ? "text-primary" : "d-none"}
         style={{ marginBottom: 10 }}
       />
     </div>

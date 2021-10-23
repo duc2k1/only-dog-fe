@@ -1,5 +1,6 @@
 import React, { useState, useContext, memo } from "react";
 import { FiUserPlus } from "react-icons/fi";
+import { AuthContext } from "../../contexts/AuthProvider";
 import { AppContext } from "../../contexts/AppProvider";
 import { Modal, Form, Button, Alert, Spinner } from "react-bootstrap";
 //------------------------------------------------------------------------------
@@ -10,12 +11,9 @@ export default memo(function ModalRegister() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const {
-    showModalRegister,
-    setShowModalRegister,
-    setShowModalLogin,
-    setStateAccessToken,
-  } = useContext(AppContext);
+  const { setStateAccessToken } = useContext(AuthContext);
+  const { showModalRegister, setShowModalRegister, setShowModalLogin } =
+    useContext(AppContext);
   //-----------------------------------------------------------------------------
   const handleClose = () => setShowModalRegister(false);
   const handleShow = () => setShowModalRegister(true);
@@ -72,9 +70,9 @@ export default memo(function ModalRegister() {
                 placeholder="Phuong Ly"
                 onChange={({ target }) => setName(target.value)}
                 value={name}
-                required
-                maxLength="20"
+                pattern="^[\w\-\sÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]{1,40}$"
                 autoComplete="one-time-code"
+                required
               />
               <Form.Text className="text-muted">
                 Max length name is 20
@@ -87,9 +85,9 @@ export default memo(function ModalRegister() {
                 placeholder="DanChoiVipPro69@gmail.com"
                 onChange={({ target }) => setEmail(target.value)}
                 value={email}
-                required
-                maxLength="20"
                 autoComplete="one-time-code"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                required
               />
               <Form.Text className="text-muted">
                 Max length email is 20
@@ -102,9 +100,9 @@ export default memo(function ModalRegister() {
                 placeholder="Password"
                 onChange={({ target }) => setPassword(target.value)}
                 value={password}
-                maxLength="20"
                 autoComplete="one-time-code"
-                pattern="(?=.*\d)(?=.*[a-zA-Z]).{6,}"
+                required
+                pattern="(?=.*\d)(?=.*[a-zA-Z]).{6,20}"
               />
               <Form.Text className="text-muted">
                 Must contain at least one number, one letter or more characters
@@ -118,8 +116,8 @@ export default memo(function ModalRegister() {
                 placeholder="Confirm Password"
                 onChange={({ target }) => setConfirmPassword(target.value)}
                 value={confirmPassword}
-                maxLength="20"
                 pattern={password}
+                required
                 autoComplete="one-time-code"
               />
             </Form.Group>

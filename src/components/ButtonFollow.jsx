@@ -1,9 +1,11 @@
 import React, { useState, useContext, memo } from "react";
 import { AppContext } from "../contexts/AppProvider";
+import { AuthContext } from "../contexts/AuthProvider";
 //--------------------------------------------------
 export default memo(function ButtonFollow() {
   const [statusFollow, setStatusFollow] = useState("Follow");
-  const { setShowModalLogin, stateAccessToken } = useContext(AppContext);
+  const { setShowModalLogin } = useContext(AppContext);
+  const { stateAccessToken } = useContext(AuthContext);
   //--------------------------------------------------
   const handleFollow = () => {
     stateAccessToken
