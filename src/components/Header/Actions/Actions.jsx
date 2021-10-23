@@ -3,13 +3,13 @@ import { RiLogoutBoxRLine, RiImageAddLine } from "react-icons/ri";
 import ModalLogin from "../../Modal/ModalLogin";
 import ModalRegister from "../../Modal/ModalRegister";
 import AvatarUser from "./AvatarUser";
-import { AppContext } from "../../../contexts/AppProvider";
+import { AuthContext } from "../../../contexts/AuthProvider";
 import ModalImage from "../../ModalImage";
 //--------------------------------------------------
 const accessToken = JSON.parse(localStorage.getItem("accessToken"));
 //--------------------------------------------------
 export default memo(function Actions() {
-  const { stateAccessToken, setStateAccessToken } = useContext(AppContext);
+  const { stateAccessToken, setStateAccessToken } = useContext(AuthContext);
   useEffect(() => {
     setStateAccessToken(accessToken);
   }, [accessToken, setStateAccessToken]);

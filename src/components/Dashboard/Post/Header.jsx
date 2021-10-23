@@ -1,15 +1,16 @@
 import React, { useContext, useState, memo } from "react";
 import { AppContext } from "../../../contexts/AppProvider";
 import Placeholder from "../../Placeholder";
+import { formatDate } from "../../../helpers/commonFunctions";
 //-----------------------------------------------------------
-export default memo(function Header() {
+export default memo(function Header({ dataPost }) {
   const [loaded, setLoaded] = useState(false);
   const { setPage } = useContext(AppContext);
   //-----------------------------------------------------------
   return (
     <div className="d-flex">
       <img
-        src="https://picsum.photos/1000"
+        src={dataPost.user.pathAvatar}
         alt="Avatar"
         width="40"
         height="40"
@@ -25,11 +26,11 @@ export default memo(function Header() {
         </div>
       )}
       <div>
-        <small>
-          <b>nameeeeee</b>
-        </small>
+        <b>
+          <small>{dataPost.user.name}</small>
+        </b>
         <br />
-        <small className="text-muted">1/10/2001</small>
+        <small className="text-muted">{formatDate(dataPost.createdAt)}</small>
       </div>
     </div>
   );

@@ -4,7 +4,7 @@
     "_id": "6172afc8e1783daaf7e5a3a8",
     "name": "duc",
     "email": "duc@mail.com",
-    "pathAvatar": "images/dog.jpg",
+    "pathAvatar": "https://picsum.photos/1000",
     "posts": [],
     "followers": [],
     "following": [],

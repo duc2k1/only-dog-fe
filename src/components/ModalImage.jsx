@@ -1,9 +1,10 @@
-import React, { useState, useEffect, memo } from "react";
-import { RiImageAddLine } from "react-icons/ri";
+import React, { useState, useEffect, memo, useContext } from "react";
 import * as tmImage from "@teachablemachine/image";
 import placehoderImg from "../assets/images/grey.jpg";
 import { Modal } from "react-bootstrap";
 import { Alert, Form, Button, Spinner } from "react-bootstrap";
+import { AuthContext } from "../contexts/AuthProvider";
+import { AppContext } from "../contexts/AppProvider";
 //----------------------------------------------------------
 const URL = "https://teachablemachine.withgoogle.com/models/wNpy2osdc/";
 const modelURL = URL + "model.json";
@@ -16,6 +17,9 @@ export default memo(function ModalImage({ component }) {
   const [error, setError] = useState();
   const [file, setFile] = useState();
   const [loading, setLoading] = useState(false);
+  const [showError, setShowError] = useState(true);
+  const { stateAccessToken } = useContext(AuthContext);
+  const { setShowModalLogin } = useContext(AppContext);
   //------------------------------------------------------------
   useEffect(() => {
     isDog === false && setError("Not dogggggg");
@@ -60,7 +64,8 @@ export default memo(function ModalImage({ component }) {
     }
   };
   const handleClose = () => setShowModalAddPost(false);
-  const handleShow = () => setShowModalAddPost(true);
+  const handleShow = () =>
+    stateAccessToken ? setShowModalAddPost(true) : setShowModalLogin(true);
   //-------------------------------------------------------------
   return (
     <>
@@ -94,13 +99,21 @@ export default memo(function ModalImage({ component }) {
               <Button onClick={handleUpload}>Upload</Button>
             )}
           </div>
+          {error && showError && (
+            <Alert
+              variant="danger"
+              onClose={() => setShowError(false)}
+              dismissible
+            >
+              {error}
+            </Alert>
+          )}
           <img
             src={placehoderImg}
             alt="image"
             className="img-fluid mb-2"
             style={{ userSelect: "none" }}
           />
-          {error && <Alert variant="danger">{error}</Alert>}
         </Modal.Body>
       </Modal>
     </>

@@ -1,5 +1,6 @@
 import React, { useState, useContext, memo } from "react";
 import { RiLoginBoxLine } from "react-icons/ri";
+import { AuthContext } from "../../contexts/AuthProvider";
 import { AppContext } from "../../contexts/AppProvider";
 import { Modal, Form, Button, Alert, Spinner } from "react-bootstrap";
 //----------------------------------------------------------------
@@ -8,12 +9,9 @@ export default memo(function ModalLogin() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const {
-    showModalLogin,
-    setShowModalLogin,
-    setShowModalRegister,
-    setStateAccessToken,
-  } = useContext(AppContext);
+  const { setStateAccessToken } = useContext(AuthContext);
+  const { showModalLogin, setShowModalLogin, setShowModalRegister } =
+    useContext(AppContext);
   //----------------------------------------------------------------
   const handleClose = () => setShowModalLogin(false);
   const handleShow = () => setShowModalLogin(true);
@@ -75,6 +73,7 @@ export default memo(function ModalLogin() {
                 onChange={({ target }) => setEmail(target.value)}
                 value={email}
                 required
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                 maxLength="20"
               />
               <Form.Text className="text-muted">
@@ -88,8 +87,8 @@ export default memo(function ModalLogin() {
                 placeholder="Password"
                 onChange={({ target }) => setPassword(target.value)}
                 value={password}
-                maxLength="20"
-                pattern="(?=.*\d)(?=.*[a-zA-Z]).{6,}"
+                pattern="(?=.*\d)(?=.*[a-zA-Z]).{6,20}"
+                required
               />
               <Form.Text className="text-muted">
                 Must contain at least one number, one letter or more characters
