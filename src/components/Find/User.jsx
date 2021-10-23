@@ -10,7 +10,6 @@ export default memo(function User() {
   return (
     <div className="col-4 col-md-2 text-center mb-3">
       <img
-        className="rounded-circle"
         src="https://picsum.photos/1000"
         alt=""
         width="80"
