@@ -2,7 +2,7 @@ import React, { useState, memo } from "react";
 import Logo from "./Logo";
 import { Navbar, Container } from "react-bootstrap";
 //--------------------------------------------------
-import Find from "./Find";
+import InputFind from "./InputFind";
 import Actions from "./Actions/Actions";
 //--------------------------------------------------
 export default memo(function Header() {
@@ -21,7 +21,7 @@ export default memo(function Header() {
         <Logo />
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Find find={find} setFind={setFind} />
+          <InputFind find={find} setFind={setFind} />
           <Actions />
         </Navbar.Collapse>
       </Container>
