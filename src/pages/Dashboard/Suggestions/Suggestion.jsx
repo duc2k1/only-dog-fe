@@ -1,6 +1,6 @@
 import React, { useState, memo } from "react";
-import ButtonFollow from "../../ButtonFollow";
-import Placeholder from "../../Placeholder";
+import ButtonFollow from "../../../components/ButtonFollow";
+import Placeholder from "../../../components/Placeholder";
 import { Link } from "react-router-dom";
 //--------------------------------------------------
 export default memo(function Suggestion({ name }) {

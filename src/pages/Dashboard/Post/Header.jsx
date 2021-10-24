@@ -1,5 +1,5 @@
 import React, { useState, memo } from "react";
-import Placeholder from "../../Placeholder";
+import Placeholder from "../../../components/Placeholder";
 import { formatDate } from "../../../helpers/commonFunctions";
 import { Link } from "react-router-dom";
 //-----------------------------------------------------------

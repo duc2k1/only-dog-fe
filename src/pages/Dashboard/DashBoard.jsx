@@ -2,7 +2,7 @@ import React, { memo, useState } from "react";
 import Suggestions from "./Suggestions/Suggestions";
 import Post from "./Post/Post";
 import InfiniteScroll from "react-infinite-scroll-component";
-import SpinnerBootstrap from "../SpinnerBootstrap";
+import SpinnerBootstrap from "../../components/SpinnerBootstrap";
 import postsUserFollow from "../../seeds/postsUserFollow.json";
 //--------------------------------------------------
 const PER_PAGE = parseInt(import.meta.env.VITE_PER_PAGE);
