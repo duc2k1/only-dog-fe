@@ -21,7 +21,11 @@
       "name": "1 fl",
       "email": "tai@mail.com",
       "pathAvatar": "images/dog.jpg",
-      "posts": [],
+      "posts": [
+        "6172afc8e1783daaf7e5a3a8",
+        "6172af345345fgfdga3a8",
+        "fsdfsdfsdf8e1783daaf7e5a3a8"
+      ],
       "followers": ["6172afc8e1783daaf7e5a3a8"],
       "following": [],
       "createdAt": "2021-10-22T12:41:52.662Z",

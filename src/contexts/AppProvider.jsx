@@ -8,6 +8,7 @@ export default memo(function AppProvider({ children }) {
   const [showModalUpdateAvatar, setShowModalUpdateAvatar] = useState(false);
   const [showModalImage, setShowModalImage] = useState(false);
   const [stateDataUser, setStateDataUser] = useState(dataUser);
+  const [stateUserIdProfile, setStateUserIdProfile] = useState("");
   //-----------------------------------------------------------
   return (
     <AppContext.Provider
@@ -24,6 +25,8 @@ export default memo(function AppProvider({ children }) {
         setShowModalImage,
         stateDataUser,
         setStateDataUser,
+        stateUserIdProfile,
+        setStateUserIdProfile,
       }}
     >
       {children}
