@@ -1,25 +1,25 @@
-import React, { useContext, useState, memo } from "react";
-import { AppContext } from "../../../contexts/AppProvider";
+import React, { useState, memo } from "react";
 import Placeholder from "../../Placeholder";
 import { formatDate } from "../../../helpers/commonFunctions";
+import { Link } from "react-router-dom";
 //-----------------------------------------------------------
 export default memo(function Header({ dataPost }) {
   const [loaded, setLoaded] = useState(false);
-  const { setPage } = useContext(AppContext);
   //-----------------------------------------------------------
   return (
     <div className="d-flex">
-      <img
-        src={dataPost.user.pathAvatar}
-        alt="Avatar"
-        width="40"
-        height="40"
-        role="button"
-        style={{ objectFit: "cover", userSelect: "none" }}
-        onLoad={() => setLoaded(true)}
-        className={loaded ? "rounded-circle me-1 my-1" : "d-none"}
-        onClick={() => setPage("profile")}
-      />
+      <Link to="/profile">
+        <img
+          src={dataPost.user.pathAvatar}
+          alt="Avatar"
+          width="40"
+          height="40"
+          role="button"
+          style={{ objectFit: "cover", userSelect: "none" }}
+          onLoad={() => setLoaded(true)}
+          className={loaded ? "rounded-circle me-1 my-1" : "d-none"}
+        />
+      </Link>
       {!loaded && (
         <div className="me-1 my-1">
           <Placeholder rounded={true} width={40} height={40} />

@@ -1,7 +1,7 @@
-import React, { useContext, lazy, Suspense, memo } from "react";
+import React, { lazy, Suspense, memo } from "react";
 import icon from "./assets/images/icon.svg";
 import ImageLoading from "./components/ImageLoading";
-import { AppContext } from "./contexts/AppProvider";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 //--------------------------------------------------
 document.querySelector("#icon").setAttribute("href", icon);
 //--------------------------------------------------
@@ -12,18 +12,17 @@ const Profile = lazy(() => import("./components/Profile/Profile"));
 const BackToTop = lazy(() => import("./components/BackToTop"));
 //--------------------------------------------------
 export default memo(function App() {
-  const { page } = useContext(AppContext);
   //--------------------------------------------------
   return (
     <Suspense fallback={<ImageLoading />}>
-      <Header />
-      {page === "dashboard" ? (
-        <DashBoard />
-      ) : page === "profile" ? (
-        <Profile />
-      ) : (
-        <Find />
-      )}
+      <Router>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={DashBoard} />
+          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/find" component={Find} />
+        </Switch>
+      </Router>
       <BackToTop />
     </Suspense>
   );
