@@ -1,13 +1,8 @@
-import React, { useContext, memo } from "react";
+import React, { memo } from "react";
 import { FiSearch } from "react-icons/fi";
-import { AppContext } from "../../contexts/AppProvider";
+import { Link } from "react-router-dom";
 //--------------------------------------------------
 export default memo(function Find({ find, setFind }) {
-  const { setPage } = useContext(AppContext);
-  //--------------------------------------------------
-  const handleFind = (val) => {
-    setPage("find");
-  };
   //--------------------------------------------------
   return (
     <div
@@ -18,18 +13,16 @@ export default memo(function Find({ find, setFind }) {
         <input
           className="form-control me-2 p-1 border-dark"
           placeholder="Find user"
-          onKeyDown={(e) => {
-            e.key === "Enter" && handleFind(find);
-          }}
           onChange={(e) => setFind(e.target.value)}
           value={find}
         />
         <div
           role="button"
           className="border border-dark rounded pt-1 pb-2 px-3 text-dark"
-          onClick={() => handleFind(find)}
         >
-          <FiSearch size={20} />
+          <Link to="/find">
+            <FiSearch className="text-dark" size={20} />
+          </Link>
         </div>
       </div>
     </div>

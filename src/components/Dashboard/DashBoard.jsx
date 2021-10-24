@@ -1,7 +1,6 @@
-import React, { memo, useContext, useState } from "react";
+import React, { memo, useState } from "react";
 import Suggestions from "./Suggestions/Suggestions";
 import Post from "./Post/Post";
-import { AppContext } from "../../contexts/AppProvider";
 import InfiniteScroll from "react-infinite-scroll-component";
 import SpinnerBootstrap from "../SpinnerBootstrap";
 import postsUserFollow from "../../seeds/postsUserFollow.json";
