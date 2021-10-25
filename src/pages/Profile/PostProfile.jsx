@@ -1,7 +1,7 @@
 import React, { useState, memo } from "react";
 import Placeholder from "../../components/Placeholder";
 //--------------------------------------------------
-export default memo(function Post({ dataPost }) {
+export default memo(function PostProfile({ dataPost }) {
   const [loaded, setLoaded] = useState(false);
   //--------------------------------------------------
   return (
