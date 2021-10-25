@@ -1,14 +1,12 @@
 import React, { memo } from "react";
 import { BsArrowUpCircle } from "react-icons/bs";
+import toTop from "../helpers/toTop";
 //--------------------------------------------------
 export default memo(function BackToTop() {
-  const handleToTop = () => {
-    document.documentElement.scrollTop = 0;
-  };
   //--------------------------------------------------
   return (
     <BsArrowUpCircle
-      onClick={handleToTop}
+      onClick={()=>toTop()}
       id="btn-back-to-top"
       style={{
         position: "fixed",

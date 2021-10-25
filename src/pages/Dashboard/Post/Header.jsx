@@ -2,13 +2,14 @@ import React, { useState, memo } from "react";
 import Placeholder from "../../../components/Placeholder";
 import { formatDate } from "../../../helpers/commonFunctions";
 import { Link } from "react-router-dom";
+import toTop from "../../../helpers/toTop";
 //-----------------------------------------------------------
 export default memo(function Header({ dataPost }) {
   const [loaded, setLoaded] = useState(false);
   //-----------------------------------------------------------
   return (
     <div className="d-flex">
-      <Link to="/profile">
+      <Link to={"/profile?userId="+"oi23osdifhsdi2342342"} onClick={()=>toTop()}>
         <img
           src={dataPost.user.pathAvatar}
           alt="Avatar"
@@ -27,7 +28,7 @@ export default memo(function Header({ dataPost }) {
       )}
       <div>
         <b>
-          <small>{dataPost.user.name}</small>
+          <small>{dataPost.user.userName}</small>
         </b>
         <br />
         <small className="text-muted">{formatDate(dataPost.createdAt)}</small>

@@ -46,7 +46,7 @@ export default memo(function Header() {
           />
         </div>
         <div className="col-md-8" style={{ marginTop: 30 }}>
-          <h3 className="text-center mb-2">{stateDataUser.user.name}</h3>
+          <h3 className="text-center mb-2">{stateDataUser.user.userName}</h3>
           <div className="d-flex justify-content-around mb-2">
             <p className="me-3">
               <b>{postsOfUser.length}</b> posts

@@ -1,17 +1,21 @@
-import React, { useState, useContext, memo } from "react";
+import React, { useState, useContext, memo, useEffect, useRef } from "react";
 import { FiUserPlus } from "react-icons/fi";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { AppContext } from "../../contexts/AppProvider";
-import { Modal, Form, Button, Alert, Spinner } from "react-bootstrap";
+import { Modal, Form, Button, Alert } from "react-bootstrap";
 import SpinnerBootstrap from "../SpinnerBootstrap";
+import { passwordPattern } from "../../patterns/passwordPattern";
+import { emailPattern } from "../../patterns/emailPattern";
+import { userNamePattern } from "../../patterns/userNamePattern";
 //------------------------------------------------------------------------------
 export default memo(function ModalRegister() {
-  const [name, setName] = useState("");
+  const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [isDoneAllInput, setIsDoneAllInput] = useState(false);
   const { setStateAccessToken } = useContext(AuthContext);
   const { showModalRegister, setShowModalRegister, setShowModalLogin } =
     useContext(AppContext);
@@ -21,13 +25,13 @@ export default memo(function ModalRegister() {
   const handleRegister = (event) => {
     event.preventDefault();
     setLoading(true);
-    fetch("http://localhost:5500/api/auth/register", {
+    fetch(import.meta.env.VITE_DOMAIN_API+"/api/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name,
+        userName,
         email,
         password,
       }),
@@ -50,6 +54,15 @@ export default memo(function ModalRegister() {
     setShowModalLogin(true);
   };
   //--------------------------------------------------
+  useEffect(() => {
+    if (userName && email && password && confirmPassword) {
+      setIsDoneAllInput(true);
+    } else {
+      setIsDoneAllInput(false);
+    }
+    console.log(isDoneAllInput);
+  }, [userName, email, password, confirmPassword]);
+  //--------------------------------------------------
   return (
     <div>
       <FiUserPlus role="button" size="30" onClick={handleShow} />
@@ -69,11 +82,11 @@ export default memo(function ModalRegister() {
               <Form.Control
                 type="text"
                 placeholder="Phuong Ly"
-                onChange={({ target }) => setName(target.value)}
-                value={name}
-                pattern="^[\w\-\sÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]{1,40}$"
+                onChange={({ target }) => setUserName(target.value)}
+                value={userName}
+                pattern={userNamePattern}
                 autoComplete="one-time-code"
-                required
+                maxLength="30"
               />
               <Form.Text className="text-muted">
                 Max length name is 20
@@ -86,9 +99,9 @@ export default memo(function ModalRegister() {
                 placeholder="DanChoiVipPro69@gmail.com"
                 onChange={({ target }) => setEmail(target.value)}
                 value={email}
+                maxLength="30"
                 autoComplete="one-time-code"
-                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                required
+                pattern={emailPattern}
               />
               <Form.Text className="text-muted">
                 Max length email is 20
@@ -101,9 +114,9 @@ export default memo(function ModalRegister() {
                 placeholder="Password"
                 onChange={({ target }) => setPassword(target.value)}
                 value={password}
+                maxLength="20"
                 autoComplete="one-time-code"
-                required
-                pattern="(?=.*\d)(?=.*[a-zA-Z]).{6,20}"
+                pattern={passwordPattern}
               />
               <Form.Text className="text-muted">
                 Must contain at least one number, one letter or more characters
@@ -118,7 +131,7 @@ export default memo(function ModalRegister() {
                 onChange={({ target }) => setConfirmPassword(target.value)}
                 value={confirmPassword}
                 pattern={password}
-                required
+                maxLength="20"
                 autoComplete="one-time-code"
               />
             </Form.Group>
@@ -130,7 +143,11 @@ export default memo(function ModalRegister() {
                   Loading...
                 </Button>
               ) : (
-                <Button variant="primary" type="submit">
+                <Button
+                  variant="primary"
+                  type="submit"
+                  disabled={!isDoneAllInput}
+                >
                   Register
                 </Button>
               )}

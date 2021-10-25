@@ -1,12 +1,13 @@
 import React, { useState, memo } from "react";
 import greyImg from "../../../assets/images/grey.jpg";
 import { Link } from "react-router-dom";
+import toTop from "../../../helpers/toTop";
 //--------------------------------------------------
 export default memo(function AvatarUser() {
   const [loaded, setLoaded] = useState(false);
   //--------------------------------------------------
   return (
-    <Link to="/profile">
+    <Link to={"/profile?userId="+"oi23osdifhsdi2342342"} onClick={()=>toTop()}>
       <img
         role="button"
         width="30"
