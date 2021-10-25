@@ -2,7 +2,7 @@
 
 Project for learning
 
-## Install/Update
+## Install / Update
 
 ```
 yarn
@@ -16,7 +16,7 @@ yarn start
 
 ## Deploy
 
-- First change homepage and domain in CNAME
+- Must change first homepage in package.json and domain in CNAME
 
 ```
 yarn deploy
