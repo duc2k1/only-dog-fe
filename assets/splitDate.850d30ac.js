@@ -1,0 +1,1 @@
+async function o(t,s,n={}){try{return await(await fetch("http://localhost:5500"+s,n==={}?{method:t,headers:{"Content-Type":"application/json"},body:JSON.stringify(n)}:{method:t,headers:{"Content-Type":"application/json"}})).json()}catch(e){return e}}function a(t){return t&&t.split("T")[0]}export{o as f,a as s};
