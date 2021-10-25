@@ -2,24 +2,27 @@ import React, { memo } from "react";
 import User from "./User";
 import findUsers from "../../seeds/findUsers.json";
 import getQueryFromURL from "../../helpers/useQuery";
+import NotFoundUser from "./NotFoundUser";
 //--------------------------------------------------
 export default memo(function Users() {
-  const users = findUsers.users;
   //--------------------------------------------------
   const handleFilter = (val) => {
-    return val.userName.indexOf(getQueryFromURL("user_name")) !== -1
-      ? true
-      : false;
+    return val.userName.indexOf(userName) !== -1 && userName ? true : false;
   };
+  const users = findUsers.users;
+  const userName = getQueryFromURL("user_name");
+  const usersAfterFilter = users.filter((val) => handleFilter(val));
   //--------------------------------------------------
   return (
     <div className="container mt-4">
       <div className="row">
-        {users
-          .filter((val) => handleFilter(val))
-          .map((val) => (
+        {userName && users && usersAfterFilter !== [] ? (
+          usersAfterFilter.map((val) => (
             <User key={val._id} userName={val.userName} />
-          ))}
+          ))
+        ) : (
+          <NotFoundUser />
+        )}
       </div>
     </div>
   );
