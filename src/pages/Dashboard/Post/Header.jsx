@@ -5,13 +5,14 @@ import { Link } from "react-router-dom";
 import toTop from "../../../helpers/toTop";
 //-----------------------------------------------------------
 export default memo(function Header({ dataPost }) {
+  const dataUser=dataPost.user
   const [loaded, setLoaded] = useState(false);
   //-----------------------------------------------------------
   return (
     <div className="d-flex">
-      <Link to={"/profile?userId="+"oi23osdifhsdi2342342"} onClick={()=>toTop()}>
+      <Link to={"/profile?userId="+dataUser._id} onClick={()=>toTop()}>
         <img
-          src={dataPost.user.pathAvatar}
+          src={dataUser.pathAvatar}
           alt="Avatar"
           width="40"
           height="40"
@@ -28,7 +29,7 @@ export default memo(function Header({ dataPost }) {
       )}
       <div>
         <b>
-          <small>{dataPost.user.userName}</small>
+          <small>{dataUser.userName}</small>
         </b>
         <br />
         <small className="text-muted">{formatDate(dataPost.createdAt)}</small>
