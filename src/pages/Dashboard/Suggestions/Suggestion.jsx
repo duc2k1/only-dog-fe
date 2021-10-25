@@ -4,12 +4,12 @@ import Placeholder from "../../../components/Placeholder";
 import { Link } from "react-router-dom";
 import toTop from "../../../helpers/toTop";
 //--------------------------------------------------
-export default memo(function Suggestion({ userName ,userId}) {
+export default memo(function Suggestion({ userName, userId }) {
   const [loaded, setLoaded] = useState(false);
   //--------------------------------------------------
   return (
     <div className="col-4 col-md-2 text-center mb-3">
-      <Link to={"/profile?userId="+userId} onClick={()=>toTop()}>
+      <Link to={"/profile?userId=" + userId} onClick={() => toTop()}>
         <img
           src="https://picsum.photos/1000"
           alt=""

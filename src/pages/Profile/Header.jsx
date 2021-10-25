@@ -5,6 +5,7 @@ import Placeholder from "../../components/Placeholder";
 import avatar from "../../assets/images/avatarDefault.png";
 import { formatDate } from "../../helpers/commonFunctions";
 import { AppContext } from "../../contexts/AppProvider";
+import dataUser from "../../seeds/dataUser.json";
 //--------------------------------------------------
 export default memo(function Header() {
   const [loaded, setLoaded] = useState(false);

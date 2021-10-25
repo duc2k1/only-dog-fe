@@ -25,7 +25,7 @@ export default memo(function ModalRegister() {
   const handleRegister = (event) => {
     event.preventDefault();
     setLoading(true);
-    fetch(import.meta.env.VITE_DOMAIN_API+"/api/auth/register", {
+    fetch(import.meta.env.VITE_DOMAIN_API + "/api/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

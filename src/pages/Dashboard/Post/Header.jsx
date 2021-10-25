@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 import toTop from "../../../helpers/toTop";
 //-----------------------------------------------------------
 export default memo(function Header({ dataPost }) {
-  const dataUser=dataPost.user
+  const dataUser = dataPost.user;
   const [loaded, setLoaded] = useState(false);
   //-----------------------------------------------------------
   return (
     <div className="d-flex">
-      <Link to={"/profile?userId="+dataUser._id} onClick={()=>toTop()}>
+      <Link to={"/profile?userId=" + dataUser._id} onClick={() => toTop()}>
         <img
           src={dataUser.pathAvatar}
           alt="Avatar"

@@ -16,7 +16,7 @@ export default memo(function InputFind({ find, setFind }) {
           onChange={(e) => setFind(e.target.value)}
           value={find}
         />
-        <Link to={"/find?user_name=" + find }>
+        <Link to={"/find?user_name=" + find}>
           <div
             role="button"
             className="border border-dark rounded pt-1 pb-2 px-3 text-dark"

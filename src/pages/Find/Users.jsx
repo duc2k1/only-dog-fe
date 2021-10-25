@@ -12,7 +12,7 @@ export default memo(function Users() {
   const users = findUsers.users;
   const userName = getQueryFromURL("user_name");
   const usersAfterFilter = users.filter((val) => handleFilter(val));
-  console.log(usersAfterFilter)
+  console.log(usersAfterFilter);
   //--------------------------------------------------
   return (
     <div className="container mt-4">
