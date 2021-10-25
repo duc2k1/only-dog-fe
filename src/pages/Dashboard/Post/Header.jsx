@@ -1,6 +1,6 @@
 import React, { useState, memo } from "react";
 import Placeholder from "../../../components/Placeholder";
-import { formatDate } from "../../../helpers/commonFunctions";
+import splitDate from "../../../helpers/splitDate";
 import { Link } from "react-router-dom";
 import toTop from "../../../helpers/toTop";
 //-----------------------------------------------------------
@@ -32,7 +32,7 @@ export default memo(function Header({ dataPost }) {
           <small>{dataUser.userName}</small>
         </b>
         <br />
-        <small className="text-muted">{formatDate(dataPost.createdAt)}</small>
+        <small className="text-muted">{splitDate(dataPost.createdAt)}</small>
       </div>
     </div>
   );

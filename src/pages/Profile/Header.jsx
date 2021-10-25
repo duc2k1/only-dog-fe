@@ -3,14 +3,14 @@ import ButtonFollow from "../../components/ButtonFollow";
 import ModalImage from "../../components/ModalImage";
 import Placeholder from "../../components/Placeholder";
 import avatarUser from "../../assets/images/avatarDefault.png";
-import { formatDate } from "../../helpers/commonFunctions";
+import splitDate from "../../helpers/splitDate";
 import dataUser from "../../seeds/dataUser.json";
 //--------------------------------------------------
 const infoUser = dataUser.user;
 const postsOfUser = infoUser.posts;
 const followersOfUser = infoUser.followers;
 const followingOfUser = infoUser.following;
-const createdAtOfUser = formatDate(infoUser.createdAt);
+const createdAtOfUser = splitDate(infoUser.createdAt);
 //--------------------------------------------------
 export default memo(function Header() {
   const [loaded, setLoaded] = useState(false);

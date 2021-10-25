@@ -1,7 +1,9 @@
 import React, { memo, useState, createContext } from "react";
 //-----------------------------------------------------------
 export default memo(function AuthProvider({ children }) {
-  const [stateAccessToken, setStateAccessToken] = useState("");
+  const [stateAccessToken, setStateAccessToken] = useState(
+    JSON.parse(localStorage.getItem("accessToken"))
+  );
   //-----------------------------------------------------------
   return (
     <AuthContext.Provider

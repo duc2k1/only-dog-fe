@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import Suggestion from "./Suggestion";
 import suggestionUsers from "../../../seeds/suggestionUsers.json";
-import { sortDescendingBasedOnFollowers } from "../../../helpers/commonFunctions";
+import sortDescendingBasedOnFollowers from "../../../helpers/sortDescendingBasedOnFollowers";
 //--------------------------------------------------
 const dataSugUser = sortDescendingBasedOnFollowers(suggestionUsers.users);
 //--------------------------------------------------
