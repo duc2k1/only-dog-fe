@@ -7,7 +7,10 @@ export default memo(function AvatarUser() {
   const [loaded, setLoaded] = useState(false);
   //--------------------------------------------------
   return (
-    <Link to={"/profile?userId="+"oi23osdifhsdi2342342"} onClick={()=>toTop()}>
+    <Link
+      to={"/profile?userId=" + "oi23osdifhsdi2342342"}
+      onClick={() => toTop()}
+    >
       <img
         role="button"
         width="30"

@@ -1,25 +1,19 @@
-import React, { memo, useState, useContext } from "react";
+import React, { memo, useState } from "react";
 import ButtonFollow from "../../components/ButtonFollow";
 import ModalImage from "../../components/ModalImage";
 import Placeholder from "../../components/Placeholder";
-import avatar from "../../assets/images/avatarDefault.png";
+import avatarUser from "../../assets/images/avatarDefault.png";
 import { formatDate } from "../../helpers/commonFunctions";
-import { AppContext } from "../../contexts/AppProvider";
+import dataUser from "../../seeds/dataUser.json";
+//--------------------------------------------------
+const infoUser = dataUser.user;
+const postsOfUser = infoUser.posts;
+const followersOfUser = infoUser.followers;
+const followingOfUser = infoUser.following;
+const createdAtOfUser = formatDate(infoUser.createdAt);
 //--------------------------------------------------
 export default memo(function Header() {
   const [loaded, setLoaded] = useState(false);
-  const [avatarUser, setAvatarUser] = useState(avatar);
-  const { stateDataUser } = useContext(AppContext);
-  const [postsOfUser, setPostsOfUser] = useState(stateDataUser.user.posts);
-  const [followersOfUser, setFollowersOfUser] = useState(
-    stateDataUser.user.followers
-  );
-  const [followingOfUser, setFollowingOfUser] = useState(
-    stateDataUser.user.following
-  );
-  const [createdAtOfUser, setCreatedAtOfUser] = useState(
-    formatDate(stateDataUser.user.createdAt)
-  );
   //--------------------------------------------------
   return (
     <div>
@@ -46,7 +40,7 @@ export default memo(function Header() {
           />
         </div>
         <div className="col-md-8" style={{ marginTop: 30 }}>
-          <h3 className="text-center mb-2">{stateDataUser.user.userName}</h3>
+          <h3 className="text-center mb-2">{dataUser.user.userName}</h3>
           <div className="d-flex justify-content-around mb-2">
             <p className="me-3">
               <b>{postsOfUser.length}</b> posts

@@ -22,7 +22,7 @@ export default memo(function ModalLogin() {
   const handleLogin = (event) => {
     event.preventDefault();
     setLoading(true);
-    fetch(import.meta.env.VITE_DOMAIN_API+"/api/auth/login", {
+    fetch(import.meta.env.VITE_DOMAIN_API + "/api/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

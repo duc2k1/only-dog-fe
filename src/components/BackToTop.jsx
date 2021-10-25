@@ -6,7 +6,7 @@ export default memo(function BackToTop() {
   //--------------------------------------------------
   return (
     <BsArrowUpCircle
-      onClick={()=>toTop()}
+      onClick={() => toTop()}
       id="btn-back-to-top"
       style={{
         position: "fixed",
