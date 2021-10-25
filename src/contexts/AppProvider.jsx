@@ -1,12 +1,10 @@
 import React, { memo, useState, createContext } from "react";
-import dataUser from "../seeds/dataUser.json";
 //-----------------------------------------------------------
 export default memo(function AppProvider({ children }) {
   const [showModalRegister, setShowModalRegister] = useState(false);
   const [showModalLogin, setShowModalLogin] = useState(false);
   const [showModalUpdateAvatar, setShowModalUpdateAvatar] = useState(false);
   const [showModalImage, setShowModalImage] = useState(false);
-  const [stateDataUser, setStateDataUser] = useState(dataUser);
   const [stateUserIdProfile, setStateUserIdProfile] = useState("");
   //-----------------------------------------------------------
   return (
@@ -20,8 +18,6 @@ export default memo(function AppProvider({ children }) {
         setShowModalUpdateAvatar,
         showModalImage,
         setShowModalImage,
-        stateDataUser,
-        setStateDataUser,
         stateUserIdProfile,
         setStateUserIdProfile,
       }}
