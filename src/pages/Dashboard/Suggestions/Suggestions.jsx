@@ -1,16 +1,22 @@
-import React, { memo } from "react";
+import React, { memo, useState, useEffect } from "react";
 import Suggestion from "./Suggestion";
-import suggestionUsers from "../../../seeds/suggestionUsers.json";
-import sortDescendingBasedOnFollowers from "../../../helpers/sortDescendingBasedOnFollowers";
-//--------------------------------------------------
-const dataSugUser = sortDescendingBasedOnFollowers(suggestionUsers.users);
+import fetchWithoutToken from "../../../helpers/fetchWithoutToken";
 //--------------------------------------------------
 export default memo(function Suggestions({ openModal, setOpenModal }) {
+  //--------------------------------------------------
+  const [stateUsers, setStateUsers] = useState([]);
+  //--------------------------------------------------
+  useEffect(() => {
+    const getData = async () => {
+      setStateUsers(await fetchWithoutToken("GET", "/users"));
+    };
+    getData();
+  }, []);
   //--------------------------------------------------
   return (
     <div className="container mt-4">
       <div className="row">
-        {dataSugUser.map((val) => (
+        {stateUsers?.users?.map((val) => (
           <Suggestion
             key={val._id}
             userName={val.userName}

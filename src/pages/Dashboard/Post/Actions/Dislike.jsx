@@ -1,4 +1,4 @@
-import React, { useContext, useState, memo } from "react";
+import React, { useContext, memo } from "react";
 import { AiOutlineDislike } from "react-icons/ai";
 import { AppContext } from "../../../../contexts/AppProvider";
 import { AuthContext } from "../../../../contexts/AuthProvider";

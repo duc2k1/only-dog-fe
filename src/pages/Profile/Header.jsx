@@ -1,19 +1,23 @@
-import React, { memo, useState } from "react";
+import React, { memo, useState, useEffect } from "react";
 import ButtonFollow from "../../components/ButtonFollow";
 import ModalImage from "../../components/ModalImage";
 import Placeholder from "../../components/Placeholder";
 import avatarUser from "../../assets/images/avatarDefault.png";
 import splitDate from "../../helpers/splitDate";
-import dataUser from "../../seeds/dataUser.json";
+import fetchWithoutToken from "../../helpers/fetchWithoutToken";
 //--------------------------------------------------
-const infoUser = dataUser.user;
-const postsOfUser = infoUser.posts;
-const followersOfUser = infoUser.followers;
-const followingOfUser = infoUser.following;
-const createdAtOfUser = splitDate(infoUser.createdAt);
-//--------------------------------------------------
-export default memo(function Header() {
+export default memo(function Header({ userId }) {
   const [loaded, setLoaded] = useState(false);
+  const [infoUser, setInfoUser] = useState({});
+  //--------------------------------------------------
+  useEffect(() => {
+    const getData = async () => {
+      setInfoUser(
+        await fetchWithoutToken("GET", "/users/find_one?user_id=" + userId)
+      );
+    };
+    getData();
+  }, []);
   //--------------------------------------------------
   return (
     <div>
@@ -40,19 +44,21 @@ export default memo(function Header() {
           />
         </div>
         <div className="col-md-8" style={{ marginTop: 30 }}>
-          <h3 className="text-center mb-2">{dataUser.user.userName}</h3>
+          <h3 className="text-center mb-2">{infoUser?.user?.userName}</h3>
           <div className="row">
             <p className="col-sm-4 col-12 text-center">
-              <b>{postsOfUser.length}</b> posts
+              <b>{infoUser?.user?.posts?.length}</b> posts
             </p>
             <p className="col-sm-4 col-12 text-center">
-              <b>{followersOfUser.length}</b> followers
+              <b>{infoUser?.user?.followers?.length}</b> followers
             </p>
             <p className="col-sm-4 col-12 text-center">
-              <b>{followingOfUser.length}</b> following
+              <b>{infoUser?.user?.following?.length}</b> following
             </p>
           </div>
-          <div className="text-center mb-2">Join date: {createdAtOfUser}</div>
+          <div className="text-center mb-2">
+            Join date: {splitDate(infoUser?.user?.createdAt)}
+          </div>
           <div className="text-center">
             <ButtonFollow />
           </div>

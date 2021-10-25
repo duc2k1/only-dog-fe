@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import User from "./User";
 import findUsers from "../../seeds/findUsers.json";
-import getQueryFromURL from "../../helpers/useQuery";
+import getQueryFromURL from "../../helpers/getQueryFromURL";
 import NotFoundUser from "./NotFoundUser";
 //--------------------------------------------------
 export default memo(function Users() {

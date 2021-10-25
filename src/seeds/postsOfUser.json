@@ -2,68 +2,22 @@
   "success": true,
   "posts": [
     {
-      "_id": "6169afc8e1783cccf7e5a2sd",
-      "userId": "6172afc8e1783daaf7e5a3a8",
+      "_id": "6176f1be85b5504d028ac6e5",
+      "userId": "6176bdf8dbfbe566dd2172a2",
       "pathImage": "https://picsum.photos/1000",
       "likes": [],
       "dislikes": [],
-      "createdAt": "2021-11-22T12:34:16.940Z"
+      "createdAt": "2021-10-25T18:04:46.516Z",
+      "__v": 0
     },
     {
-      "_id": "sdjkbvkxcvk435345345345",
-      "userId": "6172afc8e1783daaf7e5a3a8",
+      "_id": "6176f1c185b5504d028ac6e7",
+      "userId": "6176bdf8dbfbe566dd2172a2",
       "pathImage": "https://picsum.photos/1000",
       "likes": [],
       "dislikes": [],
-      "createdAt": "2021-10-22T12:34:16.940Z"
-    },
-    {
-      "_id": "ds87sdfjksrtnk54k54jkksjfd",
-      "userId": "6172afc8e1783daaf7e5a3a8",
-      "pathImage": "https://picsum.photos/1000",
-      "likes": [],
-      "dislikes": [],
-      "createdAt": "2021-10-21T12:34:16.940Z"
-    },
-    {
-      "_id": "ds87sdfjksrtnk5d4k54jkkjfd",
-      "userId": "6172afc8e1783daaf7e5a3a8",
-      "pathImage": "https://picsum.photos/1000",
-      "likes": [],
-      "dislikes": [],
-      "createdAt": "2021-10-21T12:34:16.940Z"
-    },
-    {
-      "_id": "ds87sdfjksrtnk54k54j3kkjfd",
-      "userId": "6172afc8e1783daaf7e5a3a8",
-      "pathImage": "https://picsum.photos/1000",
-      "likes": [],
-      "dislikes": [],
-      "createdAt": "2021-10-21T12:34:16.940Z"
-    },
-    {
-      "_id": "ds87sdfjksrtnk54k54jgkkjfd",
-      "userId": "6172afc8e1783daaf7e5a3a8",
-      "pathImage": "https://picsum.photos/1000",
-      "likes": [],
-      "dislikes": [],
-      "createdAt": "2021-10-21T12:34:16.940Z"
-    },
-    {
-      "_id": "ds87sdfjksrtnk54k54jkjkjfd",
-      "userId": "6172afc8e1783daaf7e5a3a8",
-      "pathImage": "https://picsum.photos/1000",
-      "likes": [],
-      "dislikes": [],
-      "createdAt": "2021-10-21T12:34:16.940Z"
-    },
-    {
-      "_id": "ds87sdfjksrtnk54k54jkkjftd",
-      "userId": "6172afc8e1783daaf7e5a3a8",
-      "pathImage": "https://picsum.photos/1000",
-      "likes": [],
-      "dislikes": [],
-      "createdAt": "2021-10-21T12:34:16.940Z"
+      "createdAt": "2021-10-25T18:04:49.654Z",
+      "__v": 0
     }
   ]
 }

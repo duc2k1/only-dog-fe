@@ -11,7 +11,7 @@ export default memo(function AvatarUser() {
   //--------------------------------------------------
   return (
     <Link
-      to={"/profile?userId=" + getUserIdFromAccessToken(stateAccessToken)}
+      to={"/profile?user_id=" + getUserIdFromAccessToken(stateAccessToken)}
       onClick={() => toTop()}
     >
       <img

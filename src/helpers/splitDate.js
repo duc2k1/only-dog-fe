@@ -1,3 +1,3 @@
 export default function splitDate(date) {
-  return date.split("T")[0];
+  return date && date.split("T")[0];
 }

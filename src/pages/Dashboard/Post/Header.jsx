@@ -10,7 +10,7 @@ export default memo(function Header({ dataPost }) {
   //-----------------------------------------------------------
   return (
     <div className="d-flex">
-      <Link to={"/profile?userId=" + dataUser._id} onClick={() => toTop()}>
+      <Link to={"/profile?user_id=" + dataUser._id} onClick={() => toTop()}>
         <img
           src={dataUser.pathAvatar}
           alt="Avatar"

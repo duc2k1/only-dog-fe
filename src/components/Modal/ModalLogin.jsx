@@ -1,8 +1,8 @@
 import React, { useState, useContext, memo, useEffect } from "react";
 import { RiLoginBoxLine } from "react-icons/ri";
+import { Modal, Form, Button, Alert } from "react-bootstrap";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { AppContext } from "../../contexts/AppProvider";
-import { Modal, Form, Button, Alert } from "react-bootstrap";
 import SpinnerBootstrap from "../SpinnerBootstrap";
 import { passwordPattern } from "../../patterns/passwordPattern";
 import { emailPattern } from "../../patterns/emailPattern";
@@ -10,7 +10,7 @@ import { emailPattern } from "../../patterns/emailPattern";
 export default memo(function ModalLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [isDoneAllInput, setIsDoneAllInput] = useState(false);
   const { setStateAccessToken } = useContext(AuthContext);
@@ -22,7 +22,7 @@ export default memo(function ModalLogin() {
   const handleLogin = (event) => {
     event.preventDefault();
     setLoading(true);
-    fetch(import.meta.env.VITE_DOMAIN_API + "/api/auth/login", {
+    fetch(import.meta.env.VITE_DOMAIN_API + "/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -35,7 +35,7 @@ export default memo(function ModalLogin() {
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
-          setError(null);
+          setError("");
           setShowModalLogin(false);
           localStorage.setItem("accessToken", JSON.stringify(data.accessToken));
           setStateAccessToken(data.accessToken);

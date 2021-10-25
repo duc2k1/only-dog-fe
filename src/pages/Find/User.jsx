@@ -10,7 +10,7 @@ export default memo(function User({ userName }) {
   return (
     <div className="col-4 col-md-2 text-center mb-3">
       <Link
-        to={"/profile?userId=" + "oi23osdifhsdi2342342"}
+        to={"/profile?user_id=" + "oi23osdifhsdi2342342"}
         onClick={() => toTop()}
       >
         <img
