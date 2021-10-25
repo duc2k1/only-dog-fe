@@ -38,4 +38,3 @@ let a = [
   },
 ];
 let b = a.sort((a, b) => b.followers.length - a.followers.length);
-console.log("🚀 ~ file: a.js ~ line 3 ~ b", b);

@@ -19,7 +19,6 @@ export default memo(function Dislike({
       if (like) {
         setLike(!like);
       }
-      console.log("set dislike");
     } else setShowModalLogin(true);
   };
   //--------------------------------------------------

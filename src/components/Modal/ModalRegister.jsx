@@ -60,7 +60,6 @@ export default memo(function ModalRegister() {
     } else {
       setIsDoneAllInput(false);
     }
-    console.log(isDoneAllInput);
   }, [userName, email, password, confirmPassword]);
   //--------------------------------------------------
   return (

@@ -23,7 +23,6 @@ export default memo(function DashBoard() {
         postsUserFollow.posts.slice(0, statePostsUserFollow.length + PER_PAGE)
       );
     }, 700);
-    console.log(PER_PAGE);
   };
   //--------------------------------------------------
   return (

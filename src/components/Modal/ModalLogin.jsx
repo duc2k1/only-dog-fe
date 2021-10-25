@@ -60,7 +60,6 @@ export default memo(function ModalLogin() {
     } else {
       setIsDoneAllInput(false);
     }
-    console.log(isDoneAllInput);
   }, [email, password]);
   //----------------------------------------------------------------
   return (

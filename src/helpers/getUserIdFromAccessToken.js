@@ -4,6 +4,5 @@ export default function getUserIdFromAccessToken(accessToken) {
   if (accessToken) {
     return jwt_decode(accessToken).userId;
   }
-  console.log(accessToken);
   return "";
 }
