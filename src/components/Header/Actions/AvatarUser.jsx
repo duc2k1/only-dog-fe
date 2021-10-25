@@ -1,14 +1,17 @@
-import React, { useState, memo } from "react";
+import React, { useState, memo, useContext } from "react";
 import greyImg from "../../../assets/images/grey.jpg";
 import { Link } from "react-router-dom";
 import toTop from "../../../helpers/toTop";
+import getUserIdFromAccessToken from "../../../helpers/getUserIdFromAccessToken";
+import { AuthContext } from "../../../contexts/AuthProvider";
 //--------------------------------------------------
 export default memo(function AvatarUser() {
   const [loaded, setLoaded] = useState(false);
+  const { stateAccessToken } = useContext(AuthContext);
   //--------------------------------------------------
   return (
     <Link
-      to={"/profile?userId=" + "oi23osdifhsdi2342342"}
+      to={"/profile?userId=" + getUserIdFromAccessToken(stateAccessToken)}
       onClick={() => toTop()}
     >
       <img

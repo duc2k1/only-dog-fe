@@ -1,5 +1,9 @@
 import jwt_decode from "jwt-decode";
 //---------------------------------
-export default getUserIdFromAccessToken = (accessToken) => {
-  return jwt_decode(accessToken).userId;
-};
+export default function getUserIdFromAccessToken(accessToken) {
+  if (accessToken) {
+    return jwt_decode(accessToken).userId;
+  }
+  console.log(accessToken);
+  return "";
+}

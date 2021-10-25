@@ -1,7 +1,6 @@
 import React, { useState, memo } from "react";
 import Logo from "./Logo";
 import { Navbar, Container } from "react-bootstrap";
-//--------------------------------------------------
 import InputFind from "./InputFind";
 import Actions from "./Actions/Actions";
 //--------------------------------------------------
