@@ -41,14 +41,14 @@ export default memo(function Header() {
         </div>
         <div className="col-md-8" style={{ marginTop: 30 }}>
           <h3 className="text-center mb-2">{dataUser.user.userName}</h3>
-          <div className="d-flex justify-content-around mb-2">
-            <p className="me-3">
+          <div className="row">
+            <p className="col-sm-4 col-12 text-center">
               <b>{postsOfUser.length}</b> posts
             </p>
-            <p className="me-3">
+            <p className="col-sm-4 col-12 text-center">
               <b>{followersOfUser.length}</b> followers
             </p>
-            <p className="me-3">
+            <p className="col-sm-4 col-12 text-center">
               <b>{followingOfUser.length}</b> following
             </p>
           </div>

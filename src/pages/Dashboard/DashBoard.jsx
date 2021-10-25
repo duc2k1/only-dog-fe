@@ -36,6 +36,7 @@ export default memo(function DashBoard() {
           loader={<SpinnerBootstrap />}
           className="row"
           data-masonry='{"percentPosition": true }'
+          style={{ overflowY: "hidden" }}
         >
           {statePostsUserFollow.map((val) => (
             <Post key={val._id} dataPost={val} />
