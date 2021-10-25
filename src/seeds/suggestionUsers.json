@@ -41,6 +41,18 @@
       "following": [],
       "createdAt": "2021-10-22T12:41:52.662Z",
       "__v": 0
+    },
+    {
+      "_id": "6176bcf450e8a6c6c49418c6",
+      "userName": "duc",
+      "email": "duc@mail.com",
+      "password": "$2b$10$uDm91zkF16LXbraCo8ALyO0haZmskijDHdB86i8qFovL7GmIzr28m",
+      "pathAvatar": "images/dog.jpg",
+      "posts": [],
+      "followers": [],
+      "following": [],
+      "createdAt": "2021-10-25T14:19:32.242Z",
+      "__v": 0
     }
   ]
 }

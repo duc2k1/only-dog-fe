@@ -17,7 +17,7 @@ export default memo(function Header({ userId }) {
       );
     };
     getData();
-  }, []);
+  }, [userId]);
   //--------------------------------------------------
   return (
     <div>
