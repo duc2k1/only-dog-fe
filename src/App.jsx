@@ -6,9 +6,9 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 document.querySelector("#icon").setAttribute("href", icon);
 //--------------------------------------------------
 const Header = lazy(() => import("./components/Header/Header"));
-const Find = lazy(() => import("./components/Find/Find"));
-const DashBoard = lazy(() => import("./components/Dashboard/DashBoard"));
-const Profile = lazy(() => import("./components/Profile/Profile"));
+const Find = lazy(() => import("./pages/Find/Find"));
+const DashBoard = lazy(() => import("./pages/Dashboard/DashBoard"));
+const Profile = lazy(() => import("./pages/Profile/Profile"));
 const BackToTop = lazy(() => import("./components/BackToTop"));
 //--------------------------------------------------
 export default memo(function App() {

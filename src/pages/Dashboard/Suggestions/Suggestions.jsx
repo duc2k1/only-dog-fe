@@ -13,7 +13,8 @@ export default memo(function Suggestions({ openModal, setOpenModal }) {
         {dataSugUser.map((val) => (
           <Suggestion
             key={val._id}
-            name={val.name}
+            userName={val.userName}
+            userId={val._id}
             openModal={openModal}
             setOpenModal={setOpenModal}
           />

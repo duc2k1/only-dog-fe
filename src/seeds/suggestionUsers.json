@@ -3,7 +3,7 @@
   "users": [
     {
       "_id": "3 fl",
-      "name": "3 fl",
+      "userName": "3 fl",
       "email": "duc@mail.com",
       "pathAvatar": "images/dog.jpg",
       "posts": [],
@@ -18,7 +18,7 @@
     },
     {
       "_id": "1 fl",
-      "name": "1 fl",
+      "userName": "1 fl",
       "email": "tai@mail.com",
       "pathAvatar": "images/dog.jpg",
       "posts": [
@@ -33,7 +33,7 @@
     },
     {
       "_id": "2 fl",
-      "name": "2 fl",
+      "userName": "2 fl",
       "email": "tai@mail.com",
       "pathAvatar": "images/dog.jpg",
       "posts": [],

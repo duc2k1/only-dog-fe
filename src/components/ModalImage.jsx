@@ -12,7 +12,6 @@ const modelURL = URL + "model.json";
 const metadataURL = URL + "metadata.json";
 //----------------------------------------------------------
 export default memo(function ModalImage({ component }) {
-  const [image, setImage] = useState(null);
   const [isDog, setIsDog] = useState(null);
   const [showModalAddPost, setShowModalAddPost] = useState();
   const [error, setError] = useState();
@@ -29,13 +28,16 @@ export default memo(function ModalImage({ component }) {
   const handleChange = (event) => {
     setFile(event.target.files[0]);
   };
+  const handleClose = () => setShowModalAddPost(false);
+  const handleShow = () =>
+    stateAccessToken ? setShowModalAddPost(true) : setShowModalLogin(true);
   const handleUpload = () => {
     setLoading(true);
     if (file) {
       if (file.size / 1024 / 1024 <= 0.5) {
-        setImage(file);
         const reader = new FileReader();
         let prediction = null;
+        reader.readAsDataURL(file);
         reader.onloadend = function () {
           const img = new Image();
           img.onload = async function () {
@@ -51,7 +53,6 @@ export default memo(function ModalImage({ component }) {
           };
           img.src = reader.result;
         };
-        reader.readAsDataURL(file);
       } else {
         setLoading(false);
         alert(
@@ -64,9 +65,6 @@ export default memo(function ModalImage({ component }) {
       setLoading(false);
     }
   };
-  const handleClose = () => setShowModalAddPost(false);
-  const handleShow = () =>
-    stateAccessToken ? setShowModalAddPost(true) : setShowModalLogin(true);
   //-------------------------------------------------------------
   return (
     <>

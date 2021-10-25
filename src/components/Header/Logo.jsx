@@ -1,11 +1,12 @@
 import React, { memo } from "react";
 import logo from "../../assets/images/logo.svg";
 import { Link } from "react-router-dom";
+import toTop from "../../helpers/toTop";
 //--------------------------------------------------
 export default memo(function Logo() {
   //--------------------------------------------------
   return (
-    <Link to="/">
+    <Link to="/" onClick={()=> toTop()}>
       <img
         role="button"
         src={logo}
@@ -13,7 +14,7 @@ export default memo(function Logo() {
         width={200}
         style={{ userSelect: "none" }}
         className="my-2"
-        title="Tất nhiên là trừ thằng admin ra, ahihi :33"
+        title="Tất nhiên là trừ admin ra, ahihi :33"
       />
     </Link>
   );

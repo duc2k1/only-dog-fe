@@ -1,5 +1,5 @@
 import React, { useState, memo } from "react";
-import Placeholder from "../Placeholder";
+import Placeholder from "../../components/Placeholder";
 //--------------------------------------------------
 export default memo(function Post({ dataPost }) {
   const [loaded, setLoaded] = useState(false);
