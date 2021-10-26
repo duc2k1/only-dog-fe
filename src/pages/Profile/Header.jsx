@@ -4,20 +4,9 @@ import ModalImage from "../../components/ModalImage";
 import Placeholder from "../../components/Placeholder";
 import avatarUser from "../../assets/images/avatarDefault.png";
 import splitDate from "../../helpers/splitDate";
-import fetchWithoutToken from "../../helpers/fetchWithoutToken";
 //--------------------------------------------------
-export default memo(function Header({ userId }) {
+export default memo(function Header({ infoUser }) {
   const [loaded, setLoaded] = useState(false);
-  const [infoUser, setInfoUser] = useState({});
-  //--------------------------------------------------
-  useEffect(() => {
-    const getData = async () => {
-      setInfoUser(
-        await fetchWithoutToken("GET", "/users/find_one?user_id=" + userId)
-      );
-    };
-    getData();
-  }, [userId]);
   //--------------------------------------------------
   return (
     <div>
@@ -27,7 +16,7 @@ export default memo(function Header({ userId }) {
             component={
               <>
                 <img
-                  src={avatarUser}
+                  src={infoUser?.pathAvatar ? infoUser?.pathAvatar : avatarUser}
                   alt=""
                   width="200"
                   height="200"
@@ -44,20 +33,20 @@ export default memo(function Header({ userId }) {
           />
         </div>
         <div className="col-md-8" style={{ marginTop: 30 }}>
-          <h3 className="text-center mb-2">{infoUser?.user?.userName}</h3>
+          <h3 className="text-center mb-2">{infoUser?.userName}</h3>
           <div className="row">
             <p className="col-sm-4 col-12 text-center">
-              <b>{infoUser?.user?.posts?.length}</b> posts
+              <b>{infoUser?.posts?.length}</b> posts
             </p>
             <p className="col-sm-4 col-12 text-center">
-              <b>{infoUser?.user?.followers?.length}</b> followers
+              <b>{infoUser?.followers?.length}</b> followers
             </p>
             <p className="col-sm-4 col-12 text-center">
-              <b>{infoUser?.user?.following?.length}</b> following
+              <b>{infoUser?.following?.length}</b> following
             </p>
           </div>
           <div className="text-center mb-2">
-            Join date: {splitDate(infoUser?.user?.createdAt)}
+            Join date: {splitDate(infoUser?.createdAt)}
           </div>
           <div className="text-center">
             <ButtonFollow />

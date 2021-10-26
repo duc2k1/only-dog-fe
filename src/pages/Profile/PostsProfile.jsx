@@ -1,15 +1,19 @@
 import React, { memo } from "react";
+import NotFound from "../Find/NotFound";
 import PostProfile from "./PostProfile";
-import postsOfUser from "../../seeds/postsOfUser.json";
 //--------------------------------------------------
-export default memo(function PostsProfile() {
+export default memo(function PostsProfile({ infoUser }) {
   //--------------------------------------------------
   return (
     <main className="py-5">
       <div className="row" data-masonry='{"percentPosition": true }'>
-        {postsOfUser.posts.map((val) => (
-          <PostProfile key={val._id} dataPost={val} />
-        ))}
+        {infoUser?.posts?.length ? (
+          infoUser?.posts?.map((val) => (
+            <PostProfile key={val._id} dataPost={val} />
+          ))
+        ) : (
+          <NotFound />
+        )}
       </div>
     </main>
   );

@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import User from "./User";
 import findUsers from "../../seeds/findUsers.json";
 import getQueryFromURL from "../../helpers/getQueryFromURL";
-import NotFoundUser from "./NotFoundUser";
+import NotFound from "./NotFound";
 //--------------------------------------------------
 export default memo(function Users() {
   //--------------------------------------------------
@@ -21,7 +21,7 @@ export default memo(function Users() {
             <User key={val._id} userName={val.userName} />
           ))
         ) : (
-          <NotFoundUser />
+          <NotFound />
         )}
       </div>
     </div>
