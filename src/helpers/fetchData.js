@@ -1,7 +1,8 @@
-export default async function fetchWithoutToken(
+export default async function fetchData(
   method,
   endpoint,
-  bodyData = {}
+  bodyData = {},
+  accessToken = ""
 ) {
   try {
     const res = await fetch(

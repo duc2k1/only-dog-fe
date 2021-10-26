@@ -1,6 +1,6 @@
 import React, { memo, useState, useEffect } from "react";
 import Suggestion from "./Suggestion";
-import fetchWithoutToken from "../../../helpers/fetchWithoutToken";
+import fetchData from "../../../helpers/fetchData";
 //--------------------------------------------------
 export default memo(function Suggestions({ openModal, setOpenModal }) {
   //--------------------------------------------------
@@ -8,7 +8,7 @@ export default memo(function Suggestions({ openModal, setOpenModal }) {
   //--------------------------------------------------
   useEffect(() => {
     const getData = async () => {
-      setStateUsers(await fetchWithoutToken("GET", "/users"));
+      setStateUsers(await fetchData("GET", "/users"));
     };
     getData();
   }, []);
