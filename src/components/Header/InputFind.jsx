@@ -11,7 +11,7 @@ export default memo(function InputFind({ find, setFind }) {
     >
       <div className="d-flex">
         <input
-          className="form-control me-2 p-1 border-dark"
+          className="form-control me-2 p-1 bg-light border-0"
           placeholder="Find user"
           onChange={(e) => setFind(e.target.value)}
           value={find}
@@ -19,7 +19,7 @@ export default memo(function InputFind({ find, setFind }) {
         <Link to={"/find?user_name=" + find}>
           <div
             role="button"
-            className="border border-dark rounded pt-1 pb-2 px-3 text-dark"
+            className="bg-light rounded pt-1 pb-2 px-3 text-muted"
           >
             <FiSearch size={20} />
           </div>

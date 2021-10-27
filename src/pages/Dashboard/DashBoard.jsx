@@ -28,7 +28,7 @@ export default memo(function DashBoard() {
   return (
     <div>
       <Suggestions />
-      <main className="container py-5">
+      <main className="container">
         <InfiniteScroll
           dataLength={statePostsUserFollow.length}
           next={() => fetchMoreData()}

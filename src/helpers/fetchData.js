@@ -12,6 +12,7 @@ export default async function fetchData(
             method,
             headers: {
               "Content-Type": "application/json",
+              Authorization: "Beaer " + accessToken,
             },
             body: JSON.stringify(bodyData),
           }
@@ -19,6 +20,7 @@ export default async function fetchData(
             method,
             headers: {
               "Content-Type": "application/json",
+              Authorization: "Beaer " + accessToken,
             },
           }
     );

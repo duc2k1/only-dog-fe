@@ -18,7 +18,10 @@ export default memo(function Header() {
     >
       <Container>
         <Logo />
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle
+          aria-controls="basic-navbar-nav"
+          className="border-0 mt-2"
+        />
         <Navbar.Collapse id="basic-navbar-nav">
           <InputFind find={find} setFind={setFind} />
           <Actions />
