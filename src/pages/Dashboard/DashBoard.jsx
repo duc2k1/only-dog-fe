@@ -35,12 +35,10 @@ export default memo(function DashBoard() {
       .then((res) => res.json())
       .then((data) => {
         setStateAllPostUserFollow(data.posts);
-        console.log("~ data.user.posts", data.posts);
       })
       .catch((err) => console.log(err));
   }, []);
   //--------------------------------------------------
-
   return (
     <div>
       <Suggestions />

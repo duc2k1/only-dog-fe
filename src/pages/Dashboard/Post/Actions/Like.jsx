@@ -27,13 +27,13 @@ export default memo(function Like({
       <AiOutlineLike
         size="25"
         role="button"
-        className={like ? "d-none" : ""}
+        className={like && numberOfLike ? "d-none" : ""}
         style={{ marginBottom: 10 }}
       />
       <AiFillLike
         size="25"
         role="button"
-        className={like ? "text-primary" : "d-none"}
+        className={like && numberOfLike ? "text-primary" : "d-none"}
         style={{ marginBottom: 10 }}
       />
     </div>
