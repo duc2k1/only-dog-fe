@@ -7,6 +7,7 @@ import SpinnerBootstrap from "../SpinnerBootstrap";
 import { passwordPattern } from "../../patterns/passwordPattern";
 import { emailPattern } from "../../patterns/emailPattern";
 import { userNamePattern } from "../../patterns/userNamePattern";
+import setAccessAndRefreshTokenToLocalAndState from "../../helpers/setAccessAndRefreshTokenToLocalAndState";
 //------------------------------------------------------------------------------
 export default memo(function ModalRegister() {
   const [userName, setUserName] = useState("");
@@ -16,7 +17,7 @@ export default memo(function ModalRegister() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [isDoneAllInput, setIsDoneAllInput] = useState(false);
-  const { setStateAccessToken } = useContext(AuthContext);
+  const { setStateAccessToken, setStateRefreshToken } = useContext(AuthContext);
   const { showModalRegister, setShowModalRegister, setShowModalLogin } =
     useContext(AppContext);
   //-----------------------------------------------------------------------------
@@ -25,24 +26,33 @@ export default memo(function ModalRegister() {
   const handleRegister = (event) => {
     event.preventDefault();
     setLoading(true);
-    fetch(import.meta.env.VITE_DOMAIN_API + "/auth/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        userName,
-        email,
-        password,
-      }),
-    })
+    fetch(
+      import.meta.env.VITE_DOMAIN_API + import.meta.env.VITE_ENDPOINT_REGISTER,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userName,
+          email,
+          password,
+        }),
+      }
+    )
       .then((response) => response.json())
       .then((data) => {
         data.success ? setError(null) : setError(data.message);
         localStorage.setItem("accessToken", JSON.stringify(data.accessToken));
+        localStorage.setItem("refreshToken", JSON.stringify(data.refreshToken));
         setLoading(false);
         setShowModalRegister(false);
-        setStateAccessToken(data.accessToken);
+        setAccessAndRefreshTokenToLocalAndState(
+          data.accessToken,
+          data.refreshToken,
+          setStateAccessToken,
+          setStateRefreshToken
+        );
       })
       .catch((error) => {
         setError(error.toString());
@@ -64,7 +74,12 @@ export default memo(function ModalRegister() {
   //--------------------------------------------------
   return (
     <div>
-      <FiUserPlus role="button" size="30" onClick={handleShow} />
+      <FiUserPlus
+        role="button"
+        size="30"
+        onClick={handleShow}
+        className="text-muted"
+      />
       <Modal
         show={showModalRegister}
         onHide={handleClose}

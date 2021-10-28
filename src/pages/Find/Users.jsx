@@ -1,25 +1,32 @@
-import React, { memo } from "react";
+import React, { memo, useEffect, useState } from "react";
 import User from "./User";
-import findUsers from "../../seeds/findUsers.json";
 import getQueryFromURL from "../../helpers/getQueryFromURL";
 import NotFound from "./NotFound";
 //--------------------------------------------------
 export default memo(function Users() {
   //--------------------------------------------------
-  const handleFilter = (val) => {
-    return val.userName.indexOf(userName) !== -1 && userName ? true : false;
-  };
-  const users = findUsers.users;
   const userName = getQueryFromURL("user_name");
-  const usersAfterFilter = users.filter((val) => handleFilter(val));
+  const [usersFind, setUsersFind] = useState([]);
+  //--------------------------------------------------
+  useEffect(() => {
+    fetch(
+      import.meta.env.VITE_DOMAIN_API +
+        import.meta.env.VITE_ENDPOINT_FIND_USER_BY_NAME +
+        "/" +
+        userName
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setUsersFind(data.users);
+      })
+      .catch((err) => console.log(err));
+  }, [userName]);
   //--------------------------------------------------
   return (
     <div className="container mt-4">
       <div className="row">
-        {users && userName && usersAfterFilter.length ? (
-          usersAfterFilter.map((val) => (
-            <User key={val._id} userName={val.userName} />
-          ))
+        {usersFind.length && userName ? (
+          usersFind.map((val) => <User key={val._id} userName={val.userName} />)
         ) : (
           <NotFound />
         )}

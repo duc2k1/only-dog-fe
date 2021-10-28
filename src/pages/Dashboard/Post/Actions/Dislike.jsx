@@ -1,5 +1,5 @@
 import React, { useContext, memo } from "react";
-import { AiOutlineDislike } from "react-icons/ai";
+import { AiOutlineDislike, AiFillDislike } from "react-icons/ai";
 import { AppContext } from "../../../../contexts/AppProvider";
 import { AuthContext } from "../../../../contexts/AuthProvider";
 //--------------------------------------------------
@@ -16,24 +16,24 @@ export default memo(function Dislike({
   const handleSetDislike = () => {
     if (stateAccessToken) {
       setDislike(!dislike);
-      if (like) {
-        setLike(!like);
-      }
+      like && setLike(!like);
     } else setShowModalLogin(true);
   };
   //--------------------------------------------------
   return (
     <div onClick={handleSetDislike}>
-      <small>{numberOfDislike + dislike}</small>
+      <small className={dislike ? "text-danger" : ""}>
+        {numberOfDislike + dislike}
+      </small>
       <AiOutlineDislike
         size="25"
         role="button"
-        className={dislike ? "d-none" : "mt-2"}
+        className={dislike ? "d-none" : ""}
       />
-      <AiOutlineDislike
+      <AiFillDislike
         size="25"
         role="button"
-        className={dislike ? "mt-2 text-danger" : "d-none"}
+        className={dislike ? "text-danger" : "d-none"}
       />
     </div>
   );

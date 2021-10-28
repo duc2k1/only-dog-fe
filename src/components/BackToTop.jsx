@@ -15,7 +15,7 @@ export default memo(function BackToTop() {
       }}
       size="30"
       role="button"
-      className="text-dark"
+      className="text-muted"
     />
   );
 });

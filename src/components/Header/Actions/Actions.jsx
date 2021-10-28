@@ -8,7 +8,8 @@ import ModalImage from "../../ModalImage";
 import Logout from "./Logout";
 //--------------------------------------------------
 export default memo(function Actions() {
-  const { stateAccessToken, setStateAccessToken } = useContext(AuthContext);
+  const { stateAccessToken, setStateAccessToken, setStateRefreshToken } =
+    useContext(AuthContext);
   //--------------------------------------------------
   window.onstorage = () => {
     localStorage.getItem("accessToken")
@@ -29,11 +30,15 @@ export default memo(function Actions() {
               style={{ marginRight: 18 }}
               role="button"
               size="30"
+              className="text-muted"
             />
           }
         />
         <AvatarUser />
-        <Logout setStateAccessToken={setStateAccessToken} />
+        <Logout
+          setStateAccessToken={setStateAccessToken}
+          setStateRefreshToken={setStateRefreshToken}
+        />
       </div>
       <div
         className={

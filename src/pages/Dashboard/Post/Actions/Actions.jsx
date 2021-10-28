@@ -1,4 +1,4 @@
-import React, { useState, memo } from "react";
+import React, { useState, memo, useEffect } from "react";
 import Dislike from "./Dislike";
 import Like from "./Like";
 //--------------------------------------------------
@@ -7,6 +7,18 @@ export default memo(function Actions() {
   const [dislike, setDislike] = useState(false);
   const [numberOfLike, setNumberOfLike] = useState(0);
   const [numberOfDislike, setNumberOfDislike] = useState(0);
+  //--------------------------------------------------
+  useEffect(() => {
+    // fetch(
+    //   import.meta.env.VITE_DOMAIN_API +
+    //     import.meta.env.VITE_ENDPOINT_FIND_USER_BY_ID+"/"+"",
+    // )
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //   })
+    //   .catch((err) => console.log(err));
+  }, []);
   //--------------------------------------------------
   return (
     <div

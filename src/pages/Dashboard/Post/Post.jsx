@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useEffect, useState } from "react";
 import Actions from "./Actions/Actions";
 import Header from "./Header";
 import Image from "./Image";

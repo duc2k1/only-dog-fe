@@ -35,6 +35,7 @@ export default memo(function ModalImage({ component }) {
     setLoading(true);
     if (file) {
       if (file.size / 1024 / 1024 <= 0.5) {
+        console.log(file);
         const reader = new FileReader();
         let prediction = null;
         reader.readAsDataURL(file);

@@ -23,7 +23,9 @@ export default memo(function Suggestion({ userName, userId }) {
       </Link>
       {!loaded && <Placeholder rounded={true} width={60} height={60} />}
       <br />
-      <small>{userName}</small>
+      <small>
+        <b>{userName}</b>
+      </small>
       <br />
       <ButtonFollow />
     </div>

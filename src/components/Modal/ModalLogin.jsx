@@ -6,6 +6,7 @@ import { AppContext } from "../../contexts/AppProvider";
 import SpinnerBootstrap from "../SpinnerBootstrap";
 import { passwordPattern } from "../../patterns/passwordPattern";
 import { emailPattern } from "../../patterns/emailPattern";
+import setAccessAndRefreshTokenToLocalAndState from "../../helpers/setAccessAndRefreshTokenToLocalAndState";
 //----------------------------------------------------------------
 export default memo(function ModalLogin() {
   const [email, setEmail] = useState("");
@@ -13,7 +14,7 @@ export default memo(function ModalLogin() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [isDoneAllInput, setIsDoneAllInput] = useState(false);
-  const { setStateAccessToken } = useContext(AuthContext);
+  const { setStateAccessToken, setStateRefreshToken } = useContext(AuthContext);
   const { showModalLogin, setShowModalLogin, setShowModalRegister } =
     useContext(AppContext);
   //----------------------------------------------------------------
@@ -22,23 +23,30 @@ export default memo(function ModalLogin() {
   const handleLogin = (event) => {
     event.preventDefault();
     setLoading(true);
-    fetch(import.meta.env.VITE_DOMAIN_API + "/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    })
+    fetch(
+      import.meta.env.VITE_DOMAIN_API + import.meta.env.VITE_ENDPOINT_LOGIN,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      }
+    )
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
           setError("");
           setShowModalLogin(false);
-          localStorage.setItem("accessToken", JSON.stringify(data.accessToken));
-          setStateAccessToken(data.accessToken);
+          setAccessAndRefreshTokenToLocalAndState(
+            data.accessToken,
+            data.refreshToken,
+            setStateAccessToken,
+            setStateRefreshToken
+          );
         } else {
           setError(data.message);
         }
@@ -68,7 +76,7 @@ export default memo(function ModalLogin() {
         role="button"
         size="30"
         onClick={handleShow}
-        className="me-3"
+        className="me-3 text-muted"
       />
       <Modal
         show={showModalLogin}

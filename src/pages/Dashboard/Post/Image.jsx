@@ -9,7 +9,7 @@ export default memo(function Image({ dataPost }) {
       <img
         width="100%"
         height="300"
-        src={dataPost.pathImage}
+        src={dataPost?.pathImage}
         alt="Image Post"
         style={{ objectFit: "cover", userSelect: "none" }}
         onLoad={() => setLoaded(true)}

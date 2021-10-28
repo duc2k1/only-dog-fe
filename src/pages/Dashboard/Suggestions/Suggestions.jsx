@@ -1,25 +1,24 @@
-import React, { memo, useState, useEffect, useContext } from "react";
+import React, { memo, useState, useEffect } from "react";
 import Suggestion from "./Suggestion";
-import fetchData from "../../../helpers/fetchData";
-import { AppContext } from "../../../contexts/AppProvider";
-import { AuthContext } from "../../../contexts/AuthProvider";
 //--------------------------------------------------
 export default memo(function Suggestions({ openModal, setOpenModal }) {
   //--------------------------------------------------
   const [stateUsers, setStateUsers] = useState([]);
-  const { stateAccessToken } = useContext(AuthContext);
   //--------------------------------------------------
   useEffect(() => {
-    const getData = async () => {
-      setStateUsers(await fetchData("GET", "/users", {}, stateAccessToken));
-    };
-    getData();
+    fetch(
+      import.meta.env.VITE_DOMAIN_API +
+        import.meta.env.VITE_ENDPOINT_GET_ALL_USER
+    )
+      .then((res) => res.json())
+      .then((data) => setStateUsers(data))
+      .catch((err) => console.log(err));
   }, []);
   //--------------------------------------------------
   return (
     <div className="container mt-4">
       <div className="row">
-        {stateUsers?.users?.map((val) => (
+        {stateUsers?.users?.slice(0, 6).map((val) => (
           <Suggestion
             key={val._id}
             userName={val.userName}

@@ -42,11 +42,11 @@ export default memo(function Header({ infoUser }) {
               <b>{infoUser?.followers?.length}</b> followers
             </p>
             <p className="col-sm-4 col-12 text-center">
-              <b>{infoUser?.following?.length}</b> following
+              <b>{infoUser?.followings?.length}</b> followings
             </p>
           </div>
-          <div className="text-center mb-2">
-            Join date: {splitDate(infoUser?.createdAt)}
+          <div className="text-center mb-2 text-muted">
+            Join dated: {splitDate(infoUser?.createdAt)}
           </div>
           <div className="text-center">
             <ButtonFollow />

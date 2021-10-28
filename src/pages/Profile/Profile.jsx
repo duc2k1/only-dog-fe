@@ -2,16 +2,23 @@ import React, { memo, useState, useEffect } from "react";
 import Header from "./Header";
 import PostsProfile from "./PostsProfile";
 import getQueryFromURL from "../../helpers/getQueryFromURL";
-import fetchData from "../../helpers/fetchData";
 //--------------------------------------------------
 export default memo(function Profile() {
   const userId = getQueryFromURL("user_id");
   const [infoUser, setInfoUser] = useState({});
   //--------------------------------------------------
   useEffect(() => {
-    (async () => {
-      setInfoUser(await fetchData("GET", "/users/find_one?user_id=" + userId));
-    })();
+    fetch(
+      import.meta.env.VITE_DOMAIN_API +
+        import.meta.env.VITE_ENDPOINT_FIND_USER_BY_ID +
+        "/" +
+        userId
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setInfoUser(data);
+      })
+      .catch((err) => console.log(err));
   }, [userId]);
   //--------------------------------------------------
   return (
