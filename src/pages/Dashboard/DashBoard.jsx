@@ -3,28 +3,26 @@ import Suggestions from "./Suggestions/Suggestions";
 import Post from "./Post/Post";
 import InfiniteScroll from "react-infinite-scroll-component";
 import SpinnerBootstrap from "../../components/SpinnerBootstrap";
-import postsUserFollow from "../../seeds/postsUserFollow.json";
 import getUserIdFromAccessToken from "../../helpers/getUserIdFromAccessToken";
 import { AuthContext } from "../../contexts/AuthProvider";
 //--------------------------------------------------
 const PER_PAGE = parseInt(import.meta.env.VITE_PER_PAGE);
-const posts = postsUserFollow.posts;
 //--------------------------------------------------
 export default memo(function DashBoard() {
   const [statePostsUserFollow, setStatePostsUserFollow] = useState([]);
   const [stateAllPostUserFollow, setStateAllPostUserFollow] = useState([]);
   const [stateHasMore, setStateHasMore] = useState(true);
-  const fetchMoreData = () => {
-    if (statePostsUserFollow.length >= posts.length) {
-      setStateHasMore(false);
-      return;
-    }
-    setTimeout(() => {
-      setStatePostsUserFollow(
-        postsUserFollow.posts.slice(0, statePostsUserFollow.length + PER_PAGE)
-      );
-    }, 700);
-  };
+  // const fetchMoreData = () => {
+  //   if (statePostsUserFollow.length >= posts.length) {
+  //     setStateHasMore(false);
+  //     return;
+  //   }
+  //   setTimeout(() => {
+  //     setStatePostsUserFollow(
+  //       postsUserFollow.posts.slice(0, statePostsUserFollow.length + PER_PAGE)
+  //     );
+  //   }, 700);
+  // };
   const { stateAccessToken } = useContext(AuthContext);
   //--------------------------------------------------
   useEffect(() => {

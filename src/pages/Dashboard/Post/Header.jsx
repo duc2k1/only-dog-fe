@@ -6,7 +6,6 @@ import toTop from "../../../helpers/toTop";
 //-----------------------------------------------------------
 export default memo(function Header({ dataPost }) {
   const dataUser = dataPost?.userOb;
-  console.log(dataUser);
   const [loaded, setLoaded] = useState(false);
   //-----------------------------------------------------------
   return (
