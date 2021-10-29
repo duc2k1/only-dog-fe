@@ -1,5 +1,5 @@
 import React, { useContext, memo } from "react";
-import { AiOutlineLike, AiFillLike } from "react-icons/ai";
+import { ImArrowUp2 } from "react-icons/im";
 import { AppContext } from "../../../../contexts/AppProvider";
 import { AuthContext } from "../../../../contexts/AuthProvider";
 //--------------------------------------------------
@@ -9,6 +9,7 @@ export default memo(function Like({
   dislike,
   setDislike,
   numberOfLike,
+  dataPost,
 }) {
   const { setShowModalLogin } = useContext(AppContext);
   const { stateAccessToken } = useContext(AuthContext);
@@ -18,19 +19,20 @@ export default memo(function Like({
       setLike(!like);
       dislike && setDislike(!dislike);
     } else setShowModalLogin(true);
+    console.log(dataPost);
   };
   return (
     <div onClick={() => handleSetLike()}>
       <small className={like ? "text-primary" : ""}>
         {numberOfLike + like}
       </small>
-      <AiOutlineLike
+      <ImArrowUp2
         size="25"
         role="button"
         className={like && numberOfLike ? "d-none" : ""}
         style={{ marginBottom: 10 }}
       />
-      <AiFillLike
+      <ImArrowUp2
         size="25"
         role="button"
         className={like && numberOfLike ? "text-primary" : "d-none"}

@@ -33,6 +33,7 @@ export default memo(function Actions({ dataPost }) {
         dislike={dislike}
         setDislike={setDislike}
         numberOfLike={numberOfLike}
+        dataPost={dataPost}
       />
       <Dislike
         like={like}
@@ -40,6 +41,7 @@ export default memo(function Actions({ dataPost }) {
         dislike={dislike}
         setDislike={setDislike}
         numberOfDislike={numberOfDislike}
+        dataPost={dataPost}
       />
     </div>
   );

@@ -14,7 +14,6 @@ export default memo(function Logo() {
         width={200}
         style={{ userSelect: "none" }}
         className="my-2"
-        title="Tất nhiên là trừ admin ra, ahihi :33"
       />
     </Link>
   );

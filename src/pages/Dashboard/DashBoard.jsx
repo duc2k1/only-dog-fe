@@ -56,7 +56,7 @@ export default memo(function DashBoard() {
             <Post key={val._id} dataPost={val} />
           ))}
         </InfiniteScroll> */}
-        <div>
+        <div className="row" data-masonry='{"percentPosition": true }'>
           {stateAllPostUserFollow.map((val) => (
             <Post key={val._id} dataPost={val} />
           ))}

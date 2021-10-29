@@ -1,5 +1,5 @@
 import React, { useContext, memo } from "react";
-import { AiOutlineDislike, AiFillDislike } from "react-icons/ai";
+import { ImArrowDown2 } from "react-icons/im";
 import { AppContext } from "../../../../contexts/AppProvider";
 import { AuthContext } from "../../../../contexts/AuthProvider";
 //--------------------------------------------------
@@ -25,15 +25,15 @@ export default memo(function Dislike({
       <small className={dislike ? "text-danger" : ""}>
         {numberOfDislike + dislike}
       </small>
-      <AiOutlineDislike
+      <ImArrowDown2
         size="25"
         role="button"
-        className={dislike ? "d-none" : ""}
+        className={dislike ? "d-none" : "mb-2"}
       />
-      <AiFillDislike
+      <ImArrowDown2
         size="25"
         role="button"
-        className={dislike ? "text-danger" : "d-none"}
+        className={dislike ? "text-danger mb-2" : "d-none"}
       />
     </div>
   );
