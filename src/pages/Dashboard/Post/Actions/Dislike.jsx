@@ -21,14 +21,14 @@ export default memo(function Dislike({
   };
   //--------------------------------------------------
   return (
-    <div onClick={handleSetDislike}>
-      <small className={dislike ? "text-danger" : ""}>
+    <div onClick={() => handleSetDislike()}>
+      <small className={dislike ? "text-danger" : "text-muted"}>
         {numberOfDislike + dislike}
       </small>
       <ImArrowDown2
         size="25"
         role="button"
-        className={dislike ? "d-none" : "mb-2"}
+        className={dislike ? "d-none" : "text-muted mb-2"}
       />
       <ImArrowDown2
         size="25"
