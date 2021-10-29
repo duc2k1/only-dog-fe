@@ -1,1 +1,0 @@
-import{u as s}from"./vendor.e39436fc.js";import{j as r}from"./index.4a29b043.js";function a(e){return new URLSearchParams(s().search).get(e)}function u(){return r("img",{className:"text-center img-fluid",src:"https://indususedcars.com/assets/theme/images/no_result_found.png"})}export{u as N,a as g};
