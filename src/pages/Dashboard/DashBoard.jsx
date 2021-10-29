@@ -5,45 +5,47 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import SpinnerBootstrap from "../../components/SpinnerBootstrap";
 import getUserIdFromAccessToken from "../../helpers/getUserIdFromAccessToken";
 import { AuthContext } from "../../contexts/AuthProvider";
+import ToastCustom from "../../components/ToastCustom";
+import getData from "../../helpers/fetchs/getData";
 //--------------------------------------------------
 const PER_PAGE = import.meta.env.VITE_PER_PAGE;
 //--------------------------------------------------
 export default memo(function DashBoard() {
-  const [statePostsUserFollow, setStatePostsUserFollow] = useState([]);
-  const [stateAllPostUserFollow, setStateAllPostUserFollow] = useState([]);
+  const [stateAllPostUserFollow, setStateAllPostUserFollow] = useState([]); //all post
+  const [statePostsUserFollow, setStatePostsUserFollow] = useState([]); //part post
   const [stateHasMore, setStateHasMore] = useState(true);
-  // const fetchMoreData = () => {
-  //   if (statePostsUserFollow.length >= posts.length) {
-  //     setStateHasMore(false);
-  //     return;
-  //   }
-  //   setTimeout(() => {
-  //     setStatePostsUserFollow(
-  //       postsUserFollow.posts.slice(0, statePostsUserFollow.length + PER_PAGE)
-  //     );
-  //   }, 700);
-  // };
-  const { stateAccessToken } = useContext(AuthContext);
+  const [isLoading, setIsLoading] = useState(true);
+  const fetchMoreData = () => {
+    if (statePostsUserFollow.length >= stateAllPostUserFollow.length) {
+      setStateHasMore(false);
+      return;
+    }
+    setTimeout(() => {
+      setStatePostsUserFollow(
+        stateAllPostUserFollow.slice(0, statePostsUserFollow.length + 6)
+      );
+    }, 1000);
+  };
   //--------------------------------------------------
   useEffect(() => {
-    fetch(
-      import.meta.env.VITE_DOMAIN_API +
-        import.meta.env.VITE_ENDPOINT_DASHBOARD +
-        "/" +
-        getUserIdFromAccessToken(stateAccessToken)
-    )
+    getData(import.meta.env.VITE_ENDPOINT_GET_ALL_POST)
       .then((res) => res.json())
       .then((data) => {
         setStateAllPostUserFollow(data.posts);
+        setStatePostsUserFollow(data.posts.slice(0, PER_PAGE));
+        setIsLoading(false);
       })
       .catch((err) => console.log(err));
   }, []);
   //--------------------------------------------------
-  return (
+  return isLoading ? (
+    <SpinnerBootstrap />
+  ) : (
     <div>
-      <Suggestions />
+      {/* <Suggestions /> */}
       <main className="container">
-        {/* <InfiniteScroll
+        {/* <ToastCustom /> */}
+        <InfiniteScroll
           dataLength={statePostsUserFollow.length}
           next={() => fetchMoreData()}
           hasMore={stateHasMore}
@@ -55,12 +57,7 @@ export default memo(function DashBoard() {
           {statePostsUserFollow.map((val) => (
             <Post key={val._id} dataPost={val} />
           ))}
-        </InfiniteScroll> */}
-        <div className="row" data-masonry='{"percentPosition": true }'>
-          {stateAllPostUserFollow.map((val) => (
-            <Post key={val._id} dataPost={val} />
-          ))}
-        </div>
+        </InfiniteScroll>
       </main>
     </div>
   );

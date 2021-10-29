@@ -34,23 +34,21 @@ export default memo(function Header({ infoUser }) {
         </div>
         <div className="col-md-8" style={{ marginTop: 30 }}>
           <h3 className="text-center mb-2">{infoUser?.userName}</h3>
-          <div className="row">
-            <p className="col-sm-4 col-12 text-center">
-              <b>{infoUser?.posts?.length}</b> posts
-            </p>
-            <p className="col-sm-4 col-12 text-center">
+          <p className="text-center">
+            <b>{infoUser?.posts?.length}</b> posts
+          </p>
+          {/* <p className="col-sm-4 col-12 text-center">
               <b>{infoUser?.followers?.length}</b> followers
             </p>
             <p className="col-sm-4 col-12 text-center">
               <b>{infoUser?.followings?.length}</b> followings
-            </p>
-          </div>
+            </p> */}
           <div className="text-center mb-2 text-muted">
             Join dated: {splitDate(infoUser?.createdAt)}
           </div>
-          <div className="text-center">
+          {/* <div className="text-center">
             <ButtonFollow />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@ import React, { useState, useEffect, memo, useContext } from "react";
 import * as tmImage from "@teachablemachine/image";
 import placehoderImg from "../assets/images/grey.jpg";
 import { Modal } from "react-bootstrap";
-import { Alert, Form, Button } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import { AuthContext } from "../contexts/AuthProvider";
 import { AppContext } from "../contexts/AppProvider";
 import SpinnerBootstrap from "./SpinnerBootstrap";
@@ -12,18 +12,11 @@ const modelURL = URL + "model.json";
 const metadataURL = URL + "metadata.json";
 //----------------------------------------------------------
 export default memo(function ModalImage({ component }) {
-  const [isDog, setIsDog] = useState(null);
   const [showModalAddPost, setShowModalAddPost] = useState();
-  const [error, setError] = useState();
   const [file, setFile] = useState();
   const [loading, setLoading] = useState(false);
-  const [showError, setShowError] = useState(true);
   const { stateAccessToken } = useContext(AuthContext);
   const { setShowModalLogin } = useContext(AppContext);
-  //------------------------------------------------------------
-  useEffect(() => {
-    isDog === false && setError("Not dogggggg");
-  }, [isDog]);
   //------------------------------------------------------------
   const handleChange = (event) => {
     setFile(event.target.files[0]);
@@ -35,7 +28,6 @@ export default memo(function ModalImage({ component }) {
     setLoading(true);
     if (file) {
       if (file.size / 1024 / 1024 <= 0.5) {
-        console.log(file);
         const reader = new FileReader();
         let prediction = null;
         reader.readAsDataURL(file);
@@ -46,10 +38,10 @@ export default memo(function ModalImage({ component }) {
             prediction = await model.predict(img);
             if (prediction[0].probability > prediction[1].probability) {
               setLoading(false);
-              alert("doggggggggg");
+              alert("Is doggggggggg");
             } else {
               setLoading(false);
-              setIsDog(false);
+              alert("Not doggggggggg");
             }
           };
           img.src = reader.result;
@@ -93,15 +85,6 @@ export default memo(function ModalImage({ component }) {
               <Button onClick={handleUpload}>Upload</Button>
             )}
           </div>
-          {error && showError && (
-            <Alert
-              variant="danger"
-              onClose={() => setShowError(false)}
-              dismissible
-            >
-              {error}
-            </Alert>
-          )}
           <img
             src={placehoderImg}
             alt="image"

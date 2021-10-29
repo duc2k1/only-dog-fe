@@ -2,31 +2,34 @@ import React, { memo, useEffect, useState } from "react";
 import User from "./User";
 import getQueryFromURL from "../../helpers/getQueryFromURL";
 import NotFound from "./NotFound";
+import getData from "../../helpers/fetchs/getData";
+import SpinnerBootstrap from "../../components/SpinnerBootstrap";
 //--------------------------------------------------
 export default memo(function Users() {
   //--------------------------------------------------
   const userName = getQueryFromURL("user_name");
   const [usersFind, setUsersFind] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   //--------------------------------------------------
   useEffect(() => {
-    fetch(
-      import.meta.env.VITE_DOMAIN_API +
-        import.meta.env.VITE_ENDPOINT_FIND_USER_BY_NAME +
-        "/" +
-        userName
-    )
+    getData(import.meta.env.VITE_ENDPOINT_FIND_USER_BY_NAME + "/" + userName)
       .then((res) => res.json())
       .then((data) => {
         setUsersFind(data.users);
+        setIsLoading(false);
       })
       .catch((err) => console.log(err));
   }, [userName]);
   //--------------------------------------------------
-  return (
+  return isLoading ? (
+    <SpinnerBootstrap />
+  ) : (
     <div className="container mt-4">
       <div className="row">
         {usersFind.length && userName ? (
-          usersFind.map((val) => <User key={val._id} userName={val.userName} />)
+          usersFind.map((val) => (
+            <User key={val._id} userId={val._id} userName={val.userName} />
+          ))
         ) : (
           <NotFound />
         )}

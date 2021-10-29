@@ -21,6 +21,10 @@ export default memo(function Like({
     } else setShowModalLogin(true);
   };
   //--------------------------------------------------
+  useEffect(() => {
+    fetch().then();
+  }, [like]);
+  //--------------------------------------------------
   return (
     <div onClick={() => handleSetLike()}>
       <small className={like ? "text-primary" : "text-muted"}>

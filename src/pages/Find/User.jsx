@@ -4,15 +4,12 @@ import ButtonFollow from "../../components/ButtonFollow";
 import { Link } from "react-router-dom";
 import toTop from "../../helpers/toTop";
 //--------------------------------------------------
-export default memo(function User({ userName }) {
+export default memo(function User({ userId, userName }) {
   const [loaded, setLoaded] = useState(false);
   //--------------------------------------------------
   return (
     <div className="col-4 col-md-2 text-center mb-3">
-      <Link
-        to={"/profile?user_id=" + "oi23osdifhsdi2342342"}
-        onClick={() => toTop()}
-      >
+      <Link to={"/profile?user_id=" + userId} onClick={() => toTop()}>
         <img
           src="https://picsum.photos/1000"
           alt="Image user find"
