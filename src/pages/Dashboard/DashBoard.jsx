@@ -31,7 +31,7 @@ export default memo(function DashBoard() {
     getData(import.meta.env.VITE_ENDPOINT_GET_ALL_POST)
       .then((res) => res.json())
       .then((data) => {
-        setStateAllPostUserFollow(data.posts);
+        setStateAllPostUserFollow(data.posts.reverse());
         setStatePostsUserFollow(data.posts.slice(0, PER_PAGE));
         setIsLoading(false);
       })

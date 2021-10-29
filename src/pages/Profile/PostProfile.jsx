@@ -7,7 +7,7 @@ export default memo(function PostProfile({ dataPost }) {
   return (
     <div className="col-sm-6 col-lg-4 mb-4">
       <img
-        src={dataPost.pathImage}
+        src={import.meta.env.VITE_DOMAIN_API + dataPost.pathImage}
         alt="Image of user"
         style={{ objectFit: "cover", userSelect: "none" }}
         onLoad={() => setLoaded(true)}
