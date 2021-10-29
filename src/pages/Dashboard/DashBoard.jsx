@@ -6,7 +6,7 @@ import SpinnerBootstrap from "../../components/SpinnerBootstrap";
 import getUserIdFromAccessToken from "../../helpers/getUserIdFromAccessToken";
 import { AuthContext } from "../../contexts/AuthProvider";
 //--------------------------------------------------
-const PER_PAGE = parseInt(import.meta.env.VITE_PER_PAGE);
+const PER_PAGE = import.meta.env.VITE_PER_PAGE;
 //--------------------------------------------------
 export default memo(function DashBoard() {
   const [statePostsUserFollow, setStatePostsUserFollow] = useState([]);
