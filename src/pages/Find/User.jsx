@@ -25,7 +25,7 @@ export default memo(function User({ userId, userName }) {
       <br />
       <small>{userName}</small>
       <br />
-      <ButtonFollow />
+      <ButtonFollow userIdBeFollow={userId} />
     </div>
   );
 });

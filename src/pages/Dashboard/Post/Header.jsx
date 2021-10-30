@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import toTop from "../../../helpers/toTop";
 //-----------------------------------------------------------
 export default memo(function Header({ dataPost }) {
-  const dataUser = dataPost?.userOb;
+  const dataUser = dataPost?.user;
   const [loaded, setLoaded] = useState(false);
   //-----------------------------------------------------------
   return (

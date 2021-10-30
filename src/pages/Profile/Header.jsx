@@ -1,6 +1,6 @@
 import React, { memo, useState, useEffect } from "react";
 import ButtonFollow from "../../components/ButtonFollow";
-import ModalImage from "../../components/ModalImage";
+import ModalImage from "../../components/Modal/ModalImage";
 import Placeholder from "../../components/Placeholder";
 import avatarUser from "../../assets/images/avatarDefault.png";
 import splitDate from "../../helpers/splitDate";
@@ -34,21 +34,23 @@ export default memo(function Header({ infoUser }) {
         </div>
         <div className="col-md-8" style={{ marginTop: 30 }}>
           <h3 className="text-center mb-2">{infoUser?.userName}</h3>
-          <p className="text-center">
-            <b>{infoUser?.posts?.length}</b> posts
-          </p>
-          {/* <p className="col-sm-4 col-12 text-center">
+          <div className="row">
+            <p className="col-sm-4 col-12 text-center">
+              <b>{infoUser?.posts?.length}</b> posts
+            </p>
+            <p className="col-sm-4 col-12 text-center">
               <b>{infoUser?.followers?.length}</b> followers
             </p>
             <p className="col-sm-4 col-12 text-center">
               <b>{infoUser?.followings?.length}</b> followings
-            </p> */}
+            </p>
+          </div>
           <div className="text-center mb-2 text-muted">
             Join dated: {splitDate(infoUser?.createdAt)}
           </div>
-          {/* <div className="text-center">
-            <ButtonFollow />
-          </div> */}
+          <div className="text-center">
+            <ButtonFollow userIdBeFollow={infoUser?._id} />
+          </div>
         </div>
       </div>
     </div>

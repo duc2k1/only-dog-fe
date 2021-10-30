@@ -27,7 +27,7 @@ export default memo(function Suggestion({ userName, userId }) {
         <b>{userName}</b>
       </small>
       <br />
-      <ButtonFollow />
+      <ButtonFollow userIdBeFollow={userId} />
     </div>
   );
 });

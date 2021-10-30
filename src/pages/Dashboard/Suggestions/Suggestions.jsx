@@ -1,24 +1,39 @@
-import React, { memo, useState, useEffect } from "react";
+import React, { memo, useState, useEffect, useContext } from "react";
+import SpinnerBootstrap from "../../../components/SpinnerBootstrap";
+import { AuthContext } from "../../../contexts/AuthProvider";
+import getData from "../../../helpers/fetchs/getData";
+import getUserIdFromAccessToken from "../../../helpers/getUserIdFromAccessToken";
 import Suggestion from "./Suggestion";
 //--------------------------------------------------
 export default memo(function Suggestions({ openModal, setOpenModal }) {
   //--------------------------------------------------
   const [stateUsers, setStateUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const { stateAccessToken } = useContext(AuthContext);
   //--------------------------------------------------
   useEffect(() => {
-    fetch(
-      import.meta.env.VITE_DOMAIN_API +
-        import.meta.env.VITE_ENDPOINT_GET_ALL_USER
-    )
+    getData(import.meta.env.VITE_ENDPOINT_GET_ALL_USER)
       .then((res) => res.json())
-      .then((data) => setStateUsers(data))
+      .then((data) => {
+        //get user id current
+        const strUserId = getUserIdFromAccessToken(stateAccessToken);
+        const obUserCurrent = data.users.find((val) => val._id === strUserId);
+        const arrUserFollow = data.users.filter(
+          (val) =>
+            !obUserCurrent.followings.includes(val._id) && strUserId !== val._id
+        );
+        setStateUsers(arrUserFollow);
+        setIsLoading(false);
+      })
       .catch((err) => console.log(err));
   }, []);
   //--------------------------------------------------
-  return (
+  return isLoading ? (
+    <SpinnerBootstrap />
+  ) : (
     <div className="container mt-4">
       <div className="row">
-        {stateUsers?.users?.slice(0, 6).map((val) => (
+        {stateUsers?.slice(0, 6).map((val) => (
           <Suggestion
             key={val._id}
             userName={val.userName}

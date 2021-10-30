@@ -18,6 +18,10 @@ export default memo(function Profile() {
         setIsLoading(false);
       })
       .catch((err) => console.log(err));
+    return () => {
+      setInfoUser({});
+      setIsLoading(true);
+    };
   }, [userId]);
   //--------------------------------------------------
   return isLoading ? (

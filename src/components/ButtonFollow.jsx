@@ -1,18 +1,58 @@
 import React, { useState, useContext, memo } from "react";
 import { AppContext } from "../contexts/AppProvider";
 import { AuthContext } from "../contexts/AuthProvider";
+import SpinnerBootstrap from "./SpinnerBootstrap";
+import putData from "../helpers/fetchs/putData";
+import getUserIdFromAccessToken from "../helpers/getUserIdFromAccessToken";
 //--------------------------------------------------
-export default memo(function ButtonFollow() {
+export default memo(function ButtonFollow({ userIdBeFollow }) {
   const [statusFollow, setStatusFollow] = useState("Follow");
+  const [isLoading, setIsLoading] = useState(false);
   const { setShowModalLogin } = useContext(AppContext);
   const { stateAccessToken } = useContext(AuthContext);
+  const userIdCurrent = getUserIdFromAccessToken(stateAccessToken);
   //--------------------------------------------------
   const handleFollow = () => {
-    stateAccessToken
-      ? statusFollow === "Following"
-        ? setStatusFollow("Follow")
-        : setStatusFollow("Following")
-      : setShowModalLogin(true);
+    setIsLoading(true);
+    if (stateAccessToken) {
+      if (statusFollow !== "Following") {
+        putData(
+          import.meta.env.VITE_ENDPOINT_FOLLOW_AND_UNFOLLOW,
+          {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + stateAccessToken,
+          },
+          JSON.stringify({
+            userIdFollow: userIdCurrent,
+            userIdBeFollow,
+          })
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            setIsLoading(false);
+            setStatusFollow("Following");
+          });
+      } else {
+        putData(
+          import.meta.env.VITE_ENDPOINT_FOLLOW_AND_UNFOLLOW,
+          {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + stateAccessToken,
+          },
+          JSON.stringify({
+            userIdFollow: userIdCurrent,
+            userIdBeFollow,
+          })
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            setIsLoading(false);
+            setStatusFollow("Follow");
+          });
+      }
+    } else {
+      setShowModalLogin(true);
+    }
   };
   //--------------------------------------------------
   return (
@@ -24,7 +64,7 @@ export default memo(function ButtonFollow() {
         userSelect: "none",
       }}
     >
-      {statusFollow}
+      {isLoading ? <SpinnerBootstrap /> : statusFollow}
     </div>
   );
 });

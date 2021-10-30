@@ -1,13 +1,13 @@
 import React, { useState, useEffect, memo, useContext } from "react";
 import * as tmImage from "@teachablemachine/image";
-import placehoderImg from "../assets/images/grey.jpg";
+import placehoderImg from "../../assets/images/grey.jpg";
 import { Modal } from "react-bootstrap";
 import { Form, Button } from "react-bootstrap";
-import { AuthContext } from "../contexts/AuthProvider";
-import { AppContext } from "../contexts/AppProvider";
-import SpinnerBootstrap from "./SpinnerBootstrap";
-import postData from "../helpers/fetchs/postData";
-import getUserIdFromAccessToken from "../helpers/getUserIdFromAccessToken";
+import { AuthContext } from "../../contexts/AuthProvider";
+import { AppContext } from "../../contexts/AppProvider";
+import SpinnerBootstrap from "../SpinnerBootstrap";
+import postData from "../../helpers/fetchs/postData";
+import getUserIdFromAccessToken from "../../helpers/getUserIdFromAccessToken";
 //----------------------------------------------------------
 const URL = "https://teachablemachine.withgoogle.com/models/wNpy2osdc/";
 const modelURL = URL + "model.json";

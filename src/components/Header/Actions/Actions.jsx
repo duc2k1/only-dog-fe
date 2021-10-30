@@ -4,7 +4,7 @@ import ModalLogin from "../../Modal/ModalLogin";
 import ModalRegister from "../../Modal/ModalRegister";
 import AvatarUser from "./AvatarUser";
 import { AuthContext } from "../../../contexts/AuthProvider";
-import ModalImage from "../../ModalImage";
+import ModalImage from "../../../components/Modal/ModalImage";
 import Logout from "./Logout";
 //--------------------------------------------------
 export default memo(function Actions() {
