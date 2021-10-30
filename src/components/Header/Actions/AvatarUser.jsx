@@ -10,10 +10,7 @@ export default memo(function AvatarUser() {
   const { stateAccessToken } = useContext(AuthContext);
   //--------------------------------------------------
   return (
-    <Link
-      to={"/profile?user_id=" + getUserIdFromAccessToken(stateAccessToken)}
-      onClick={() => toTop()}
-    >
+    <Link to={"/profile?user_id=" + getUserIdFromAccessToken(stateAccessToken)}>
       <img
         role="button"
         width="30"

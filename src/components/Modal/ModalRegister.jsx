@@ -53,6 +53,7 @@ export default memo(function ModalRegister() {
           setStateAccessToken,
           setStateRefreshToken
         );
+        location.reload();
       })
       .catch((error) => {
         setError(error.toString());

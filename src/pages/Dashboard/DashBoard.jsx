@@ -31,27 +31,49 @@ export default memo(function DashBoard() {
   const { stateAccessToken } = useContext(AuthContext);
   //--------------------------------------------------
   useEffect(() => {
-    getData(
-      import.meta.env.VITE_ENDPOINT_DASHBOARD +
-        "/" +
-        getUserIdFromAccessToken(stateAccessToken)
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        //xu ly data
-        data.posts.map((valPost) => {
-          const postId = valPost._id;
-          data.users.map((valUser) => {
-            if (valUser.posts.includes(postId)) valPost.user = valUser;
-          });
-        });
-        //-----------
-        setStateAllPostUserFollow(data.posts.reverse());
-        setStatePostsUserFollow(data.posts.slice(0, PER_PAGE));
-        setIsLoading(false);
-        setDataUsers(data.users);
-      })
-      .catch((err) => console.log(err));
+    stateAccessToken
+      ? getData(
+          import.meta.env.VITE_ENDPOINT_DASHBOARD +
+            "/" +
+            getUserIdFromAccessToken(stateAccessToken)
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            //xu ly data
+            data.posts.map((valPost) => {
+              const postId = valPost._id;
+              data.users.map((valUser) => {
+                if (valUser.posts.includes(postId)) valPost.user = valUser;
+              });
+            });
+            //-----------
+            setStateAllPostUserFollow(data.posts.reverse());
+            setStatePostsUserFollow(data.posts.slice(0, PER_PAGE));
+            setIsLoading(false);
+            setDataUsers(data.users);
+          })
+          .catch((err) => console.log(err))
+      : getData(
+          import.meta.env.VITE_ENDPOINT_GET_ALL_POST +
+            "/" +
+            getUserIdFromAccessToken(stateAccessToken)
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            //xu ly data
+            data.posts.map((valPost) => {
+              const postId = valPost._id;
+              data.users.map((valUser) => {
+                if (valUser.posts.includes(postId)) valPost.user = valUser;
+              });
+            });
+            //-----------
+            setStateAllPostUserFollow(data.posts.reverse());
+            setStatePostsUserFollow(data.posts.slice(0, PER_PAGE));
+            setIsLoading(false);
+            setDataUsers(data.users);
+          })
+          .catch((err) => console.log(err));
     return () => {
       setStateAllPostUserFollow([]);
       setStatePostsUserFollow([]);

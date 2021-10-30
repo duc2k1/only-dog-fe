@@ -9,7 +9,7 @@ export default memo(function User({ userId, userName }) {
   //--------------------------------------------------
   return (
     <div className="col-4 col-md-2 text-center mb-3">
-      <Link to={"/profile?user_id=" + userId} onClick={() => toTop()}>
+      <Link to={"/profile?user_id=" + userId}>
         <img
           src="https://picsum.photos/1000"
           alt="Image user find"

@@ -6,7 +6,7 @@ import toTop from "../../helpers/toTop";
 export default memo(function Logo() {
   //--------------------------------------------------
   return (
-    <Link to="/" onClick={() => toTop()}>
+    <Link to="/">
       <img
         role="button"
         src={logo}

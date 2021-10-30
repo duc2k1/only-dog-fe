@@ -15,41 +15,24 @@ export default memo(function ButtonFollow({ userIdBeFollow }) {
   const handleFollow = () => {
     setIsLoading(true);
     if (stateAccessToken) {
-      if (statusFollow !== "Following") {
-        putData(
-          import.meta.env.VITE_ENDPOINT_FOLLOW_AND_UNFOLLOW,
-          {
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + stateAccessToken,
-          },
-          JSON.stringify({
-            userIdFollow: userIdCurrent,
-            userIdBeFollow,
-          })
-        )
-          .then((res) => res.json())
-          .then((data) => {
-            setIsLoading(false);
-            setStatusFollow("Following");
-          });
-      } else {
-        putData(
-          import.meta.env.VITE_ENDPOINT_FOLLOW_AND_UNFOLLOW,
-          {
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + stateAccessToken,
-          },
-          JSON.stringify({
-            userIdFollow: userIdCurrent,
-            userIdBeFollow,
-          })
-        )
-          .then((res) => res.json())
-          .then((data) => {
-            setIsLoading(false);
-            setStatusFollow("Follow");
-          });
-      }
+      putData(
+        import.meta.env.VITE_ENDPOINT_FOLLOW_AND_UNFOLLOW,
+        {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + stateAccessToken,
+        },
+        JSON.stringify({
+          userIdFollow: userIdCurrent,
+          userIdBeFollow,
+        })
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          setIsLoading(false);
+          data.message === "User was followed"
+            ? setStatusFollow("Following")
+            : setStatusFollow("Follow");
+        });
     } else {
       setShowModalLogin(true);
     }

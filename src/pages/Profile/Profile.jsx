@@ -11,13 +11,14 @@ export default memo(function Profile() {
   const [isLoading, setIsLoading] = useState(true);
   //--------------------------------------------------
   useEffect(() => {
-    getData(import.meta.env.VITE_ENDPOINT_FIND_USER_BY_ID + "/" + userId)
-      .then((res) => res.json())
-      .then((data) => {
-        setInfoUser(data);
-        setIsLoading(false);
-      })
-      .catch((err) => console.log(err));
+    userId &&
+      getData(import.meta.env.VITE_ENDPOINT_FIND_USER_BY_ID + "/" + userId)
+        .then((res) => res.json())
+        .then((data) => {
+          setInfoUser(data);
+          setIsLoading(false);
+        })
+        .catch((err) => console.log(err));
     return () => {
       setInfoUser({});
       setIsLoading(true);
