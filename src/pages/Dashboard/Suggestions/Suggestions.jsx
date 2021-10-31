@@ -4,6 +4,7 @@ import { AuthContext } from "../../../contexts/AuthProvider";
 import getData from "../../../helpers/fetchs/getData";
 import getUserIdFromAccessToken from "../../../helpers/getUserIdFromAccessToken";
 import Suggestion from "./Suggestion";
+import sortDescendingBasedOnFollowers from "../../../helpers/sortDescendingBasedOnFollowers";
 //--------------------------------------------------
 export default memo(function Suggestions({ openModal, setOpenModal }) {
   //--------------------------------------------------
@@ -26,14 +27,14 @@ export default memo(function Suggestions({ openModal, setOpenModal }) {
                 !obUserCurrent.followings.includes(val._id) &&
                 strUserId !== val._id
             );
-            setStateUsers(arrUserFollow);
+            setStateUsers(sortDescendingBasedOnFollowers(arrUserFollow));
             setIsLoading(false);
           })
           .catch((err) => console.log(err))
       : getData(import.meta.env.VITE_ENDPOINT_GET_ALL_USER)
           .then((res) => res.json())
           .then((data) => {
-            setStateUsers(data.users);
+            setStateUsers(sortDescendingBasedOnFollowers(data.users));
             setIsLoading(false);
           })
           .catch((err) => console.log(err));
