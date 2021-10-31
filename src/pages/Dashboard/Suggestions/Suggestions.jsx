@@ -49,6 +49,7 @@ export default memo(function Suggestions({ openModal, setOpenModal }) {
             key={val._id}
             userName={val.userName}
             userId={val._id}
+            pathAvatar={val.pathAvatar}
             openModal={openModal}
             setOpenModal={setOpenModal}
           />

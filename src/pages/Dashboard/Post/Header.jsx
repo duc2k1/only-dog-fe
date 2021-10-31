@@ -13,7 +13,7 @@ export default memo(function Header({ dataPost }) {
       <div className="d-flex">
         <Link to={"/profile?user_id=" + dataUser?._id}>
           <img
-            src={dataUser?.pathAvatar}
+            src={import.meta.env.VITE_DOMAIN_API + dataUser?.pathAvatar}
             alt="Avatar"
             width="40"
             height="40"

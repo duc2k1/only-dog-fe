@@ -33,6 +33,7 @@ export default memo(function Actions() {
               className="text-muted"
             />
           }
+          endpoint={import.meta.env.VITE_ENDPOINT_ADD_POST}
         />
         <AvatarUser />
         <Logout

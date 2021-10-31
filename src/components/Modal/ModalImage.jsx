@@ -13,7 +13,7 @@ const URL = "https://teachablemachine.withgoogle.com/models/wNpy2osdc/";
 const modelURL = URL + "model.json";
 const metadataURL = URL + "metadata.json";
 //----------------------------------------------------------
-export default memo(function ModalImage({ component }) {
+export default memo(function ModalImage({ component, endpoint }) {
   const [showModalAddPost, setShowModalAddPost] = useState();
   const [file, setFile] = useState();
   const [url, setUrl] = useState("");
@@ -41,11 +41,14 @@ export default memo(function ModalImage({ component }) {
             prediction = await model.predict(img);
             if (prediction[0].probability > prediction[1].probability) {
               const formData = new FormData();
-              formData.append("imagePost", file);
+              formData.append(
+                endpoint === import.meta.env.VITE_ENDPOINT_ADD_POST
+                  ? "imagePost"
+                  : "avatar",
+                file
+              );
               postData(
-                import.meta.env.VITE_ENDPOINT_ADD_POST +
-                  "/" +
-                  getUserIdFromAccessToken(stateAccessToken),
+                endpoint + "/" + getUserIdFromAccessToken(stateAccessToken),
                 {
                   Authorization: "Bearer " + stateAccessToken,
                 },
@@ -53,7 +56,7 @@ export default memo(function ModalImage({ component }) {
               )
                 .then((res) => res.json())
                 .then((val) => {
-                  setUrl(import.meta.env.VITE_DOMAIN_API + val.post.pathImage);
+                  setUrl(import.meta.env.VITE_DOMAIN_API + val.pathImage);
                   setLoading(false);
                 })
                 .catch((e) => console.log(e));
