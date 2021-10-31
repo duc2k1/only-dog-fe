@@ -1,6 +1,8 @@
-import React, { useState, memo, useEffect } from "react";
+import React, { useState, memo, useEffect, useContext } from "react";
+import { AuthContext } from "../../../../contexts/AuthProvider";
 import Dislike from "./Dislike";
 import Like from "./Like";
+import getUserIdFromAccessToken from "../../../../helpers/getUserIdFromAccessToken";
 //--------------------------------------------------
 export default memo(function Actions({ dataPost }) {
   const [like, setLike] = useState(false);
@@ -9,18 +11,14 @@ export default memo(function Actions({ dataPost }) {
   const [numberOfDislike, setNumberOfDislike] = useState(
     dataPost.dislikes.length
   );
-  //--------------------------------------------------
-  useEffect(() => {
-    // fetch(
-    //   import.meta.env.VITE_DOMAIN_API +
-    //     import.meta.env.VITE_ENDPOINT_LIKE_POST+"/"+"",
-    // )
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //   })
-    //   .catch((err) => console.log(err));
-  }, []);
+  const [isLoading, setIsLoading] = useState(false);
+  const { stateAccessToken } = useContext(AuthContext);
+  const [isUserLiked, setIsUserLiked] = useState(
+    dataPost?.likes.includes(getUserIdFromAccessToken(stateAccessToken))
+  );
+  const [isUserDisliked, setIsUserDisliked] = useState(
+    dataPost?.dislikes.includes(getUserIdFromAccessToken(stateAccessToken))
+  );
   //--------------------------------------------------
   return (
     <div
@@ -34,6 +32,15 @@ export default memo(function Actions({ dataPost }) {
         setDislike={setDislike}
         numberOfLike={numberOfLike}
         setNumberOfLike={setNumberOfLike}
+        isLoading={isLoading}
+        setIsLoading={setIsLoading}
+        dataPost={dataPost}
+        isUserLiked={isUserLiked}
+        setIsUserLiked={setIsUserLiked}
+        isUserDisliked={isUserDisliked}
+        setIsUserDisliked={setIsUserDisliked}
+        numberOfDislike={numberOfDislike}
+        setNumberOfDislike={setNumberOfDislike}
       />
       <Dislike
         like={like}
@@ -41,6 +48,16 @@ export default memo(function Actions({ dataPost }) {
         dislike={dislike}
         setDislike={setDislike}
         numberOfDislike={numberOfDislike}
+        setNumberOfDislike={setNumberOfDislike}
+        isLoading={isLoading}
+        setIsLoading={setIsLoading}
+        dataPost={dataPost}
+        isUserLiked={isUserLiked}
+        setIsUserLiked={setIsUserLiked}
+        isUserDisliked={isUserDisliked}
+        setIsUserDisliked={setIsUserDisliked}
+        numberOfLike={numberOfLike}
+        setNumberOfLike={setNumberOfLike}
       />
     </div>
   );
