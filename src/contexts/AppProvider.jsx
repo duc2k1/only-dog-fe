@@ -1,4 +1,13 @@
-import React, { memo, useState, createContext } from "react";
+import React, {
+  memo,
+  useState,
+  createContext,
+  useEffect,
+  useContext,
+} from "react";
+import getData from "../helpers/fetchs/getData";
+import getUserIdFromAccessToken from "../helpers/getUserIdFromAccessToken";
+import { AuthContext } from "./AuthProvider";
 //-----------------------------------------------------------
 export default memo(function AppProvider({ children }) {
   const [showModalRegister, setShowModalRegister] = useState(false);
@@ -6,6 +15,22 @@ export default memo(function AppProvider({ children }) {
   const [showModalUpdateAvatar, setShowModalUpdateAvatar] = useState(false);
   const [showModalImage, setShowModalImage] = useState(false);
   const [stateUserIdProfile, setStateUserIdProfile] = useState("");
+  const [stateObInfoUserCurrent, setStateObInfoUserCurrent] = useState({});
+  const { stateAccessToken } = useContext(AuthContext);
+  //-----------------------------------------------------------
+  useEffect(() => {
+    stateAccessToken &&
+      getData(
+        import.meta.env.VITE_ENDPOINT_FIND_USER_BY_ID +
+          "/" +
+          getUserIdFromAccessToken(stateAccessToken)
+      )
+        .then((res) => res.json())
+        .then((data) => setStateObInfoUserCurrent(data.user));
+    return () => {
+      setStateObInfoUserCurrent({});
+    };
+  }, [stateAccessToken]);
   //-----------------------------------------------------------
   return (
     <AppContext.Provider
@@ -20,6 +45,7 @@ export default memo(function AppProvider({ children }) {
         setShowModalImage,
         stateUserIdProfile,
         setStateUserIdProfile,
+        stateObInfoUserCurrent,
       }}
     >
       {children}

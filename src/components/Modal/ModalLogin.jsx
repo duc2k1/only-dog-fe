@@ -47,6 +47,7 @@ export default memo(function ModalLogin() {
             setStateAccessToken,
             setStateRefreshToken
           );
+          location.reload();
         } else {
           setError(data.message);
         }

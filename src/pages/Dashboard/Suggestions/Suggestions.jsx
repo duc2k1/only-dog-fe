@@ -12,20 +12,31 @@ export default memo(function Suggestions({ openModal, setOpenModal }) {
   const { stateAccessToken } = useContext(AuthContext);
   //--------------------------------------------------
   useEffect(() => {
-    getData(import.meta.env.VITE_ENDPOINT_GET_ALL_USER)
-      .then((res) => res.json())
-      .then((data) => {
-        //get user id current
-        const strUserId = getUserIdFromAccessToken(stateAccessToken);
-        const obUserCurrent = data.users.find((val) => val._id === strUserId);
-        const arrUserFollow = data.users.filter(
-          (val) =>
-            !obUserCurrent.followings.includes(val._id) && strUserId !== val._id
-        );
-        setStateUsers(arrUserFollow);
-        setIsLoading(false);
-      })
-      .catch((err) => console.log(err));
+    stateAccessToken
+      ? getData(import.meta.env.VITE_ENDPOINT_GET_ALL_USER)
+          .then((res) => res.json())
+          .then((data) => {
+            //get user id current
+            const strUserId = getUserIdFromAccessToken(stateAccessToken);
+            const obUserCurrent = data.users.find(
+              (val) => val._id === strUserId
+            );
+            const arrUserFollow = data.users.filter(
+              (val) =>
+                !obUserCurrent.followings.includes(val._id) &&
+                strUserId !== val._id
+            );
+            setStateUsers(arrUserFollow);
+            setIsLoading(false);
+          })
+          .catch((err) => console.log(err))
+      : getData(import.meta.env.VITE_ENDPOINT_GET_ALL_USER)
+          .then((res) => res.json())
+          .then((data) => {
+            setStateUsers(data.users);
+            setIsLoading(false);
+          })
+          .catch((err) => console.log(err));
   }, []);
   //--------------------------------------------------
   return isLoading ? (
@@ -38,6 +49,7 @@ export default memo(function Suggestions({ openModal, setOpenModal }) {
             key={val._id}
             userName={val.userName}
             userId={val._id}
+            pathAvatar={val.pathAvatar}
             openModal={openModal}
             setOpenModal={setOpenModal}
           />

@@ -1,7 +1,7 @@
 import React, { lazy, Suspense, memo } from "react";
 import icon from "./assets/images/icon.svg";
 import ImageLoading from "./components/ImageLoading";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 //--------------------------------------------------
 document.querySelector("#icon").setAttribute("href", icon);
 //--------------------------------------------------
@@ -15,14 +15,14 @@ export default memo(function App() {
   //--------------------------------------------------
   return (
     <Suspense fallback={<ImageLoading />}>
-      <BrowserRouter>
+      <HashRouter>
         <Header />
         <Switch>
           <Route exact path="/" component={DashBoard} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/find" component={Find} />
         </Switch>
-      </BrowserRouter>
+      </HashRouter>
       <BackToTop />
     </Suspense>
   );

@@ -16,7 +16,11 @@ export default memo(function Header({ infoUser }) {
             component={
               <>
                 <img
-                  src={infoUser?.pathAvatar ? infoUser?.pathAvatar : avatarUser}
+                  src={
+                    infoUser?.pathAvatar
+                      ? import.meta.env.VITE_DOMAIN_API + infoUser?.pathAvatar
+                      : avatarUser
+                  }
                   alt=""
                   width="200"
                   height="200"
@@ -30,6 +34,7 @@ export default memo(function Header({ infoUser }) {
                 )}
               </>
             }
+            endpoint={import.meta.env.VITE_ENDPOINT_CHANGE_AVATAR_USER}
           />
         </div>
         <div className="col-md-8" style={{ marginTop: 30 }}>
