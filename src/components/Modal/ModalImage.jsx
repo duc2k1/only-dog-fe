@@ -112,7 +112,9 @@ export default memo(function ModalImage({ component, endpoint }) {
           <img
             src={url ? url : placehoderImg}
             alt="image"
-            className="img-fluid mb-2"
+            className="mb-2"
+            width="100%"
+            height="400"
             style={{ userSelect: "none", objectFit: "cover" }}
           />
         </Modal.Body>
