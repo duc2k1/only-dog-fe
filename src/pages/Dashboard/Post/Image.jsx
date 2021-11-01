@@ -13,7 +13,7 @@ export default memo(function Image({ dataPost }) {
       >
         <img
           width="100%"
-          height="300"
+          height="500"
           src={import.meta.env.VITE_DOMAIN_API + dataPost?.pathImage}
           alt="Image Post"
           style={{ objectFit: "cover", userSelect: "none" }}

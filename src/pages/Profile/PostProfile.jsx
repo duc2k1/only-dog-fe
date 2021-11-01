@@ -11,7 +11,6 @@ export default memo(function PostProfile({ dataPost }) {
         target="_blank"
         rel="noopener noreferrer"
       >
-        {" "}
         <img
           src={import.meta.env.VITE_DOMAIN_API + dataPost.pathImage}
           alt="Image of user"
@@ -19,7 +18,7 @@ export default memo(function PostProfile({ dataPost }) {
           onLoad={() => setLoaded(true)}
           className={loaded ? "" : "d-none"}
           width="100%"
-          height="300"
+          height="500"
         />
       </a>
 
