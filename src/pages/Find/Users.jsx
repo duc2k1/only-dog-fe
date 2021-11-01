@@ -28,7 +28,12 @@ export default memo(function Users() {
       <div className="row">
         {usersFind.length && userName ? (
           usersFind.map((val) => (
-            <User key={val._id} userId={val._id} userName={val.userName} />
+            <User
+              key={val._id}
+              userId={val._id}
+              pathAvatar={val.pathAvatar}
+              userName={val.userName}
+            />
           ))
         ) : (
           <NotFound />
