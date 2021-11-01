@@ -22,7 +22,7 @@ export default memo(function Image({ dataPost }) {
         />
       </a>
 
-      {!loaded && <img src={greyImg} height={300} width="100%" />}
+      {!loaded && <img src={greyImg} height="500" width="100%" />}
     </>
   );
 });

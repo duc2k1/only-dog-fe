@@ -22,7 +22,7 @@ export default memo(function PostProfile({ dataPost }) {
         />
       </a>
 
-      {!loaded && <Placeholder height={300} />}
+      {!loaded && <Placeholder height={500} />}
     </div>
   );
 });
