@@ -5,8 +5,9 @@
   "scripts": {
     "preinstall": "npx only-allow yarn",
     "dev": "vite",
-    "deploy": "vite build && sudo cp CNAME ./dist && gh-pages -d dist",
-    "build": "vite build && sudo cp CNAME ./dist"
+    "buildAndDeploy": "vite build && sudo cp CNAME ./dist && gh-pages -d dist",
+    "build": "vite build",
+    "deployInWindow": "gh-pages -d dist"
   },
   "dependencies": {
     "@teachablemachine/image": "^0.8.5",
