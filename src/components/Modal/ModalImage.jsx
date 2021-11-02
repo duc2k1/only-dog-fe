@@ -71,7 +71,7 @@ export default memo(function ModalImage({ component, endpoint }) {
         setLoading(false);
         alert(
           "This image too large, change other image: " +
-            Math.round((e.target.files[0].size / 1024 / 1024) * 100) / 100 +
+            Math.round((file.size / 1024 / 1024) * 100) / 100 +
             "MB"
         );
       }
