@@ -8,7 +8,7 @@ Project for learning
 yarn
 ```
 
-## Start server
+## Start
 
 ```
 yarn start
@@ -16,7 +16,21 @@ yarn start
 
 ## Deploy
 
-- Must change first homepage in package.json and domain in CNAME
+- Change homepage in package.json, VITE_DOMAIN_API in .env and domain API in CNAME
+
+### For Linux user
+
+```
+yarn buildAndDeploy
+```
+
+### For Windows user
+
+```
+yarn build
+```
+
+- Copy file CNAME to folder dist
 
 ```
 yarn deploy

@@ -114,8 +114,8 @@ export default memo(function ModalLogin() {
                 pattern={passwordPattern}
               />
               <Form.Text className="text-muted">
-                Must contain at least one number, one letter or more characters
-                and at least 6
+                Max length 20. Must contain at least one number, one letter or
+                more characters and at least 6
               </Form.Text>
             </Form.Group>
             {error && <Alert variant="danger">{error}</Alert>}

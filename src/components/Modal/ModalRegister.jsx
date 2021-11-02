@@ -104,7 +104,7 @@ export default memo(function ModalRegister() {
                 maxLength="30"
               />
               <Form.Text className="text-muted">
-                Max length name is 20
+                Max length name is 30. Accept a-z, A-Z, 0-9
               </Form.Text>
             </Form.Group>
             <Form.Group className="mb-3">
@@ -119,7 +119,7 @@ export default memo(function ModalRegister() {
                 pattern={emailPattern}
               />
               <Form.Text className="text-muted">
-                Max length email is 20
+                Max length email is 30
               </Form.Text>
             </Form.Group>
             <Form.Group className="mb-3">
@@ -134,8 +134,8 @@ export default memo(function ModalRegister() {
                 pattern={passwordPattern}
               />
               <Form.Text className="text-muted">
-                Must contain at least one number, one letter or more characters
-                and at least 6
+                Max length 20. Must contain at least one number, one letter or
+                more characters and at least 6
               </Form.Text>
             </Form.Group>
             <Form.Group className="mb-3">

@@ -4,14 +4,14 @@ import ButtonFollow from "../../components/ButtonFollow";
 import { Link } from "react-router-dom";
 import toTop from "../../helpers/toTop";
 //--------------------------------------------------
-export default memo(function User({ userId, userName }) {
+export default memo(function User({ userId, userName, pathAvatar }) {
   const [loaded, setLoaded] = useState(false);
   //--------------------------------------------------
   return (
     <div className="col-4 col-md-2 text-center mb-3">
       <Link to={"/profile?user_id=" + userId}>
         <img
-          src="https://picsum.photos/1000"
+          src={import.meta.env.VITE_DOMAIN_API + pathAvatar}
           alt="Image user find"
           width="80"
           height="80"
