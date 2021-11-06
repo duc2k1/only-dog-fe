@@ -19,7 +19,7 @@ export default memo(function ModalImage({ component, endpoint }) {
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const { stateAccessToken } = useContext(AuthContext);
-  const { setShowModalLogin } = useContext(AppContext);
+  const { setShowModalLogin, stateObInfoUserCurrent } = useContext(AppContext);
   //------------------------------------------------------------
   const handleChange = (event) => {
     setFile(event.target.files[0]);
@@ -47,6 +47,8 @@ export default memo(function ModalImage({ component, endpoint }) {
                   : "avatar",
                 file
               );
+              endpoint !== import.meta.env.VITE_ENDPOINT_ADD_POST &&
+                formData.append("version", stateObInfoUserCurrent.version);
               postData(
                 endpoint + "/" + getUserIdFromAccessToken(stateAccessToken),
                 {
@@ -56,7 +58,13 @@ export default memo(function ModalImage({ component, endpoint }) {
               )
                 .then((res) => res.json())
                 .then((val) => {
-                  setUrl(import.meta.env.VITE_DOMAIN_API + val.pathImage);
+                  if (val.success) {
+                    setUrl(import.meta.env.VITE_DOMAIN_API + val.pathImage);
+                    location.reload();
+                  } else {
+                    alert(val.message);
+                    location.reload();
+                  }
                   setLoading(false);
                 })
                 .catch((e) => console.log(e));
