@@ -1,7 +1,7 @@
-import React, { lazy, Suspense, memo } from "react";
+import React, { lazy, memo, Suspense } from "react";
+import { HashRouter, Route, Switch } from "react-router-dom";
 import icon from "./assets/images/icon.svg";
 import ImageLoading from "./components/ImageLoading";
-import { HashRouter, Route, Switch } from "react-router-dom";
 //--------------------------------------------------
 document.querySelector("#icon").setAttribute("href", icon);
 //--------------------------------------------------
@@ -12,7 +12,6 @@ const Profile = lazy(() => import("./pages/Profile/Profile"));
 const BackToTop = lazy(() => import("./components/BackToTop"));
 //--------------------------------------------------
 export default memo(function App() {
-  //--------------------------------------------------
   return (
     <Suspense fallback={<ImageLoading />}>
       <HashRouter>
