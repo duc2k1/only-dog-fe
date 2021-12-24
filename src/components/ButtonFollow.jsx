@@ -43,17 +43,18 @@ export default memo(function ButtonFollow({ userIdBeFollow }) {
   };
   //--------------------------------------------------
   return (
-    userIdBeFollow !== stateObInfoUserCurrent?._id && (
-      <div
-        role="button"
-        className={statusFollow === "Follow" ? "p-1 text-primary" : "p-1"}
-        onClick={() => handleFollow()}
-        style={{
-          userSelect: "none",
-        }}
-      >
-        {isLoading ? <SpinnerBootstrap /> : statusFollow}
-      </div>
-    )
+    // userIdBeFollow !== stateObInfoUserCurrent?._id && (
+    //   <div
+    //     role="button"
+    //     className={statusFollow === "Follow" ? "p-1 text-primary" : "p-1"}
+    //     onClick={() => handleFollow()}
+    //     style={{
+    //       userSelect: "none",
+    //     }}
+    //   >
+    //     {isLoading ? <SpinnerBootstrap /> : statusFollow}
+    //   </div>
+    // )
+    <div></div>
   );
 });
