@@ -1,7 +1,6 @@
 import React, { memo } from "react";
 import logo from "../../assets/images/logo.svg";
 import { Link } from "react-router-dom";
-import toTop from "../../helpers/toTop";
 //--------------------------------------------------
 export default memo(function Logo() {
   //--------------------------------------------------
@@ -11,7 +10,7 @@ export default memo(function Logo() {
         role="button"
         src={logo}
         alt="Logo OnlyDog"
-        width={200}
+        width={70}
         style={{ userSelect: "none" }}
         className="my-2"
       />

@@ -1,10 +1,6 @@
 import React from "react";
+import notFound from "../../assets/images/not-found.png";
 //-------------------------------------
 export default function NotFound() {
-  return (
-    <img
-      className="text-center"
-      src="https://indususedcars.com/assets/theme/images/no_result_found.png"
-    />
-  );
+  return <img className="text-center" src={notFound} />;
 }

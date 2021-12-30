@@ -16,12 +16,9 @@ export default memo(function PostProfile({ dataPost }) {
           alt="Image of user"
           style={{ objectFit: "cover", userSelect: "none" }}
           onLoad={() => setLoaded(true)}
-          className={loaded ? "" : "d-none"}
-          width="100%"
-          height="500"
+          className={loaded ? "img-fluid" : "d-none"}
         />
       </a>
-
       {!loaded && <Placeholder height={500} />}
     </div>
   );

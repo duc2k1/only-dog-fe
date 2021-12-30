@@ -12,6 +12,8 @@ export default memo(function Users() {
   const [isLoading, setIsLoading] = useState(true);
   //--------------------------------------------------
   useEffect(() => {
+    if (!userName) return setIsLoading(false);
+    //------
     getData(import.meta.env.VITE_ENDPOINT_FIND_USER_BY_NAME + "/" + userName)
       .then((res) => res.json())
       .then((data) => {
@@ -19,6 +21,10 @@ export default memo(function Users() {
         setIsLoading(false);
       })
       .catch((err) => console.log(err));
+    return () => {
+      setUsersFind([]);
+      setIsLoading(false);
+    };
   }, [userName]);
   //--------------------------------------------------
   return isLoading ? (

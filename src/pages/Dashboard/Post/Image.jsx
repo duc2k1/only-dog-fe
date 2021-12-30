@@ -10,6 +10,7 @@ export default memo(function Image({ dataPost }) {
         href={import.meta.env.VITE_DOMAIN_API + dataPost?.pathImage}
         target="_blank"
         rel="noopener noreferrer"
+        className="d-flex justify-content-center"
       >
         <img
           src={import.meta.env.VITE_DOMAIN_API + dataPost?.pathImage}
