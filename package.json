@@ -1,11 +1,11 @@
 {
   "name": "learn-vite",
-  "homepage": "https://onlydog.social",
+  "homepage": "",
   "version": "0.0.0",
   "scripts": {
     "preinstall": "npx only-allow yarn",
     "dev": "vite",
-    "build": "vite build --base=/only-dog-fe/",
+    "build": "vite build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
