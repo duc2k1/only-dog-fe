@@ -38,53 +38,53 @@ export default memo(function ModalImage({ component, endpoint }) {
       );
       return setLoading(false);
     }
-    if (file.size / 1024 / 1024 <= 0.5) {
-      // const reader = new FileReader();
-      // // let prediction = null;
-      // reader.readAsDataURL(file);
-      // reader.onloadend = function () {
-      // const img = new Image();
-      // img.onload = async function () {
-      // const model = await tmImage.load(modelURL, metadataURL);
-      // prediction = await model.predict(img);
-      // if (prediction[0].probability > prediction[1].probability) {
-      const formData = new FormData();
-      formData.append(
-        endpoint === import.meta.env.VITE_ENDPOINT_ADD_POST
-          ? "imagePost"
-          : "avatar",
-        file
-      );
-      endpoint !== import.meta.env.VITE_ENDPOINT_ADD_POST &&
-        formData.append("version", stateObInfoUserCurrent.version);
-      postData(
-        endpoint + "/" + getUserIdFromAccessToken(stateAccessToken),
-        {
-          Authorization: "Bearer " + stateAccessToken,
-        },
-        formData
-      )
-        .then((res) => res.json())
-        .then((val) => {
-          if (val.success) {
-            setUrl(import.meta.env.VITE_DOMAIN_API + val.pathImage);
-            location.reload();
-          } else {
-            alert(val.message);
-            location.reload();
-          }
-          setLoading(false);
-        })
-        .catch((e) => console.log(e));
-      // } else {
-      //   setLoading(false);
-      //   alert("Not doggggggggg");
-      // }
-      // };
-      // img.src = reader.result;
-      // };
-    }
+    // if (file.size / 1024 / 1024 <= 0.5) {
+    // const reader = new FileReader();
+    // // let prediction = null;
+    // reader.readAsDataURL(file);
+    // reader.onloadend = function () {
+    // const img = new Image();
+    // img.onload = async function () {
+    // const model = await tmImage.load(modelURL, metadataURL);
+    // prediction = await model.predict(img);
+    // if (prediction[0].probability > prediction[1].probability) {
+    const formData = new FormData();
+    formData.append(
+      endpoint === import.meta.env.VITE_ENDPOINT_ADD_POST
+        ? "imagePost"
+        : "avatar",
+      file
+    );
+    endpoint !== import.meta.env.VITE_ENDPOINT_ADD_POST &&
+      formData.append("version", stateObInfoUserCurrent.version);
+    postData(
+      endpoint + "/" + getUserIdFromAccessToken(stateAccessToken),
+      {
+        Authorization: "Bearer " + stateAccessToken,
+      },
+      formData
+    )
+      .then((res) => res.json())
+      .then((val) => {
+        if (val.success) {
+          setUrl(import.meta.env.VITE_DOMAIN_API + val.pathImage);
+          location.reload();
+        } else {
+          alert(val.message);
+          location.reload();
+        }
+        setLoading(false);
+      })
+      .catch((e) => console.log(e));
+    // } else {
+    //   setLoading(false);
+    //   alert("Not doggggggggg");
+    // }
+    // };
+    // img.src = reader.result;
+    // };
   };
+  // };
   //-------------------------------------------------------------
   return (
     <>
