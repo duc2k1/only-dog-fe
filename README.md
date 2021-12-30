@@ -2,6 +2,12 @@
 
 Project for learning
 
+## Copy .env.example file to .env.local
+
+```
+cp .env.example .env.local
+```
+
 ## Install / Update
 
 ```
@@ -11,27 +17,11 @@ yarn
 ## Start
 
 ```
-yarn start
+yarn dev
 ```
 
-## Deploy
-
-- Change homepage in package.json, VITE_DOMAIN_API in .env and domain API in CNAME
-
-### For Linux user
-
-```
-yarn buildAndDeploy
-```
-
-### For Windows user
+## Build
 
 ```
 yarn build
-```
-
-- Copy file CNAME to folder dist
-
-```
-yarn deploy
 ```
