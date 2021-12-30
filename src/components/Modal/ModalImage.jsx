@@ -30,14 +30,14 @@ export default memo(function ModalImage({ component, endpoint }) {
   const handleUpload = () => {
     setLoading(true);
     if (!file) return setLoading(false);
-    if (!(file.size / 1024 / 1024 <= 0.5)) {
-      alert(
-        "This image too large, change other image: " +
-          Math.round((file.size / 1024 / 1024) * 100) / 100 +
-          "MB"
-      );
-      return setLoading(false);
-    }
+    // if (!(file.size / 1024 / 1024 <= 0.5)) {
+    //   alert(
+    //     "This image too large, change other image: " +
+    //       Math.round((file.size / 1024 / 1024) * 100) / 100 +
+    //       "MB"
+    //   );
+    //   return setLoading(false);
+    // }
     // if (file.size / 1024 / 1024 <= 0.5) {
     // const reader = new FileReader();
     // // let prediction = null;
@@ -94,7 +94,7 @@ export default memo(function ModalImage({ component, endpoint }) {
           <Modal.Title>Image</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <small>Max size: 0.5MB</small>
+          {/* <small>Max size: 0.5MB</small> */}
           <div className="d-flex justify-content-between mb-1">
             <Form encType="multipart/form-data">
               <Form.Group controlId="formFile">
@@ -115,14 +115,14 @@ export default memo(function ModalImage({ component, endpoint }) {
               <Button onClick={handleUpload}>Upload</Button>
             )}
           </div>
-          <img
+          {/* <img
             src={url ? url : placehoderImg}
             alt="image"
             className="mb-2"
             width="100%"
             height="400"
             style={{ userSelect: "none", objectFit: "cover" }}
-          />
+          /> */}
         </Modal.Body>
       </Modal>
     </>

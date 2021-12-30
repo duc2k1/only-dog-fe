@@ -6,7 +6,8 @@
     "preinstall": "npx only-allow yarn",
     "dev": "vite",
     "build": "vite build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@teachablemachine/image": "^0.8.5",
