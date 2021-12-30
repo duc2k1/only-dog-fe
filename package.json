@@ -5,9 +5,8 @@
   "scripts": {
     "preinstall": "npx only-allow yarn",
     "dev": "vite",
-    "buildAndDeploy": "vite build && sudo cp CNAME ./dist && gh-pages -d dist",
-    "build": "vite build",
-    "deployInWindow": "gh-pages -d dist"
+    "build": "vite build --base=/only-dog-fe/",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@teachablemachine/image": "^0.8.5",
